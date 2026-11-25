@@ -7,49 +7,73 @@
   background-attachment:scroll; background-size:100% 64rem,100% 100%; background-repeat:no-repeat
 }
 .pink-world .app-header {background:#951147;color:#fff8f1}
-.pink-world .awning {height:6px;background:repeating-linear-gradient(104deg,#ffddd9 0 13px,#f987ac 13px 27px)}
-.pink-world .app-container {padding-top:24px}
+.granny-app.pink-world .awning {
+  --canopy-width: clamp(880px, 110vw, 1380px);
+  --canopy-height: clamp(48px, 6vw, 75px);
+  height: var(--canopy-height);
+  background: url('/assets/world/patisserie-awning.webp') center bottom / var(--canopy-width) var(--canopy-height) repeat-x;
+  filter: drop-shadow(0 4px 3px rgb(88 12 47 / 28%));
+  pointer-events: none;
+}
+.granny-app.pink-world:not([data-view="menu"]) .awning { height: 22px; }
+.pink-world .app-container { padding-top: 22px; }
 .pink-world .diy-welcome {
-  isolation:isolate;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 36%;
-  align-items:stretch;margin:0;border-radius:25px;background:#611039;border:1px solid #ff9fc0;
-  box-shadow:0 12px 34px #7902353d;min-height:194px;text-align:left
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 43%;
+  align-items: stretch;
+  min-height: 194px;
+  margin: 0;
+  border: 2px solid #ffecd9;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff5e7;
+  box-shadow: 0 4px 0 #971346, 0 10px 24px #820d343d;
+  text-align: left;
 }
 .pink-world .diy-welcome::before {
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(ellipse at 16% 120%,#cb185e,transparent 63%),
-    repeating-linear-gradient(115deg,transparent 0 22px,#ffadca0a 22px 24px)
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid #dc91a4;
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: -1;
 }
 .pink-world .atelier-copy {align-self:center;padding:26px clamp(20px,3.3vw,50px)}
 .pink-world .welcome-kicker,.pink-world .catalogue-eyebrow {
   display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.7px;line-height:1.2
 }
-.pink-world .welcome-kicker {color:#ffcedd;margin:0 0 9px}
+.pink-world .welcome-kicker {color:#943456;margin:0 0 9px}
 .pink-world .welcome-kicker::before,.pink-world .catalogue-eyebrow::before {
   content:"";display:block;width:21px;height:2px;background:currentColor
 }
-.pink-world .diy-welcome h1 {color:#fff9ed;line-height:.99;letter-spacing:-.06em;font-size:clamp(44px,5.8vw,82px);font-weight:800}
-.pink-world .diy-welcome h1 span {font-family:Georgia,'Times New Roman',serif;font-weight:500;font-style:italic;color:#ffd0d2;letter-spacing:-.065em}
-.pink-world .diy-welcome p {margin-top:13px;color:#ffe7e8;font-size:16px;line-height:1.35}
-.pink-world .atelier-film {position:relative;align-self:stretch;background:#f9b6c5;padding:0;overflow:hidden;border-radius:72px 0 0 0;border-left:3px solid #ffc9ce}
+.pink-world .diy-welcome h1 {color:#65133b;line-height:.99;letter-spacing:-.06em;font-size:clamp(44px,5.8vw,82px);font-weight:800}
+.pink-world .diy-welcome h1 span {font-family:Georgia,'Times New Roman',serif;font-weight:500;font-style:italic;color:#b52168;letter-spacing:-.065em}
+.pink-world .diy-welcome p {margin-top:13px;color:#724252;font-size:16px;line-height:1.35}
+.pink-world .atelier-film {position:relative;align-self:stretch;background:#f9b6c5;padding:0;overflow:hidden;margin:6px;border-radius:36px 14px 14px 9px;border:1px solid #e3b3bb}
 .pink-world .atelier-film img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;transition:transform .3s ease}
 .pink-world .atelier-film span {position:absolute;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:6px;border-radius:30px;padding:7px 13px;color:#fff;background:#581332;font-size:13px;font-weight:600}
 .pink-world .atelier-film svg {width:14px;height:14px}
 @media (hover:hover) and (prefers-reduced-motion:no-preference) {.pink-world .atelier-film:hover img{transform:scale(1.04)}}
-.pink-world .atelier-divider {display:flex;align-items:center;gap:14px;margin:22px 2px 13px;color:#fff4ec}
-.pink-world .atelier-divider span {font-weight:700;font-size:19px;letter-spacing:-.03em}
-.pink-world .atelier-divider i {height:1px;flex:1;background:#ffb3cf99}
-.pink-world .atelier-divider small {font-size:12px;letter-spacing:.065em;font-weight:600}
-.pink-world .diy-grid {counter-reset:menu-counter;gap:16px}
-.pink-world button.diy-card {counter-increment:menu-counter;border-radius:17px;border:1px solid #ffc9dc;box-shadow:0 4px 0 #90124766}
-.pink-world .diy-product {position:relative;aspect-ratio:1.57}
-.pink-world .diy-product::after {content:counter(menu-counter,decimal-leading-zero);position:absolute;left:10px;top:10px;border:1px solid #fffbf7b0;border-radius:20px;color:#fff;background:#55132ce8;font:italic 16px Georgia,serif;padding:3px 9px;line-height:1.05}
-.pink-world .diy-card-caption {background:var(--atelier-paper);border-top:3px solid #ffb6cf;padding:13px 16px;min-height:73px}
+.pink-world .diy-grid { gap: 16px; margin-top: 20px; }
+.pink-world button.diy-card {
+  padding: 4px 4px 0;
+  border: 1px solid #fff2dc;
+  border-radius: 18px;
+  background: var(--atelier-paper);
+  box-shadow: 0 4px 0 #8a164b77;
+}
+.pink-world .diy-product { position: relative; aspect-ratio: 1.57; border-radius: 13px 13px 5px 5px; }
+.pink-world .diy-product img { border-radius: inherit; }
+.pink-world .diy-card-caption {background:var(--atelier-paper);border-top:0;padding:13px 16px;min-height:73px}
 .pink-world .diy-card-caption strong {color:var(--atelier-ink);font-size:26px;letter-spacing:-.045em}
 .pink-world .diy-card-caption small {font-size:13px;color:#714152}
-.pink-world .diy-card-caption > svg {color:#9c134a;background:#ffe5e6;padding:5px;width:28px;height:28px;border-radius:50%}
+.pink-world .diy-card-caption > svg {color:#fff8ed;background:#9c134a;padding:5px;width:28px;height:28px;border-radius:50%}
 .pink-world .ready-section {background:var(--atelier-paper);border:1px solid #ffd5da;padding:28px;margin-top:32px}
 .pink-world .catalogue-eyebrow {color:#9b2456;font-size:10px;letter-spacing:1.6px;margin-bottom:7px}
-.pink-world .ready-heading h2 {font-size:clamp(28px,3vw,42px);color:var(--atelier-ink);letter-spacing:-.05em}
+.pink-world .ready-heading h2 {font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(28px,3vw,42px);color:var(--atelier-ink);letter-spacing:-.05em}
 .pink-world .ready-heading > button {border:1px solid #dfb3c0;border-radius:30px;color:#7f1641;padding:6px 12px;white-space:nowrap}
 .pink-world .atelier-search {position:relative;width:100%}
 .pink-world .atelier-search>svg {position:absolute;top:50%;left:14px;transform:translateY(-50%);pointer-events:none;width:19px;height:19px;color:#983b62}
@@ -70,21 +94,20 @@
 .pink-world .wizard-steps button.active {background:#951147;border-color:#951147}
 @media(max-width:700px){
  .granny-app.pink-world .app-container {padding-top:12px}
- .pink-world .diy-welcome {grid-template-columns:minmax(0,1fr) 29%;border-radius:18px;min-height:125px}
+ .granny-app.pink-world .awning { --canopy-width: 775px; --canopy-height: 42px; }
+ .granny-app.pink-world:not([data-view="menu"]) .awning { height: 14px; }
+ .pink-world .diy-welcome { grid-template-columns: minmax(0, 1fr) 36%; border-radius: 17px; min-height: 112px; }
+ .pink-world .diy-welcome::before { inset: 4px; border-radius: 11px; }
  .pink-world .atelier-copy {padding:17px 10px 18px 16px}
  .pink-world .welcome-kicker {font-size:9px;letter-spacing:1px;gap:5px;margin-bottom:7px}
  .pink-world .welcome-kicker::before {width:13px}
- .pink-world .diy-welcome h1 {font-size:clamp(34px,10.8vw,52px)}
+ .pink-world .diy-welcome h1 {font-size:clamp(32px,9.4vw,52px)}
  .pink-world .diy-welcome p {font-size:13px;margin-top:8px;max-width:25ch}
- .pink-world .atelier-film {border-radius:42px 0 0 0;border-left-width:2px}
+ .pink-world .atelier-film {margin:4px;border-radius:25px 10px 10px 5px}
  .pink-world .atelier-film span {font-size:11px;padding:5px 8px;gap:4px;right:6px;bottom:8px}
  .pink-world .atelier-film svg {width:11px;height:11px}
- .pink-world .atelier-divider {margin:14px 1px 9px;gap:9px}
- .pink-world .atelier-divider span {font-size:16px}
- .pink-world .atelier-divider small {font-size:11px}
- .pink-world .diy-grid {gap:11px}
+ .pink-world .diy-grid {gap:10px;margin-top:14px}
  .pink-world .diy-product {aspect-ratio:1.43}
- .pink-world .diy-product::after {font-size:13px;left:7px;top:7px;padding:3px 7px}
  .pink-world .diy-card-caption {min-height:58px;padding:8px 9px;gap:3px}
  .pink-world .diy-card-caption strong {font-size:21px}
  .pink-world .diy-card-caption small {font-size:12px;margin-top:1px}
