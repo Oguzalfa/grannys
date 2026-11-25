@@ -1,0 +1,100 @@
+/* Granny's counter: raspberry enamel, milk-paper labels and raspberry ink. */
+.granny-app.pink-world {
+  --atelier-ink:#510d32; --atelier-paper:#fff9f2;
+  background-color:#d60870;
+  background-image:radial-gradient(ellipse at 82% 12rem,#fa438d 0,transparent 38rem),
+    linear-gradient(135deg,#d80972 2%,#c50961 50%,#ec267d 100%);
+  background-attachment:scroll; background-size:100% 64rem,100% 100%; background-repeat:no-repeat
+}
+.pink-world .app-header {background:#951147;color:#fff8f1}
+.pink-world .awning {height:6px;background:repeating-linear-gradient(104deg,#ffddd9 0 13px,#f987ac 13px 27px)}
+.pink-world .app-container {padding-top:24px}
+.pink-world .diy-welcome {
+  isolation:isolate;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 36%;
+  align-items:stretch;margin:0;border-radius:25px;background:#611039;border:1px solid #ff9fc0;
+  box-shadow:0 12px 34px #7902353d;min-height:194px;text-align:left
+}
+.pink-world .diy-welcome::before {
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(ellipse at 16% 120%,#cb185e,transparent 63%),
+    repeating-linear-gradient(115deg,transparent 0 22px,#ffadca0a 22px 24px)
+}
+.pink-world .atelier-copy {align-self:center;padding:26px clamp(20px,3.3vw,50px)}
+.pink-world .welcome-kicker,.pink-world .catalogue-eyebrow {
+  display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.7px;line-height:1.2
+}
+.pink-world .welcome-kicker {color:#ffcedd;margin:0 0 9px}
+.pink-world .welcome-kicker::before,.pink-world .catalogue-eyebrow::before {
+  content:"";display:block;width:21px;height:2px;background:currentColor
+}
+.pink-world .diy-welcome h1 {color:#fff9ed;line-height:.99;letter-spacing:-.06em;font-size:clamp(44px,5.8vw,82px);font-weight:800}
+.pink-world .diy-welcome h1 span {font-family:Georgia,'Times New Roman',serif;font-weight:500;font-style:italic;color:#ffd0d2;letter-spacing:-.065em}
+.pink-world .diy-welcome p {margin-top:13px;color:#ffe7e8;font-size:16px;line-height:1.35}
+.pink-world .atelier-film {position:relative;align-self:stretch;background:#f9b6c5;padding:0;overflow:hidden;border-radius:72px 0 0 0;border-left:3px solid #ffc9ce}
+.pink-world .atelier-film img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;transition:transform .3s ease}
+.pink-world .atelier-film span {position:absolute;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:6px;border-radius:30px;padding:7px 13px;color:#fff;background:#581332;font-size:13px;font-weight:600}
+.pink-world .atelier-film svg {width:14px;height:14px}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {.pink-world .atelier-film:hover img{transform:scale(1.04)}}
+.pink-world .atelier-divider {display:flex;align-items:center;gap:14px;margin:22px 2px 13px;color:#fff4ec}
+.pink-world .atelier-divider span {font-weight:700;font-size:19px;letter-spacing:-.03em}
+.pink-world .atelier-divider i {height:1px;flex:1;background:#ffb3cf99}
+.pink-world .atelier-divider small {font-size:12px;letter-spacing:.065em;font-weight:600}
+.pink-world .diy-grid {counter-reset:menu-counter;gap:16px}
+.pink-world button.diy-card {counter-increment:menu-counter;border-radius:17px;border:1px solid #ffc9dc;box-shadow:0 4px 0 #90124766}
+.pink-world .diy-product {position:relative;aspect-ratio:1.57}
+.pink-world .diy-product::after {content:counter(menu-counter,decimal-leading-zero);position:absolute;left:10px;top:10px;border:1px solid #fffbf7b0;border-radius:20px;color:#fff;background:#55132ce8;font:italic 16px Georgia,serif;padding:3px 9px;line-height:1.05}
+.pink-world .diy-card-caption {background:var(--atelier-paper);border-top:3px solid #ffb6cf;padding:13px 16px;min-height:73px}
+.pink-world .diy-card-caption strong {color:var(--atelier-ink);font-size:26px;letter-spacing:-.045em}
+.pink-world .diy-card-caption small {font-size:13px;color:#714152}
+.pink-world .diy-card-caption > svg {color:#9c134a;background:#ffe5e6;padding:5px;width:28px;height:28px;border-radius:50%}
+.pink-world .ready-section {background:var(--atelier-paper);border:1px solid #ffd5da;padding:28px;margin-top:32px}
+.pink-world .catalogue-eyebrow {color:#9b2456;font-size:10px;letter-spacing:1.6px;margin-bottom:7px}
+.pink-world .ready-heading h2 {font-size:clamp(28px,3vw,42px);color:var(--atelier-ink);letter-spacing:-.05em}
+.pink-world .ready-heading > button {border:1px solid #dfb3c0;border-radius:30px;color:#7f1641;padding:6px 12px;white-space:nowrap}
+.pink-world .atelier-search {position:relative;width:100%}
+.pink-world .atelier-search>svg {position:absolute;top:50%;left:14px;transform:translateY(-50%);pointer-events:none;width:19px;height:19px;color:#983b62}
+.pink-world .atelier-search input {width:100%;padding-inline:42px 45px;border-radius:12px}
+.pink-world .atelier-search input::-webkit-search-cancel-button {display:none}
+.pink-world .atelier-search button {position:absolute;right:0;top:0;bottom:0;width:44px;background:transparent;color:#8f1d4c}
+.pink-world .ready-card-price {font-variant-numeric:tabular-nums}
+.pink-world .catalogue-card {box-shadow:0 2px 4px #4f0e2810}
+.pink-world .product-studio .atelier-zoom {
+ display:flex;align-items:center;justify-content:center;gap:7px;margin:4px auto 9px;min-height:44px;
+ color:#8b184b;background:transparent;font-weight:650;font-size:14px;border-radius:12px
+}
+.pink-world .atelier-zoom svg {width:17px;height:17px}
+.pink-world .plate-inspect .preview-stage {width:100%;height:auto;aspect-ratio:420/290;max-height:min(58dvh,440px);margin:0 0 16px;background:radial-gradient(ellipse,#fffaf3,#ffe5ef);border-radius:18px}
+.pink-world .plate-inspect .preview-stage :is(svg.food-engine-svg,canvas) {width:100%;height:100%;max-height:min(58dvh,440px);object-fit:contain}
+.pink-world .plate-inspect>small {font-weight:700;letter-spacing:.09em;color:#91395c}
+.pink-world .plate-inspect>p {margin:7px 0 16px;line-height:1.45;color:var(--atelier-ink)}
+.pink-world .wizard-steps button.active {background:#951147;border-color:#951147}
+@media(max-width:700px){
+ .granny-app.pink-world .app-container {padding-top:12px}
+ .pink-world .diy-welcome {grid-template-columns:minmax(0,1fr) 29%;border-radius:18px;min-height:125px}
+ .pink-world .atelier-copy {padding:17px 10px 18px 16px}
+ .pink-world .welcome-kicker {font-size:9px;letter-spacing:1px;gap:5px;margin-bottom:7px}
+ .pink-world .welcome-kicker::before {width:13px}
+ .pink-world .diy-welcome h1 {font-size:clamp(34px,10.8vw,52px)}
+ .pink-world .diy-welcome p {font-size:13px;margin-top:8px;max-width:25ch}
+ .pink-world .atelier-film {border-radius:42px 0 0 0;border-left-width:2px}
+ .pink-world .atelier-film span {font-size:11px;padding:5px 8px;gap:4px;right:6px;bottom:8px}
+ .pink-world .atelier-film svg {width:11px;height:11px}
+ .pink-world .atelier-divider {margin:14px 1px 9px;gap:9px}
+ .pink-world .atelier-divider span {font-size:16px}
+ .pink-world .atelier-divider small {font-size:11px}
+ .pink-world .diy-grid {gap:11px}
+ .pink-world .diy-product {aspect-ratio:1.43}
+ .pink-world .diy-product::after {font-size:13px;left:7px;top:7px;padding:3px 7px}
+ .pink-world .diy-card-caption {min-height:58px;padding:8px 9px;gap:3px}
+ .pink-world .diy-card-caption strong {font-size:21px}
+ .pink-world .diy-card-caption small {font-size:12px;margin-top:1px}
+ .pink-world .diy-card-caption > svg {width:20px;height:20px;padding:3px}
+ .pink-world .ready-section {margin-top:23px}
+ .pink-world .ready-heading {flex-wrap:wrap;gap:8px}
+ .pink-world .ready-heading p {font-size:13px}
+ .pink-world .product-studio .atelier-zoom {grid-column:2;grid-row:2;margin:0 0 4px 5px;justify-self:start;align-self:start;padding:0 5px;font-size:13px}
+}
+@media(max-width:700px) and (max-height:680px){
+ .pink-world .product-studio .studio-header {padding-block:3px 0;gap:3px}
+ .pink-world .product-studio .atelier-zoom {margin-block:0;align-self:center}
+}
