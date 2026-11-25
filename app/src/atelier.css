@@ -98,3 +98,137 @@
  .pink-world .product-studio .studio-header {padding-block:3px 0;gap:3px}
  .pink-world .product-studio .atelier-zoom {margin-block:0;align-self:center}
 }
+
+/* An intrinsic photo must never enlarge the grid row into the label below it. */
+.granny-app .ingredient-photo {
+  position: relative;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  overflow: hidden;
+  flex: none;
+}
+.granny-app .ingredient-photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.granny-app .recipe-back { display: none; }
+
+@media (max-width: 899px) {
+  .granny-app.pink-world {
+    --phone-left: max(12px, env(safe-area-inset-left));
+    --phone-right: max(12px, env(safe-area-inset-right));
+  }
+  .granny-app.pink-world .app-header {
+    height: calc(60px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) var(--phone-right) 0 var(--phone-left);
+  }
+  .granny-app.pink-world[data-view]:not([data-view="menu"]) .app-header {
+    position: relative;
+  }
+  .granny-app .recipe-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .granny-app .recipe-back svg { width: 18px; height: 18px; }
+  .granny-app:not([data-view="menu"]) :is(.brand-name, .builder-topline, .bottom-nav) {
+    display: none;
+  }
+  .granny-app.pink-world:not([data-view="menu"]) .app-container {
+    padding: 10px var(--phone-right) calc(90px + env(safe-area-inset-bottom)) var(--phone-left);
+  }
+  .granny-app:not([data-view="menu"]) .builder-layout {
+    scroll-margin-top: env(safe-area-inset-top);
+  }
+  .granny-app:not([data-view="menu"]) .price-dock {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 48;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #edcddb;
+    border-radius: 0;
+    padding: 9px var(--phone-right) calc(9px + env(safe-area-inset-bottom)) var(--phone-left);
+    background: #fffaf6;
+    box-shadow: 0 -4px 18px #58133212;
+  }
+  .granny-app:not([data-view="menu"]) .dock-actions { flex: 0 1 auto; }
+  .granny-app:not([data-view="menu"]) .next-button {
+    flex: 0 1 auto;
+    min-height: 46px;
+    min-width: min(39vw, 175px);
+  }
+  .granny-app:not([data-view="menu"]) .toast {
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    pointer-events: none;
+  }
+  .granny-app .ingredient-grid[data-step="base"] button.ingredient {
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0 0 10px;
+    text-align: start;
+    overflow: hidden;
+  }
+  .granny-app .ingredient-grid[data-step="base"] .ingredient-photo {
+    width: 100%;
+    max-width: none;
+    height: clamp(76px, 23vw, 118px);
+    background: #fae8ed;
+  }
+  .granny-app .ingredient-grid[data-step="base"] .ingredient-photo > img { object-fit: cover; }
+  .granny-app .ingredient-grid[data-step="base"] :is(.ingredient-name, .ingredient-sub) {
+    margin-inline: 10px;
+    overflow-wrap: anywhere;
+  }
+  .granny-app .ingredient-grid[data-step="base"] .ingredient-name { margin-top: 8px; }
+  .granny-app .ingredient-grid[data-step="base"] .ingredient-sub {
+    margin-top: auto;
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .granny-app.pink-world .product-studio { top: env(safe-area-inset-top); }
+}
+@media (max-width: 700px) {
+  .granny-app.pink-world .product-studio {
+    position: sticky;
+    top: env(safe-area-inset-top);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+  .granny-app.pink-world .product-studio .preview-stage {
+    height: clamp(106px, 16svh, 132px);
+    align-self: center;
+  }
+  .granny-app .product-studio .studio-header {
+    gap: 3px;
+    padding: 5px 5px 0;
+  }
+  .granny-app.pink-world .product-studio .atelier-zoom { margin: 0; }
+  .granny-app.pink-world .wizard-steps {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 3px;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+  .granny-app.pink-world .wizard-steps button {
+    min-width: 0;
+    padding: 4px 1px;
+    font-size: clamp(12px, 3.35vw, 14px);
+    overflow-wrap: anywhere;
+  }
+  .granny-app .step-heading small { display: none; }
+  .granny-app button.ingredient {
+    justify-content: flex-start;
+    scroll-margin-block: calc(144px + env(safe-area-inset-top)) calc(78px + env(safe-area-inset-bottom));
+  }
+  .granny-app .ingredient-photo .sauce-swatch { max-width: 100%; max-height: 100%; }
+}
+@media (max-width: 899px) and (max-height: 480px) {
+  .granny-app.pink-world .product-studio { position: relative; top: auto; }
+}
