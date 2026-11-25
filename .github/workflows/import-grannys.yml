@@ -1,0 +1,24 @@
+name: Import reviewed Granny source
+on:
+  push:
+    paths: ['.github/workflows/import-grannys.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch reviewed source archive
+        run: |
+          curl --fail --location --retry 2 'https://d2ol7oe51mr4n9.cloudfront.net/user_3MBeVCrxJid1Oq3GDytAeSIHxrZ/9d001858-0abb-4e04-bf41-0907f3308887.zip' -o /tmp/grannys.zip
+          echo 'e8444c3ccb719b11e480595d80f5e8d7ab045c57bf16283068bddc2144bd2b70  /tmp/grannys.zip' | sha256sum --check
+          unzip -q /tmp/grannys.zip -d /tmp/grannys-source
+          cp -a /tmp/grannys-source/. .
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app refs README.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'Import Granny menu, original v15 Box and Vercel entry'
+          git push origin HEAD:main
