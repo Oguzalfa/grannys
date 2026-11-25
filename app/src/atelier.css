@@ -255,3 +255,28 @@
 @media (max-width: 899px) and (max-height: 480px) {
   .granny-app.pink-world .product-studio { position: relative; top: auto; }
 }
+
+/* Allow all four entrances to share the first screen when the browser chrome is open. */
+@media (max-width: 700px) and (max-height: 720px) {
+  .granny-app.pink-world[data-view="menu"] .awning {
+    --canopy-width: 640px;
+    --canopy-height: 35px;
+  }
+  .pink-world[data-view="menu"] .diy-welcome { min-height: 88px; }
+  .pink-world .atelier-copy { padding-block: 10px; }
+  .pink-world .welcome-kicker { display: none; }
+  .pink-world .diy-welcome p { margin-top: 5px; }
+  .granny-app.pink-world .diy-grid { margin-top: 10px; gap: 8px; }
+  .pink-world button.diy-card { position: relative; }
+  .pink-world .diy-product { height: clamp(62px, 13svh, 92px); aspect-ratio: auto; }
+  .pink-world .diy-card-caption { min-height: 49px; padding: 6px 7px; }
+  .pink-world .diy-card-caption strong { font-size: 19px; }
+  .pink-world .diy-card-caption small { font-size: 12px; }
+  .pink-world .diy-card-caption > svg {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    color: #6b1741;
+    background: #fff6e9;
+  }
+}
