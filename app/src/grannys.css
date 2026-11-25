@@ -1,10 +1,19 @@
-@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-0.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-1.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-2.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-3.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-4.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face {
+  font-family: 'Alegreya';
+  src: url('/assets/fonts/alegreya.woff2') format('woff2');
+  font-weight: 400 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/assets/fonts/sourcesans3.woff2') format('woff2');
+  font-weight: 200 900;
+  font-display: swap;
+}
 /* Granny's Waffles: the confectioner's counter. */
 :root {
+  --menu-heading: 'Alegreya', Georgia, serif;
+  --menu-body: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
   --gw-pink: #d40078;
   --gw-pink-dark: #b90068;
   --gw-paper: #fff9fc;
@@ -22,7 +31,7 @@ body { margin: 0; }
   min-height: 100dvh;
   background: var(--gw-paper);
   color: var(--gw-ink);
-  font-family: Outfit, "Arial Rounded MT Bold", Arial, sans-serif;
+  font-family: var(--menu-body);
   font-size: 16px;
   line-height: 1.5;
   overflow-x: clip;
@@ -412,7 +421,7 @@ body { margin: 0; }
 
 /* Compatibility with the authored application structure. */
 html, body {
-  font-family: Outfit, "Arial Rounded MT Bold", Arial, sans-serif;
+  font-family: var(--menu-body);
   background: var(--gw-paper); color: var(--gw-ink); color-scheme: light;
 }
 .granny-app .builder-topline { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin: -5px 0 23px; color: var(--gw-muted); font-size: 14px; }
@@ -458,7 +467,7 @@ html, body {
 .granny-app .sauce-pistachio { --sauce: #9aa258; }
 .granny-app .sauce-caramel { --sauce: #bb7c39; }
 .granny-app .sauce-raspberry { --sauce: #b33d6a; }
-.system-error { margin: 0 auto; max-width: 560px; min-height: 70dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 17px; text-align: center; padding: 40px 24px; font-family: Outfit, Arial, sans-serif; color: var(--gw-ink); }
+.system-error { margin: 0 auto; max-width: 560px; min-height: 70dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 17px; text-align: center; padding: 40px 24px; font-family: var(--menu-body); color: var(--gw-ink); }
 .system-error h1 { font-size: 32px; line-height: 1.15; font-weight: 800; letter-spacing: -1px; }
 .system-error p { color: var(--gw-muted); font-size: 16px; line-height: 1.6; }
 .system-error button, .system-error a { min-height: 48px; border-radius: 13px; padding: 12px 21px; background: var(--gw-pink); color: white; text-decoration: none; }
@@ -468,7 +477,7 @@ html, body {
 }
 .granny-app .cinema-wrap .scroll-scrub__copy { width: min(590px, 100%); }
 .granny-app .cinema-wrap .scroll-scrub__copy::before { inset: -30px -45px; border-radius: 28px; background: radial-gradient(ellipse at 38% 60%, rgb(255 249 252 / 93%) 0%, rgb(255 249 252 / 75%) 44%, transparent 76%); }
-.granny-app .cinema-wrap .scroll-scrub__title { max-width: 17ch; font-family: Outfit, Arial, sans-serif; font-size: clamp(39px, 4.8vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; text-wrap: balance; }
+.granny-app .cinema-wrap .scroll-scrub__title { max-width: 17ch; font-family: var(--menu-heading); font-size: clamp(39px, 4.8vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; text-wrap: balance; }
 .granny-app .cinema-wrap .scroll-scrub__body { max-width: 35ch; font-size: 17px; line-height: 1.6; margin-top: 14px; }
 .granny-app .cinema-wrap .scroll-scrub__route { display: none; }
 .granny-app .cinema-footer > div { display: none; }
@@ -850,7 +859,7 @@ html:has(.pink-world), body:has(.pink-world) { background: #e50078; }
 .granny-app .catalogue-search input[type="search"] {
   display: block; width: 100%; min-width: 0; min-height: 52px;
   border: 2px solid #e993bb; border-radius: 14px; padding: 13px 15px;
-  background: white; color: #311c27; font-family: Outfit, Arial, sans-serif;
+  background: white; color: #311c27; font-family: var(--menu-body);
   font-size: 16px; line-height: 1.4; appearance: none;
   box-shadow: inset 0 2px 0 rgb(137 27 81 / 3%);
 }
