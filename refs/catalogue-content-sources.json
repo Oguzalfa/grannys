@@ -1,0 +1,661 @@
+{
+  "reviewedAt": "2026-11-25",
+  "pricePolicy": "User printed menu is authoritative for all 27 product and 5 extra prices. Online prices and portion-count rules are not imported.",
+  "targetBranchStatus": "Exact target-branch recipes remain unconfirmed where stated. General brand and branch evidence is labelled per item.",
+  "sourceConstraints": [
+    {
+      "url": "https://tgoyemek.com/restoranlar/424402",
+      "note": "Public merchant menu displays a representative-restaurants notice; treated as branch reference, not a live target-branch order contract."
+    },
+    {
+      "url": "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl",
+      "note": "Spoonful uses brownie here while Kaynarca uses cake; Brownie Box fruit accompaniment differs; 5–6-person mixed box is general evidence, not exact target six-person allocation."
+    },
+    {
+      "url": "https://grannyswaffles.com.tr/menu/kumpir-kumru/",
+      "note": "Official general Kumpir/Kumru ingredients are supported in indexed page content; direct page may show a verification screen."
+    },
+    {
+      "url": "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6",
+      "note": "Madenler branch separately corroborates Kumpir Box and Kumru. Its fried-cheese and sandwich additions are branch variants; not imposed on target recipes."
+    }
+  ],
+  "items": [
+    {
+      "id": "granny-waffle",
+      "name": "Granny’s Waffle",
+      "coreIngredients": [
+        "İnce papatya waffle hamuru"
+      ],
+      "selectableIngredients": [
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Bitter çikolata",
+        "Fındıklı çikolata",
+        "Çilekli çikolata",
+        "Antep fıstıklı çikolata",
+        "Karamelli çikolata",
+        "Frambuazlı çikolata",
+        "Çilek",
+        "Muz",
+        "Kivi",
+        "Ananas",
+        "Oreo bisküvi",
+        "Hindistan cevizi",
+        "Kavrulmuş yer fıstığı",
+        "Lotus bisküvi",
+        "Fındık",
+        "Ceviz",
+        "Haribo",
+        "Ev yapımı süt reçeli",
+        "Magnolya kreması",
+        "Kestane şekeri",
+        "Ev yapımı brownie"
+      ],
+      "recipeCertainty": "printed-reference",
+      "sourceUrls": []
+    },
+    {
+      "id": "grandma-choice-waffle",
+      "name": "Büyükanne’mizin Tercihi Waffle",
+      "coreIngredients": [
+        "Çift katlı papatya waffle hamuru"
+      ],
+      "selectableIngredients": [
+        "Çikolata",
+        "Meyve",
+        "Süsleme"
+      ],
+      "recipeNote": "Çift katlı waffle üzerine seçilen malzemelerle hazırlanır. Şubeye özel seçenekler teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79"
+      ]
+    },
+    {
+      "id": "brussels-waffle",
+      "name": "Brüksel Waffle",
+      "coreIngredients": [
+        "Çıtır, kalın waffle hamuru"
+      ],
+      "selectableIngredients": [
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Bitter çikolata",
+        "Fındıklı çikolata",
+        "Çilekli çikolata",
+        "Antep fıstıklı çikolata",
+        "Karamelli çikolata",
+        "Frambuazlı çikolata",
+        "Çilek",
+        "Muz",
+        "Kivi",
+        "Ananas",
+        "Oreo bisküvi",
+        "Hindistan cevizi",
+        "Kavrulmuş yer fıstığı",
+        "Lotus bisküvi",
+        "Fındık",
+        "Ceviz",
+        "Haribo",
+        "Ev yapımı süt reçeli",
+        "Magnolya kreması",
+        "Kestane şekeri",
+        "Ev yapımı brownie"
+      ],
+      "recipeCertainty": "printed-reference",
+      "sourceUrls": []
+    },
+    {
+      "id": "brussels-large",
+      "name": "Brüksel Waffle",
+      "portion": "Büyük Boy",
+      "coreIngredients": [
+        "Çıtır, kalın waffle hamuru"
+      ],
+      "selectableIngredients": [
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Bitter çikolata",
+        "Fındıklı çikolata",
+        "Çilekli çikolata",
+        "Antep fıstıklı çikolata",
+        "Karamelli çikolata",
+        "Frambuazlı çikolata",
+        "Çilek",
+        "Muz",
+        "Kivi",
+        "Ananas",
+        "Oreo bisküvi",
+        "Hindistan cevizi",
+        "Kavrulmuş yer fıstığı",
+        "Lotus bisküvi",
+        "Fındık",
+        "Ceviz",
+        "Haribo",
+        "Ev yapımı süt reçeli",
+        "Magnolya kreması",
+        "Kestane şekeri",
+        "Ev yapımı brownie"
+      ],
+      "recipeCertainty": "printed-reference",
+      "sourceUrls": []
+    },
+    {
+      "id": "sandwich-waffle",
+      "name": "Sandwich Waffle",
+      "coreIngredients": [
+        "Katlanmış waffle hamuru"
+      ],
+      "selectableIngredients": [
+        "Meyve",
+        "Çikolata"
+      ],
+      "recipeNote": "Meyve ve çikolata ile hazırlanır. Bazı şubelerde iç malzemeler sabit olduğundan seçimler şubede teyit edilir.",
+      "recipeCertainty": "branch-conflict",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl"
+      ]
+    },
+    {
+      "id": "pancake",
+      "name": "Pankek",
+      "coreIngredients": [
+        "Mini pankek",
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Krep kırığı",
+        "Antep fıstığı"
+      ],
+      "selectableIngredients": [],
+      "recipeNote": "Bazı şubelerde taze meyveli sunulur. Servis içeriği şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "granny-roll",
+      "name": "Granny’s Roll",
+      "coreIngredients": [
+        "Krep",
+        "Özel krema",
+        "Krep kırığı",
+        "Antep fıstığı",
+        "Sütlü çikolata",
+        "Beyaz çikolata"
+      ],
+      "selectableIngredients": [],
+      "recipeNote": "Krep rulo içinde hazırlanır; taze meyve kullanımı ve servis içeriği şubeye göre değişebilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "waffle-bowl",
+      "name": "Waffle Bowl",
+      "portion": "Orta Boy",
+      "coreIngredients": [
+        "Çıtır waffle parçaları"
+      ],
+      "selectableIngredients": [
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Bitter çikolata",
+        "Fındıklı çikolata",
+        "Çilekli çikolata",
+        "Antep fıstıklı çikolata",
+        "Karamelli çikolata",
+        "Frambuazlı çikolata",
+        "Çilek",
+        "Muz",
+        "Kivi",
+        "Ananas",
+        "Oreo bisküvi",
+        "Hindistan cevizi",
+        "Kavrulmuş yer fıstığı",
+        "Lotus bisküvi",
+        "Fındık",
+        "Ceviz",
+        "Haribo",
+        "Ev yapımı süt reçeli",
+        "Magnolya kreması",
+        "Kestane şekeri",
+        "Ev yapımı brownie"
+      ],
+      "recipeNote": "Pembe servis kabında sunulur.",
+      "recipeCertainty": "printed-reference",
+      "sourceUrls": []
+    },
+    {
+      "id": "waffle-bowl-large",
+      "name": "Waffle Bowl L",
+      "portion": "Büyük boy",
+      "coreIngredients": [
+        "Çıtır waffle parçaları"
+      ],
+      "selectableIngredients": [
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Bitter çikolata",
+        "Fındıklı çikolata",
+        "Çilekli çikolata",
+        "Antep fıstıklı çikolata",
+        "Karamelli çikolata",
+        "Frambuazlı çikolata",
+        "Çilek",
+        "Muz",
+        "Kivi",
+        "Ananas",
+        "Oreo bisküvi",
+        "Hindistan cevizi",
+        "Kavrulmuş yer fıstığı",
+        "Lotus bisküvi",
+        "Fındık",
+        "Ceviz",
+        "Haribo",
+        "Ev yapımı süt reçeli",
+        "Magnolya kreması",
+        "Kestane şekeri",
+        "Ev yapımı brownie"
+      ],
+      "recipeNote": "Pembe servis kabında sunulur.",
+      "recipeCertainty": "printed-reference",
+      "sourceUrls": []
+    },
+    {
+      "id": "brownie-bowl",
+      "name": "Brownie Bowl",
+      "coreIngredients": [
+        "Belçika çikolatalı brownie parçaları"
+      ],
+      "selectableIngredients": [
+        "Çikolata",
+        "Meyve",
+        "Şekerleme",
+        "Süsleme"
+      ],
+      "recipeNote": "Genel marka içeriğidir; şubeye özel malzemeler ve sunum değişebilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "spoonfull-bowl",
+      "name": "Spoonfull Bowl",
+      "coreIngredients": [
+        "Kek veya brownie parçaları",
+        "Pastacı kreması",
+        "Belçika çikolatası"
+      ],
+      "selectableIngredients": [
+        "Meyve",
+        "Süsleme"
+      ],
+      "recipeNote": "Tabanı bazı şubelerde kek, bazılarında brownie ile hazırlanır. Şubeye özel reçete teyit edilir.",
+      "recipeCertainty": "branch-conflict",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl",
+        "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6"
+      ]
+    },
+    {
+      "id": "magnolia-bowl",
+      "name": "Magnolia Bowl",
+      "coreIngredients": [
+        "Magnolya kreması"
+      ],
+      "selectableIngredients": [
+        "Bisküvi",
+        "Meyve",
+        "Çikolata"
+      ],
+      "recipeNote": "Kremalı taban, bisküvi, meyve ve çikolatayla tamamlanır. Seçenekler şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "croissant-bowl",
+      "name": "Kruvasan Bowl",
+      "coreIngredients": [
+        "Mini kruvasan parçaları"
+      ],
+      "selectableIngredients": [
+        "Çikolata",
+        "Meyve",
+        "Şekerleme",
+        "Süsleme"
+      ],
+      "recipeNote": "Genel marka içeriğidir; şubeye özel malzemeler ve sunum değişebilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "pancake-bowl",
+      "name": "Pankek Bowl",
+      "coreIngredients": [
+        "Mini pankekler"
+      ],
+      "selectableIngredients": [
+        "Çikolata",
+        "Meyve",
+        "Şekerleme",
+        "Süsleme"
+      ],
+      "recipeNote": "Genel marka içeriğidir; şubeye özel malzemeler ve sunum değişebilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "brussels-box",
+      "name": "Brüksel Waffle Box",
+      "portion": "2 kişilik",
+      "coreIngredients": [
+        "Brüksel waffle parçaları",
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Waffle ve meyveler ayrı soslarla sunulur. Çikolata çeşitleri ve servis içeriği şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79"
+      ]
+    },
+    {
+      "id": "brownie-box",
+      "name": "Brownie Box",
+      "portion": "2 kişilik",
+      "coreIngredients": [
+        "Belçika çikolatalı brownie",
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Meyve içeriği şubeye göre değişebilir; brownie ve çikolata sosu ortak içeriktir.",
+      "recipeCertainty": "branch-conflict",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79",
+        "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl"
+      ]
+    },
+    {
+      "id": "crepe-box",
+      "name": "Krep Box",
+      "portion": "2 kişilik",
+      "coreIngredients": [
+        "Krep",
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Krep ve meyveler çikolata soslarıyla sunulur. Servis içeriği şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc"
+      ]
+    },
+    {
+      "id": "pancake-box",
+      "name": "Pancake Box",
+      "portion": "2 kişilik",
+      "coreIngredients": [
+        "Mini pankek",
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Pankek ve meyveler çikolata soslarıyla sunulur. Servis içeriği şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79"
+      ]
+    },
+    {
+      "id": "fondue-box",
+      "name": "Fondue Box",
+      "portion": "2 kişilik",
+      "coreIngredients": [
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Taze meyveler çikolata soslarıyla sunulur. Sos çeşitleri ve servis içeriği şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79"
+      ]
+    },
+    {
+      "id": "box-two",
+      "name": "Granny’s Box",
+      "portion": "2 kişilik",
+      "coreIngredients": [
+        "Waffle",
+        "Brownie"
+      ],
+      "selectableIngredients": [
+        "Çilek",
+        "Muz",
+        "Kivi",
+        "Ananas",
+        "Sütlü çikolata",
+        "Beyaz çikolata",
+        "Bitter çikolata",
+        "Fındıklı çikolata",
+        "Çilekli çikolata",
+        "Antep fıstıklı çikolata",
+        "Karamelli çikolata",
+        "Frambuazlı çikolata",
+        "Oreo bisküvi",
+        "Hindistan cevizi",
+        "Kavrulmuş yer fıstığı",
+        "Lotus bisküvi",
+        "Fındık",
+        "Ceviz",
+        "Haribo"
+      ],
+      "recipeNote": "İki kişilik waffle ve brownie kutusu, meyve ve iki çikolata sosuyla tamamlanır. Meyve ve süsleme seçenekleri şubede teyit edilir.",
+      "recipeCertainty": "printed-reference",
+      "sourceUrls": [
+        "https://grannyswaffles.com.tr/menu/grannys-box/"
+      ]
+    },
+    {
+      "id": "box-three",
+      "name": "Granny’s Box",
+      "portion": "3 kişilik",
+      "coreIngredients": [
+        "Brüksel waffle",
+        "Pankek",
+        "Kruvasan",
+        "Brownie",
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Karışık tatlı seçkisi ve meyvelerle paylaşmalık kutu. Porsiyon dağılımı ve sos çeşitleri şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "box-six",
+      "name": "Granny’s Box",
+      "portion": "6 kişilik",
+      "coreIngredients": [
+        "Waffle",
+        "Pankek",
+        "Mini kruvasan",
+        "Brownie",
+        "Muz",
+        "Çilek"
+      ],
+      "selectableIngredients": [
+        "Çikolata"
+      ],
+      "recipeNote": "Büyük Granny’s kutularının genel tatlı seçkisidir. Altı kişilik porsiyon dağılımı ve sos çeşitleri şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl",
+        "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6"
+      ]
+    },
+    {
+      "id": "plain-kumpir",
+      "name": "Sade Kumpir",
+      "coreIngredients": [
+        "Fırınlanmış patates",
+        "Tereyağı",
+        "Kaşar peyniri"
+      ],
+      "selectableIngredients": [
+        "Mısır",
+        "Kornişon",
+        "Zeytin",
+        "Havuç",
+        "Kaşar peyniri",
+        "Ekstra kaşar peyniri",
+        "Ekstra tereyağı"
+      ],
+      "recipeNote": "Sade patates tabanı. İlave malzemelerin kapsamı ve olası fiyat farkları şubede teyit edilir.",
+      "recipeCertainty": "brand-general",
+      "sourceUrls": [
+        "https://grannyswaffles.com.tr/menu/kumpir-kumru/",
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "granny-kumpir",
+      "name": "Granny’s Kumpir",
+      "coreIngredients": [
+        "Fırınlanmış patates",
+        "Tereyağı",
+        "Kaşar peyniri"
+      ],
+      "selectableIngredients": [
+        "Mısır",
+        "Kornişon",
+        "Zeytin",
+        "Havuç",
+        "Kaşar peyniri",
+        "Ekstra kaşar peyniri",
+        "Ekstra tereyağı"
+      ],
+      "recipeNote": "Tereyağı ve kaşarla karıştırılan patates, seçilen malzemelerle tamamlanır. Dahil malzemeler ve olası farklar şubede teyit edilir.",
+      "recipeCertainty": "brand-general",
+      "sourceUrls": [
+        "https://grannyswaffles.com.tr/menu/kumpir-kumru/",
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402"
+      ]
+    },
+    {
+      "id": "grandma-kumpir",
+      "name": "Büyükanne Kumpir",
+      "coreIngredients": [
+        "Fırınlanmış patates",
+        "Tereyağı",
+        "Kaşar peyniri"
+      ],
+      "selectableIngredients": [
+        "Mısır",
+        "Kornişon",
+        "Zeytin",
+        "Havuç",
+        "Kaşar peyniri",
+        "Ekstra kaşar peyniri",
+        "Ekstra tereyağı"
+      ],
+      "recipeNote": "Bazı şubelerde ekstra tereyağı ve kaşarla hazırlanır. Miktar ve dahil malzemeler şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://www.yemeksepeti.com/restaurant/csxc/grannys-waffles-and-kumpir-csxc",
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.migros.com.tr/yemek/grannys-waffles-kumpir-kadikoy-caferaga-mah-st-18b79"
+      ]
+    },
+    {
+      "id": "kumpir-box",
+      "name": "Kumpir Box",
+      "coreIngredients": [
+        "Fırınlanmış patates",
+        "Tereyağı",
+        "Kaşar peyniri"
+      ],
+      "selectableIngredients": [
+        "Mısır",
+        "Kornişon",
+        "Zeytin",
+        "Havuç",
+        "Kaşar peyniri",
+        "Ekstra kaşar peyniri",
+        "Ekstra tereyağı"
+      ],
+      "recipeNote": "Kutuda kumpir sunumu. Bazı şubelerde kızarmış kaşarlı özel çeşidi bulunur; kutu içeriği şubede teyit edilir.",
+      "recipeCertainty": "branch-reference",
+      "sourceUrls": [
+        "https://grannyswaffles.com.tr/menu/kumpir-kumru/",
+        "https://tgoyemek.com/restoranlar/424402",
+        "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6"
+      ]
+    },
+    {
+      "id": "kumru",
+      "name": "Kumru",
+      "coreIngredients": [
+        "Kumru ekmeği",
+        "Kaşar peyniri",
+        "Sucuk",
+        "Salam",
+        "Özel sos"
+      ],
+      "selectableIngredients": [],
+      "recipeNote": "Sıcak kumru ekmeğinde hazırlanır. Sos çeşidi ve şubeye özel içerikler teyit edilir.",
+      "recipeCertainty": "brand-general",
+      "sourceUrls": [
+        "https://grannyswaffles.com.tr/menu/kumpir-kumru/",
+        "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6"
+      ]
+    }
+  ]
+}

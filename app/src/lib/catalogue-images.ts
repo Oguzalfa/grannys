@@ -1,0 +1,257 @@
+/** Published product/branch images. Presentation references do not define target recipes. */
+export type CatalogueImage = {
+ image: string
+ source: string
+ sourcePage?: string
+ photoKind?: 'branch-reference' | 'base-reference' | 'illustrative'
+ photoLabel?: string
+ photoNote?: string
+ /** Actual delivered pixel width; responsive renditions never upscale the source. */
+ imageWidth?: number
+ cardImage?: string
+ cardWidth?: number
+}
+export const catalogueImages: Record<string, CatalogueImage> = {
+  "granny-waffle": {
+    "image": "/assets/catalogue/granny-waffle-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/90410_1756624202188.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 792,
+    "cardImage": "/assets/catalogue/granny-waffle-card.webp",
+    "cardWidth": 640
+  },
+  "grandma-choice-waffle": {
+    "image": "/assets/catalogue/grandma-choice-waffle-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/232380_1721815918922.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 295,
+    "cardImage": "/assets/catalogue/grandma-choice-waffle-hq.webp",
+    "cardWidth": 295
+  },
+  "brussels-waffle": {
+    "image": "/assets/catalogue/brussels-waffle-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/90411_1756624217675.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 724,
+    "cardImage": "/assets/catalogue/brussels-waffle-card.webp",
+    "cardWidth": 640
+  },
+  "brussels-large": {
+    "image": "/assets/catalogue/brussels-large-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10098376_1756624589410.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 776,
+    "cardImage": "/assets/catalogue/brussels-large-card.webp",
+    "cardWidth": 640
+  },
+  "sandwich-waffle": {
+    "image": "/assets/catalogue/sandwich-waffle-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/14285161_1758382673316.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; sabit ve seçilebilir iç malzeme tarifleri şubelere göre farklıdır.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/sandwich-waffle-card.webp",
+    "cardWidth": 640
+  },
+  "pancake": {
+    "image": "/assets/catalogue/pancake-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10305773_1756624600997.jpg",
+    "photoNote": "Çikolatalı pankek sunum referansı; hedef şube reçetesi teyit bekliyor.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/pancake-card.webp",
+    "cardWidth": 640
+  },
+  "granny-roll": {
+    "image": "/assets/catalogue/granny-roll-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10301929_1732601693383.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 835,
+    "cardImage": "/assets/catalogue/granny-roll-card.webp",
+    "cardWidth": 640
+  },
+  "brussels-box": {
+    "image": "/assets/catalogue/brussels-box-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/8153799_1756625298865.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/brussels-box-card.webp",
+    "cardWidth": 640
+  },
+  "brownie-box": {
+    "image": "/assets/catalogue/brownie-box-hq.webp",
+    "source": "https://yemeksepeti.dhmedia.io/image/global-menu-service/YS_TR/vendor/c3gl/product/4000730a-a778-4634-be00-1612f3fe28cf.jpg",
+    "photoNote": "Açık Granny’s şube listesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 880,
+    "cardWidth": 640,
+    "cardImage": "/assets/catalogue/brownie-box-card.webp",
+    "sourcePage": "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl"
+  },
+  "crepe-box": {
+    "image": "/assets/catalogue/crepe-box-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/14050813_1757395060550.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/crepe-box-card.webp",
+    "cardWidth": 640
+  },
+  "pancake-box": {
+    "image": "/assets/catalogue/pancake-box-hq.webp",
+    "source": "https://yemeksepeti.dhmedia.io/image/fd-tr/Products/65943376.jpg",
+    "photoNote": "Açık Granny’s şube listesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 1384,
+    "cardWidth": 640,
+    "cardImage": "/assets/catalogue/pancake-box-card.webp",
+    "sourcePage": "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6"
+  },
+  "fondue-box": {
+    "image": "/assets/catalogue/fondue-box-hq.webp",
+    "source": "https://yemeksepeti.dhmedia.io/image/fd-tr/Products/71713042.jpg",
+    "photoNote": "Açık Granny’s şube listesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 1100,
+    "cardWidth": 640,
+    "cardImage": "/assets/catalogue/fondue-box-card.webp",
+    "sourcePage": "https://www.yemeksepeti.com/restaurant/fppf/grannys-waffles-and-kumpir-fppf"
+  },
+  "plain-kumpir": {
+    "image": "/assets/catalogue/plain-kumpir-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/90345_1756624194626.jpg",
+    "photoNote": "Kaynarca şubesinin sunum referansı; içerik ve süsleme hedef şubede farklı olabilir.",
+    "imageWidth": 805,
+    "cardImage": "/assets/catalogue/plain-kumpir-card.webp",
+    "cardWidth": 640
+  },
+  "granny-kumpir": {
+    "image": "/assets/catalogue/granny-kumpir-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/13948017_1763372168630.jpg",
+    "photoNote": "Kaynarca şubesinin malzemeli sunum referansı; görünen etli malzemeler seçime otomatik eklenmez.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/granny-kumpir-card.webp",
+    "cardWidth": 640
+  },
+  "grandma-kumpir": {
+    "image": "/assets/catalogue/grandma-kumpir-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/232446_1756624247873.jpg",
+    "photoNote": "Kaynarca şubesinin soslu sunum referansı; görünen soslar ve malzemeler seçime otomatik eklenmez.",
+    "imageWidth": 871,
+    "cardImage": "/assets/catalogue/grandma-kumpir-card.webp",
+    "cardWidth": 640
+  },
+  "waffle-bowl": {
+    "image": "/assets/catalogue/waffle-bowl-hq.webp",
+    "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/bowl.jpg",
+    "photoNote": "Markanın pembe servis kabı referansı; orta ve büyük porsiyon için aynı fotoğraf kullanılır.",
+    "imageWidth": 1250,
+    "cardImage": "/assets/catalogue/waffle-bowl-card.webp",
+    "cardWidth": 640
+  },
+  "waffle-bowl-large": {
+    "image": "/assets/catalogue/waffle-bowl-hq.webp",
+    "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/bowl.jpg",
+    "photoNote": "Markanın pembe servis kabı referansı; orta ve büyük porsiyon için aynı fotoğraf kullanılır.",
+    "imageWidth": 1250,
+    "cardImage": "/assets/catalogue/waffle-bowl-card.webp",
+    "cardWidth": 640
+  },
+  "kumpir-box": {
+    "image": "/assets/catalogue/kumpir-box-hq.webp",
+    "source": "https://images.deliveryhero.io/image/fd-tr/products/66671327.jpg",
+    "sourcePage": "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6",
+    "photoKind": "branch-reference",
+    "photoNote": "Madenler şubesinin Kumpir Box sunum fotoğrafı; görünen mezeler ve kızarmış kaşar hedef şube reçetesini belirlemez.",
+    "imageWidth": 1384,
+    "cardImage": "/assets/catalogue/kumpir-box-card.webp",
+    "cardWidth": 640
+  },
+  "kumru": {
+    "image": "/assets/catalogue/kumru-hq.webp",
+    "source": "https://images.deliveryhero.io/image/fd-tr/Products/30496448.jpg",
+    "sourcePage": "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6",
+    "photoKind": "branch-reference",
+    "photoNote": "Granny’s Madenler şubesinin Çeşme Kumru sunumu; hedef şubede içerik ve sunum değişebilir.",
+    "imageWidth": 1100,
+    "cardImage": "/assets/catalogue/kumru-card.webp",
+    "cardWidth": 640
+  },
+  "box-three": {
+    "image": "/assets/catalogue/box-three-hq.webp",
+    "source": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10823204_1758382146304.jpg",
+    "sourcePage": "https://tgoyemek.com/restoranlar/424402",
+    "photoKind": "branch-reference",
+    "photoNote": "Şube sunum referansı; aynı fotoğraf açık menülerde 3 ve 3–4 kişilik kutu için kullanılır. Hedef şube reçetesi teyit bekliyor.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/box-three-card.webp",
+    "cardWidth": 640
+  },
+  "box-six": {
+    "image": "/assets/catalogue/box-six-hq.webp",
+    "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+    "sourcePage": "https://grannyswaffles.com.tr/menu/",
+    "photoKind": "branch-reference",
+    "photoNote": "Resmî marka görseli; açık şube menüsünde 5–6 kişilik sunum olarak yer alır. Hedef şube reçetesi teyit bekliyor.",
+    "imageWidth": 1250,
+    "cardImage": "/assets/catalogue/box-six-card.webp",
+    "cardWidth": 640
+  },
+  "box-two": {
+    "image": "/assets/catalogue/box-two-v15.webp",
+    "source": "/assets/v15/scene-box-base.webp",
+    "photoKind": "illustrative",
+    "photoNote": "İki kişilik canlı oluşturucu için waffle, brownie, meyve ve iki sos bölmesini gösteren temsili sunum. Seçtiğin malzemeler hazırlama ekranında değişir.",
+    "sourcePage": "https://grannys-tabagini-hazirla.alfaoguz22.chatgpt.site",
+    "cardImage": "/assets/catalogue/box-two-v15.webp",
+    "imageWidth": 840,
+    "cardWidth": 840
+  },
+  "brownie-bowl": {
+    "image": "/assets/catalogue/brownie-bowl-hq.webp",
+    "source": "https://images.deliveryhero.io/image/global-menu-service/YS_TR/vendor/xj70/product/3c49de13-4c6c-4be2-b025-c9e83146ca79.jpg",
+    "sourcePage": "https://www.yemeksepeti.com/restaurant/xj70/grannys-waffles-and-kumpir-xj70/reviews",
+    "photoKind": "branch-reference",
+    "photoNote": "Açık Granny’s şube listesindeki Brownie Bowl sunumu; hedef şubede içerik ve sunum değişebilir.",
+    "imageWidth": 787,
+    "cardImage": "/assets/catalogue/brownie-bowl-card.webp",
+    "cardWidth": 640
+  },
+  "spoonfull-bowl": {
+    "image": "/assets/catalogue/spoonfull-bowl-hq.webp",
+    "source": "https://fhauzjsujvoodywfwuvz.supabase.co/storage/v1/object/public/neyiyelim-media/f/c8c62b96f581dfbb.jpg",
+    "sourcePage": "https://www.neyiyelim.com/restaurants/59270",
+    "photoKind": "branch-reference",
+    "photoNote": "Granny’s Rüstem Paşa şubesinin Spoonful Bowl sunum referansı; hedef şube reçetesi değişebilir.",
+    "imageWidth": 880,
+    "cardImage": "/assets/catalogue/spoonfull-bowl-card.webp",
+    "cardWidth": 640
+  },
+  "croissant-bowl": {
+    "image": "/assets/catalogue/croissant-bowl.webp",
+    "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+    "sourcePage": "https://grannyswaffles.com.tr/menu/",
+    "photoKind": "base-reference",
+    "photoLabel": "Taban görseli",
+    "photoNote": "Markanın paylaştığı kutu fotoğrafındaki mini kruvasan tabanının detayıdır. Bowl porsiyonu ve tamamlanmış sunumu gösterilmez.",
+    "imageWidth": 355,
+    "cardWidth": 355,
+    "cardImage": "/assets/catalogue/croissant-bowl.webp"
+  },
+  "pancake-bowl": {
+    "image": "/assets/catalogue/pancake-bowl.webp",
+    "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+    "sourcePage": "https://grannyswaffles.com.tr/menu/",
+    "photoKind": "base-reference",
+    "photoLabel": "Taban görseli",
+    "photoNote": "Markanın paylaştığı kutu fotoğrafındaki mini pankek tabanının detayıdır. Bowl porsiyonu ve tamamlanmış sunumu gösterilmez.",
+    "imageWidth": 340,
+    "cardWidth": 340,
+    "cardImage": "/assets/catalogue/pancake-bowl.webp"
+  },
+  "magnolia-bowl": {
+    "image": "/assets/catalogue/magnolia-bowl-hq.webp",
+    "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/magnolia.jpg",
+    "sourcePage": "https://grannyswaffles.com.tr/menu/",
+    "photoKind": "base-reference",
+    "photoLabel": "Sunum referansı",
+    "photoNote": "Markanın magnolya çeşitlerine ait sunum referansıdır. Magnolia Bowl porsiyonunu veya sabit reçetesini belirtmez.",
+    "imageWidth": 1250,
+    "cardImage": "/assets/catalogue/magnolia-bowl-card.webp",
+    "cardWidth": 640
+  }
+}

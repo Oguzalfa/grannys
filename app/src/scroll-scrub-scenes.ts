@@ -1,0 +1,3 @@
+import type { ScrollScrubScene, ScrollScrubTheme } from '@/components/scroll-scrub/scroll-scrub'
+export const scrollScrubTheme:ScrollScrubTheme={accent:'#D40078',background:'#F7DCE7',ink:'#311C27',muted:'#674954'}
+export const scrollScrubScenes:ScrollScrubScene[]=[{id:'lezzet',label:'Granny’s Waffles',title:'Mutluluk böyle başlar.',body:'Çıtır bir taban. Bolca çikolata. Tam senin sevdiğin gibi.',clip:'/assets/world/scene-01.mp4',mobileClip:'/assets/world/scene-01-mobile.mp4',poster:'/assets/world/scene-01-poster.png',mobilePoster:'/assets/world/scene-01-mobile-poster.png',scroll:2.2,linger:.12,align:'left',objectPosition:'center center',mobileObjectPosition:'50% 50%'}]

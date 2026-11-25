@@ -1,0 +1,947 @@
+{
+  "processing": {
+    "format": "WebP",
+    "quality": 90,
+    "maxDetailDimension": 1400,
+    "maxCardDimension": 640,
+    "upscaling": false,
+    "visualGeneration": false,
+    "protectedAssetsUnchanged": true,
+    "protectedAssetCount": 310,
+    "preservedMetadata": [
+      "photoKind",
+      "photoLabel",
+      "photoNote except branch-only wording for approved independent sources",
+      "sourcePage except approved independent sources"
+    ],
+    "stoppedOnOriginal403": [
+      "brownie-box",
+      "pancake-box",
+      "fondue-box"
+    ],
+    "independentSourceSubstitutions": [
+      "brownie-box",
+      "pancake-box",
+      "fondue-box"
+    ],
+    "provenanceCaptionsAdjusted": [
+      "brownie-box",
+      "pancake-box",
+      "fondue-box"
+    ],
+    "retiredUnreferencedCatalogueFiles": [
+      "box-six.webp",
+      "box-three.webp",
+      "brownie-bowl.webp",
+      "brownie-box.webp",
+      "brussels-box.webp",
+      "brussels-large.webp",
+      "brussels-waffle.webp",
+      "crepe-box.webp",
+      "fondue-box.webp",
+      "grandma-choice-waffle.webp",
+      "grandma-kumpir.webp",
+      "granny-kumpir.webp",
+      "granny-roll.webp",
+      "granny-waffle.webp",
+      "kumpir-box.webp",
+      "kumru.webp",
+      "magnolia-bowl.webp",
+      "pancake-box.webp",
+      "pancake.webp",
+      "plain-kumpir.webp",
+      "sandwich-waffle.webp",
+      "spoonfull-bowl.webp",
+      "waffle-bowl.webp"
+    ],
+    "retiredBytes": 1025918
+  },
+  "products": {
+    "granny-waffle": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 23202,
+        "sha256": "f824a3d8a9f22d5c187a25bff63cbf5598fe867a75b43b014867211229e1436c",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/90410_1756624202188.jpg",
+        "image": "/assets/catalogue/granny-waffle.webp"
+      },
+      "nativeDimensions": [
+        792,
+        792
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/90410_1756624202188.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/granny-waffle-hq.webp",
+        "dimensions": [
+          792,
+          792
+        ],
+        "bytes": 132786,
+        "cardImage": "/assets/catalogue/granny-waffle-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 100402
+      },
+      "status": "native-upgrade"
+    },
+    "grandma-choice-waffle": {
+      "before": {
+        "dimensions": [
+          256,
+          258
+        ],
+        "bytes": 12044,
+        "sha256": "a0c051a4af91f1eb50d36e5907e65e1329c616e6d650685aeb63e90aeeb8fe6d",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/232380_1721815918922.jpg",
+        "image": "/assets/catalogue/grandma-choice-waffle.webp"
+      },
+      "nativeDimensions": [
+        295,
+        298
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/232380_1721815918922.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/grandma-choice-waffle-hq.webp",
+        "dimensions": [
+          295,
+          298
+        ],
+        "bytes": 14528,
+        "cardImage": "/assets/catalogue/grandma-choice-waffle-hq.webp",
+        "cardDimensions": [
+          295,
+          298
+        ],
+        "cardBytes": 14528
+      },
+      "status": "native-upgrade"
+    },
+    "brussels-waffle": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 22284,
+        "sha256": "a2ea6ddf9e47ed17a85ea6e8fee055e281d98822c11a3f2a85f7172d8af6a11c",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/90411_1756624217675.jpg",
+        "image": "/assets/catalogue/brussels-waffle.webp"
+      },
+      "nativeDimensions": [
+        724,
+        724
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/90411_1756624217675.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/brussels-waffle-hq.webp",
+        "dimensions": [
+          724,
+          724
+        ],
+        "bytes": 112062,
+        "cardImage": "/assets/catalogue/brussels-waffle-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 94744
+      },
+      "status": "native-upgrade"
+    },
+    "brussels-large": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 23530,
+        "sha256": "1c821656983fed6a0cad7c9d659509c40d038066a16beac28960d3e6c30bf526",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/10098376_1756624589410.jpg",
+        "image": "/assets/catalogue/brussels-large.webp"
+      },
+      "nativeDimensions": [
+        776,
+        776
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10098376_1756624589410.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/brussels-large-hq.webp",
+        "dimensions": [
+          776,
+          776
+        ],
+        "bytes": 123424,
+        "cardImage": "/assets/catalogue/brussels-large-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 97398
+      },
+      "status": "native-upgrade"
+    },
+    "sandwich-waffle": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 18274,
+        "sha256": "acc748203c52bd41c6625002bf33655df4b65bf4d48164a113e66068c3e12753",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/14285161_1758382673316.jpg",
+        "image": "/assets/catalogue/sandwich-waffle.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/14285161_1758382673316.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/sandwich-waffle-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 154488,
+        "cardImage": "/assets/catalogue/sandwich-waffle-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 93400
+      },
+      "status": "native-upgrade"
+    },
+    "pancake": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 19848,
+        "sha256": "3c221b2aa3d2db776f8e5756eccf27f4d759bbda56c481b3ce710575e15ec74c",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/10305773_1756624600997.jpg",
+        "image": "/assets/catalogue/pancake.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10305773_1756624600997.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/pancake-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 141740,
+        "cardImage": "/assets/catalogue/pancake-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 90264
+      },
+      "status": "native-upgrade"
+    },
+    "granny-roll": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 21170,
+        "sha256": "760c899549a3c5d07b778d1218c9cf110ea5730e056ceade2b21798fa6e2688c",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/10301929_1732601693383.jpg",
+        "image": "/assets/catalogue/granny-roll.webp"
+      },
+      "nativeDimensions": [
+        835,
+        835
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10301929_1732601693383.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/granny-roll-hq.webp",
+        "dimensions": [
+          835,
+          835
+        ],
+        "bytes": 130852,
+        "cardImage": "/assets/catalogue/granny-roll-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 93610
+      },
+      "status": "native-upgrade"
+    },
+    "brussels-box": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 20600,
+        "sha256": "c43e91f79b7c327bf422a0e36f03f6a0597cb1942ceff2f4863d69f77205f7d8",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/8153799_1756625298865.jpg",
+        "image": "/assets/catalogue/brussels-box.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/8153799_1756625298865.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/brussels-box-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 205538,
+        "cardImage": "/assets/catalogue/brussels-box-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 121254
+      },
+      "status": "native-upgrade"
+    },
+    "brownie-box": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 21506,
+        "sha256": "37c5e6ac42f40d7906de7b4782f2d0ae561c16bc225e1133f06b340395387c6c",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/8190758_1756625323221.jpg",
+        "image": "/assets/catalogue/brownie-box.webp"
+      },
+      "after": {
+        "image": "/assets/catalogue/brownie-box-hq.webp",
+        "dimensions": [
+          880,
+          656
+        ],
+        "bytes": 164272,
+        "cardImage": "/assets/catalogue/brownie-box-card.webp",
+        "cardDimensions": [
+          640,
+          477
+        ],
+        "cardBytes": 96164
+      },
+      "status": "native-upgrade-independent-source",
+      "note": "Denied TGO original was not retried. Existing independently retrieved public Yemeksepeti photograph was approved by parent based on its named product association; provenance uses Yemeksepeti.",
+      "nativeDimensions": [
+        880,
+        656
+      ],
+      "nativeSource": "https://yemeksepeti.dhmedia.io/image/global-menu-service/YS_TR/vendor/c3gl/product/4000730a-a778-4634-be00-1612f3fe28cf.jpg",
+      "sourcePage": "https://www.yemeksepeti.com/restaurant/c3gl/granny-waffles-and-kumpir-c3gl",
+      "sourceProductName": "Brownie Box (2 Kişilik)",
+      "sourceVerification": "Visually matched original to the exact Yemeksepeti thumbnail reached from its named product page. Same product form as previous TGO references; exact TGO photographic/crop identity is not claimed."
+    },
+    "crepe-box": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 20464,
+        "sha256": "552a2758d2ee30ae19d55d0384a031e34b31894934f5d557feecd437e862b68d",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/14050813_1757395060550.jpg",
+        "image": "/assets/catalogue/crepe-box.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/14050813_1757395060550.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/crepe-box-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 213616,
+        "cardImage": "/assets/catalogue/crepe-box-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 123930
+      },
+      "status": "native-upgrade"
+    },
+    "pancake-box": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 19404,
+        "sha256": "576cd7910da7fa3bda485af179bb8aa228f43f578f6761adea9e619c55ba55c1",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/10301905_1732601597618.jpg",
+        "image": "/assets/catalogue/pancake-box.webp"
+      },
+      "after": {
+        "image": "/assets/catalogue/pancake-box-hq.webp",
+        "dimensions": [
+          1384,
+          1056
+        ],
+        "bytes": 263170,
+        "cardImage": "/assets/catalogue/pancake-box-card.webp",
+        "cardDimensions": [
+          640,
+          488
+        ],
+        "cardBytes": 70148
+      },
+      "status": "native-upgrade-independent-source",
+      "note": "Denied TGO original was not retried. Existing independently retrieved public Yemeksepeti photograph was approved by parent based on its named product association; provenance uses Yemeksepeti.",
+      "nativeDimensions": [
+        1384,
+        1056
+      ],
+      "nativeSource": "https://yemeksepeti.dhmedia.io/image/fd-tr/Products/65943376.jpg",
+      "sourcePage": "https://www.yemeksepeti.com/en/restaurant/tms6/grannys-waffles-and-kumpir-tms6",
+      "sourceProductName": "Pancake Box (2 Kişilik)",
+      "sourceVerification": "Visually matched original to the exact Yemeksepeti thumbnail reached from its named product page. Same product form as previous TGO references; exact TGO photographic/crop identity is not claimed."
+    },
+    "fondue-box": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 21064,
+        "sha256": "da111e1a2b5cd5bc747e28c08972e5e12f0ffb5db321e59fd8348b8705f84a80",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/14050934_1757395067855.jpg",
+        "image": "/assets/catalogue/fondue-box.webp"
+      },
+      "after": {
+        "image": "/assets/catalogue/fondue-box-hq.webp",
+        "dimensions": [
+          1100,
+          836
+        ],
+        "bytes": 242330,
+        "cardImage": "/assets/catalogue/fondue-box-card.webp",
+        "cardDimensions": [
+          640,
+          486
+        ],
+        "cardBytes": 99164
+      },
+      "status": "native-upgrade-independent-source",
+      "note": "Denied TGO original was not retried. Existing independently retrieved public Yemeksepeti photograph was approved by parent based on its named product association; provenance uses Yemeksepeti.",
+      "nativeDimensions": [
+        1100,
+        836
+      ],
+      "nativeSource": "https://yemeksepeti.dhmedia.io/image/fd-tr/Products/71713042.jpg",
+      "sourcePage": "https://www.yemeksepeti.com/restaurant/fppf/grannys-waffles-and-kumpir-fppf",
+      "sourceProductName": "Fondue Box (2 Kişilik)",
+      "sourceVerification": "Visually matched original to the exact Yemeksepeti thumbnail reached from its named product page. Same product form as previous TGO references; exact TGO photographic/crop identity is not claimed."
+    },
+    "plain-kumpir": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 15290,
+        "sha256": "553a4d59b497aa80d15cc1bfc920ef504825af75945cc68e2818fe10dbb65144",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/90345_1756624194626.jpg",
+        "image": "/assets/catalogue/plain-kumpir.webp"
+      },
+      "nativeDimensions": [
+        805,
+        805
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/90345_1756624194626.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/plain-kumpir-hq.webp",
+        "dimensions": [
+          805,
+          805
+        ],
+        "bytes": 99392,
+        "cardImage": "/assets/catalogue/plain-kumpir-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 70272
+      },
+      "status": "native-upgrade"
+    },
+    "granny-kumpir": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 24570,
+        "sha256": "99ff52037ded94f8c07c3b7f07012b52c8d8a1738c1abd2f8da7c20cff8b3e0b",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/13948017_1763372168630.jpg",
+        "image": "/assets/catalogue/granny-kumpir.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/13948017_1763372168630.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/granny-kumpir-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 199448,
+        "cardImage": "/assets/catalogue/granny-kumpir-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 125026
+      },
+      "status": "native-upgrade"
+    },
+    "grandma-kumpir": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 25090,
+        "sha256": "5e83d2f38a760e3a92bd8bbc117322fb94b9d3c84042b2de8ab2ff11740fc954",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/232446_1756624247873.jpg",
+        "image": "/assets/catalogue/grandma-kumpir.webp"
+      },
+      "nativeDimensions": [
+        871,
+        871
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/232446_1756624247873.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/grandma-kumpir-hq.webp",
+        "dimensions": [
+          871,
+          871
+        ],
+        "bytes": 196068,
+        "cardImage": "/assets/catalogue/grandma-kumpir-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 122072
+      },
+      "status": "native-upgrade"
+    },
+    "waffle-bowl": {
+      "before": {
+        "dimensions": [
+          1000,
+          600
+        ],
+        "bytes": 147370,
+        "sha256": "de617d7e91e4e1c4a37f11c3f5e477a0f8dbe18fccbc869b1697a5eb00a51679",
+        "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/bowl.jpg",
+        "image": "/assets/catalogue/waffle-bowl.webp"
+      },
+      "nativeDimensions": [
+        1250,
+        750
+      ],
+      "nativeSource": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/bowl.jpg",
+      "sourceVerification": "Native full-size published original verified against public WordPress media metadata. No larger original exposed.",
+      "after": {
+        "image": "/assets/catalogue/waffle-bowl-hq.webp",
+        "dimensions": [
+          1250,
+          750
+        ],
+        "bytes": 169042,
+        "cardImage": "/assets/catalogue/waffle-bowl-card.webp",
+        "cardDimensions": [
+          640,
+          384
+        ],
+        "cardBytes": 67530
+      },
+      "status": "native-upgrade"
+    },
+    "kumpir-box": {
+      "before": {
+        "dimensions": [
+          150,
+          150
+        ],
+        "bytes": 8980,
+        "sha256": "e4b6c3b75ddecf685c2d48dfd4791af4abb9f4bf4dc081e928039eb381186715",
+        "source": "https://images.deliveryhero.io/image/fd-tr/products/66671327.jpg?height=150&width=150",
+        "image": "/assets/catalogue/kumpir-box.webp"
+      },
+      "nativeDimensions": [
+        1384,
+        1056
+      ],
+      "nativeSource": "https://images.deliveryhero.io/image/fd-tr/products/66671327.jpg",
+      "sourceVerification": "Visually compared original and supplied thumbnail: same food, vessel, background and arrangement. Original includes wider rectangular framing. Identical filename without thumbnail query.",
+      "after": {
+        "image": "/assets/catalogue/kumpir-box-hq.webp",
+        "dimensions": [
+          1384,
+          1056
+        ],
+        "bytes": 300568,
+        "cardImage": "/assets/catalogue/kumpir-box-card.webp",
+        "cardDimensions": [
+          640,
+          488
+        ],
+        "cardBytes": 82158
+      },
+      "status": "native-upgrade"
+    },
+    "kumru": {
+      "before": {
+        "dimensions": [
+          220,
+          220
+        ],
+        "bytes": 18294,
+        "sha256": "492023c37526b16d7beadcccb365d1ce13b6ecb299cd4a5009c4a7da3495e297",
+        "source": "https://images.deliveryhero.io/image/fd-tr/Products/30496448.jpg?height=220&width=220",
+        "image": "/assets/catalogue/kumru.webp"
+      },
+      "nativeDimensions": [
+        1100,
+        836
+      ],
+      "nativeSource": "https://images.deliveryhero.io/image/fd-tr/Products/30496448.jpg",
+      "sourceVerification": "Visually compared original and supplied thumbnail: same food, vessel, background and arrangement. Original includes wider rectangular framing. Identical filename without thumbnail query.",
+      "after": {
+        "image": "/assets/catalogue/kumru-hq.webp",
+        "dimensions": [
+          1100,
+          836
+        ],
+        "bytes": 239016,
+        "cardImage": "/assets/catalogue/kumru-card.webp",
+        "cardDimensions": [
+          640,
+          486
+        ],
+        "cardBytes": 105330
+      },
+      "status": "native-upgrade"
+    },
+    "box-three": {
+      "before": {
+        "dimensions": [
+          256,
+          256
+        ],
+        "bytes": 24174,
+        "sha256": "59b6ad7035f31be44cad0d949aab9b24c51a3fcbf74b797b6e0f9151a0ea6aa5",
+        "source": "https://cdn.tgoapps.com/mnresize/256/-/tgo2/spm/prod/meal/media/images/product/184902/10823204_1758382146304.jpg",
+        "image": "/assets/catalogue/box-three.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://cdn.tgoapps.com/tgo2/spm/prod/meal/media/images/product/184902/10823204_1758382146304.jpg",
+      "sourceVerification": "Same known TGO image filename; unresized public original returned actual native dimensions. Visually matched before/after pair.",
+      "after": {
+        "image": "/assets/catalogue/box-three-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 208520,
+        "cardImage": "/assets/catalogue/box-three-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 120358
+      },
+      "status": "native-upgrade"
+    },
+    "box-six": {
+      "before": {
+        "dimensions": [
+          1100,
+          660
+        ],
+        "bytes": 196592,
+        "sha256": "de01d4f557dd354cf079de71c7b85fa14042e52bbbc2e09ae2696f027a774b0a",
+        "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+        "image": "/assets/catalogue/box-six.webp"
+      },
+      "nativeDimensions": [
+        1250,
+        750
+      ],
+      "nativeSource": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+      "sourceVerification": "Native full-size published original verified against public WordPress media metadata. No larger original exposed.",
+      "after": {
+        "image": "/assets/catalogue/box-six-hq.webp",
+        "dimensions": [
+          1250,
+          750
+        ],
+        "bytes": 204728,
+        "cardImage": "/assets/catalogue/box-six-card.webp",
+        "cardDimensions": [
+          640,
+          384
+        ],
+        "cardBytes": 78420
+      },
+      "status": "native-upgrade"
+    },
+    "box-two": {
+      "before": {
+        "dimensions": [
+          840,
+          580
+        ],
+        "bytes": 91644,
+        "sha256": "ad6fa89d05dde0753b4267fb8a3ac9b4e7d68cdef6433d27dbe474a477911c00",
+        "source": "/assets/v15/scene-box-base.webp",
+        "image": "/assets/products/box.webp"
+      },
+      "after": {
+        "image": "/assets/catalogue/box-two-v15.webp",
+        "dimensions": [
+          840,
+          580
+        ],
+        "bytes": 91644,
+        "cardImage": "/assets/catalogue/box-two-v15.webp",
+        "cardDimensions": [
+          840,
+          580
+        ],
+        "cardBytes": 91644
+      },
+      "status": "protected-byte-identical-cache-alias",
+      "note": "Exact bytes copied from protected products/box.webp; v15 source and metadata preserved. No pixel operations or engine changes."
+    },
+    "brownie-bowl": {
+      "before": {
+        "dimensions": [
+          150,
+          150
+        ],
+        "bytes": 8994,
+        "sha256": "a80c87f133b2684d1c7b104355ad4e6bb3cf8807aa1103243c9ef4e66883eb43",
+        "source": "https://images.deliveryhero.io/image/global-menu-service/YS_TR/vendor/xj70/product/3c49de13-4c6c-4be2-b025-c9e83146ca79.jpg?height=150&width=150",
+        "image": "/assets/catalogue/brownie-bowl.webp"
+      },
+      "nativeDimensions": [
+        787,
+        592
+      ],
+      "nativeSource": "https://images.deliveryhero.io/image/global-menu-service/YS_TR/vendor/xj70/product/3c49de13-4c6c-4be2-b025-c9e83146ca79.jpg",
+      "sourceVerification": "Visually compared original and supplied thumbnail: same food, vessel, background and arrangement. Original includes wider rectangular framing. Identical filename without thumbnail query.",
+      "after": {
+        "image": "/assets/catalogue/brownie-bowl-hq.webp",
+        "dimensions": [
+          787,
+          592
+        ],
+        "bytes": 56012,
+        "cardImage": "/assets/catalogue/brownie-bowl-card.webp",
+        "cardDimensions": [
+          640,
+          481
+        ],
+        "cardBytes": 44500
+      },
+      "status": "native-upgrade"
+    },
+    "spoonfull-bowl": {
+      "before": {
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 157108,
+        "sha256": "dc70faab8b502421357e1a91dba40d4acb528187e870f9a1cb395627ac6b170c",
+        "source": "https://fhauzjsujvoodywfwuvz.supabase.co/storage/v1/object/public/neyiyelim-media/f/c8c62b96f581dfbb.jpg",
+        "image": "/assets/catalogue/spoonfull-bowl.webp"
+      },
+      "nativeDimensions": [
+        880,
+        880
+      ],
+      "nativeSource": "https://fhauzjsujvoodywfwuvz.supabase.co/storage/v1/object/public/neyiyelim-media/f/c8c62b96f581dfbb.jpg",
+      "sourceVerification": "Existing verified 880px published original; responsive card derivative added.",
+      "after": {
+        "image": "/assets/catalogue/spoonfull-bowl-hq.webp",
+        "dimensions": [
+          880,
+          880
+        ],
+        "bytes": 126228,
+        "cardImage": "/assets/catalogue/spoonfull-bowl-card.webp",
+        "cardDimensions": [
+          640,
+          640
+        ],
+        "cardBytes": 69842
+      },
+      "status": "responsive-derivative-added"
+    },
+    "croissant-bowl": {
+      "before": {
+        "dimensions": [
+          355,
+          190
+        ],
+        "bytes": 19116,
+        "sha256": "897d42a3267d3549679ca1104518883e4f987d64894092f74f0d21517cf19800",
+        "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+        "image": "/assets/catalogue/croissant-bowl.webp"
+      },
+      "after": {
+        "image": "/assets/catalogue/croissant-bowl.webp",
+        "dimensions": [
+          355,
+          190
+        ],
+        "bytes": 19116,
+        "cardImage": "/assets/catalogue/croissant-bowl.webp",
+        "cardDimensions": [
+          355,
+          190
+        ],
+        "cardBytes": 19116
+      },
+      "status": "native-limited",
+      "note": "Existing genuine native crop retained; no larger original is published."
+    },
+    "pancake-bowl": {
+      "before": {
+        "dimensions": [
+          340,
+          205
+        ],
+        "bytes": 18122,
+        "sha256": "3943c2f339184984100bb2f26df73d5ed15bc7c3dd7152fc880646efda1bd76c",
+        "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/grannybox.jpg",
+        "image": "/assets/catalogue/pancake-bowl.webp"
+      },
+      "after": {
+        "image": "/assets/catalogue/pancake-bowl.webp",
+        "dimensions": [
+          340,
+          205
+        ],
+        "bytes": 18122,
+        "cardImage": "/assets/catalogue/pancake-bowl.webp",
+        "cardDimensions": [
+          340,
+          205
+        ],
+        "cardBytes": 18122
+      },
+      "status": "native-limited",
+      "note": "Existing genuine native crop retained; no larger original is published."
+    },
+    "magnolia-bowl": {
+      "before": {
+        "dimensions": [
+          1100,
+          660
+        ],
+        "bytes": 156066,
+        "sha256": "9bbb79ccc6691acda959e1d9df404689a037d97641b2c9fd725eb7757498c3eb",
+        "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/magnolia.jpg",
+        "image": "/assets/catalogue/magnolia-bowl.webp"
+      },
+      "nativeDimensions": [
+        1250,
+        750
+      ],
+      "nativeSource": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/magnolia.jpg",
+      "sourceVerification": "Native full-size published original verified against public WordPress media metadata. No larger original exposed.",
+      "after": {
+        "image": "/assets/catalogue/magnolia-bowl-hq.webp",
+        "dimensions": [
+          1250,
+          750
+        ],
+        "bytes": 158120,
+        "cardImage": "/assets/catalogue/magnolia-bowl-card.webp",
+        "cardDimensions": [
+          640,
+          384
+        ],
+        "cardBytes": 61142
+      },
+      "status": "native-upgrade"
+    },
+    "waffle-bowl-large": {
+      "before": {
+        "dimensions": [
+          1000,
+          600
+        ],
+        "bytes": 147370,
+        "sha256": "de617d7e91e4e1c4a37f11c3f5e477a0f8dbe18fccbc869b1697a5eb00a51679",
+        "source": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/bowl.jpg",
+        "image": "/assets/catalogue/waffle-bowl.webp"
+      },
+      "nativeDimensions": [
+        1250,
+        750
+      ],
+      "nativeSource": "https://grannyswaffles.com.tr/wp-content/uploads/2025/10/bowl.jpg",
+      "sourceVerification": "Native full-size published original verified against public WordPress media metadata. No larger original exposed.",
+      "after": {
+        "image": "/assets/catalogue/waffle-bowl-hq.webp",
+        "dimensions": [
+          1250,
+          750
+        ],
+        "bytes": 169042,
+        "cardImage": "/assets/catalogue/waffle-bowl-card.webp",
+        "cardDimensions": [
+          640,
+          384
+        ],
+        "cardBytes": 67530
+      },
+      "status": "native-upgrade",
+      "note": "Same official photo shared for printed M/L presentations; no physical size implied."
+    }
+  }
+}

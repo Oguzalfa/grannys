@@ -1,0 +1,1288 @@
+@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-0.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-1.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-2.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-3.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: Outfit; src: url("/assets/fonts/outfit-4.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+/* Granny's Waffles: the confectioner's counter. */
+:root {
+  --gw-pink: #d40078;
+  --gw-pink-dark: #b90068;
+  --gw-paper: #fff9fc;
+  --gw-white: #ffffff;
+  --gw-ink: #311c27;
+  --gw-muted: #795969;
+  --gw-blush: #f7dce7;
+  --gw-pale: #fff0f6;
+  --gw-border: #efd9e3;
+  --gw-shadow: 0 12px 32px rgb(91 20 56 / 7%);
+}
+html, body { background: var(--gw-paper); color: var(--gw-ink); }
+body { margin: 0; }
+.granny-app {
+  min-height: 100dvh;
+  background: var(--gw-paper);
+  color: var(--gw-ink);
+  font-family: Outfit, "Arial Rounded MT Bold", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+.granny-app *, .granny-app *::before, .granny-app *::after { box-sizing: border-box; }
+.granny-app h1, .granny-app h2, .granny-app h3, .granny-app p { margin: 0; }
+.granny-app button, .granny-app input, .granny-app textarea { font: inherit; }
+.granny-app button {
+  appearance: none; border: 0; cursor: pointer; color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.granny-app button:disabled { cursor: not-allowed; opacity: .45; }
+.granny-app button:focus-visible, .granny-app a:focus-visible,
+.granny-app textarea:focus-visible, .granny-app input:focus-visible {
+  outline: 3px solid var(--gw-pink); outline-offset: 4px;
+}
+.granny-app button:not(:disabled):active { transform: scale(.98); }
+.granny-app img { display: block; max-width: 100%; }
+.granny-app svg { flex-shrink: 0; }
+.granny-app .app-header {
+  height: 82px; padding: 0 max(28px, calc((100vw - 1200px) / 2));
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  background: var(--gw-paper); border-bottom: 1px solid var(--gw-border);
+  position: sticky; top: 0; z-index: 35;
+}
+.granny-app .brand-lockup {
+  display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0;
+  text-decoration: none; padding: 0; background: transparent; text-align: left;
+}
+.granny-app .brand-logo, .granny-app .brand-logo img,
+.granny-app img.brand-logo { width: 64px; height: 64px; border-radius: 50%; object-fit: contain; }
+.granny-app .brand-name { display: flex; flex-direction: column; line-height: 1.02; }
+.granny-app .brand-name strong { font-size: 25px; font-weight: 800; letter-spacing: -.8px; }
+.granny-app .brand-name small { margin-top: 5px; font-size: 12px; font-weight: 600; letter-spacing: 1.7px; }
+.granny-app .header-tools { display: flex; align-items: center; gap: 12px; }
+.granny-app .table-button {
+  min-height: 42px; padding: 10px 17px; border-radius: 24px;
+  background: var(--gw-pale); font-size: 14px; font-weight: 600; white-space: nowrap;
+  border: 1px solid transparent;
+}
+.granny-app .table-button:hover { border-color: var(--gw-border); }
+.granny-app .bag-button {
+  width: 45px; height: 45px; display: grid; place-items: center;
+  background: transparent; position: relative; color: var(--gw-pink);
+}
+.granny-app .bag-button svg { width: 28px; height: 28px; }
+.granny-app .bag-button > span, .granny-app .bag-button > b {
+  position: absolute; right: -2px; top: -2px; min-width: 20px; height: 20px;
+  border-radius: 50%; background: var(--gw-pink); color: white; font-size: 11px;
+  display: grid; place-items: center; padding: 0 4px; font-weight: 700;
+  border: 2px solid var(--gw-paper);
+}
+.granny-app .app-container { max-width: 1200px; padding: 34px 28px 125px; margin: 0 auto; }
+.granny-app .menu-heading { margin: 0 0 24px; }
+.granny-app .menu-heading h1 {
+  font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+.granny-app .menu-heading p { margin-top: 10px; color: var(--gw-muted); font-size: 16px; }
+.granny-app .category-bar {
+  display: flex; gap: 10px; margin-bottom: 27px; overflow-x: auto;
+  scrollbar-width: none; padding: 3px 2px;
+}
+.granny-app .category-bar::-webkit-scrollbar { display: none; }
+.granny-app .category-bar button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 46px; padding: 10px 22px; border-radius: 26px; white-space: nowrap;
+  background: var(--gw-white); color: var(--gw-ink);
+  border: 1px solid var(--gw-border); font-size: 16px; font-weight: 650;
+  transition: background .18s, border-color .18s, color .18s;
+}
+.granny-app .category-bar button svg, .granny-app .category-bar button img { width: 24px; height: 24px; object-fit: contain; }
+.granny-app .category-bar button.active { background: var(--gw-pink); color: white; border-color: var(--gw-pink); }
+.granny-app .category-bar button:not(.active):hover { background: var(--gw-pale); }
+.granny-app .menu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 27px; }
+.granny-app .menu-card {
+  overflow: hidden; background: var(--gw-white); border-radius: 22px;
+  border: 1px solid var(--gw-border); box-shadow: var(--gw-shadow); min-width: 0;
+}
+.granny-app .menu-photo { aspect-ratio: 1.42; overflow: hidden; background: var(--gw-blush); }
+.granny-app .menu-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .55s cubic-bezier(.2,.8,.2,1);
+}
+.granny-app .menu-card:hover .menu-photo img { transform: scale(1.035); }
+.granny-app .menu-card-copy { padding: 22px 24px 24px; position: relative; }
+.granny-app .menu-card-copy h2 { font-size: 28px; font-weight: 800; letter-spacing: -.8px; line-height: 1.16; padding-right: 70px; }
+.granny-app .menu-card-copy p { font-size: 16px; color: var(--gw-muted); margin-top: 8px; }
+.granny-app .card-price { color: var(--gw-pink); font-size: 22px; font-weight: 800; line-height: 1; }
+.granny-app .menu-card-copy > .card-price { position: absolute; right: 24px; top: 26px; }
+.granny-app .make-button {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; margin-top: 20px; padding: 14px 20px; min-height: 51px;
+  color: white; background: var(--gw-pink); border-radius: 14px;
+  font-size: 17px; font-weight: 750;
+  box-shadow: 0 3px 0 var(--gw-pink-dark);
+  transition: background .16s, transform .16s;
+}
+.granny-app .make-button:hover { background: var(--gw-pink-dark); }
+.granny-app .menu-shortcuts {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  gap: 14px; margin: 27px 0 0; padding: 19px 0; border-top: 1px solid var(--gw-border);
+}
+.granny-app .menu-shortcuts button, .granny-app .gallery-link {
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 0;
+  background: transparent; color: var(--gw-pink); font-size: 14px;
+  font-weight: 650; text-decoration: underline; text-underline-offset: 4px;
+}
+.granny-app .bottom-nav {
+  position: fixed; z-index: 45; left: 50%; bottom: 16px; transform: translateX(-50%);
+  display: flex; align-items: center; justify-content: space-around; gap: 6px;
+  width: min(560px, calc(100% - 40px)); min-height: 76px; padding: 7px 12px;
+  border-radius: 24px; background: var(--gw-white);
+  border: 1px solid var(--gw-border); box-shadow: 0 4px 35px rgb(94 28 59 / 12%);
+}
+.granny-app .bottom-nav button {
+  flex: 1; min-height: 60px; background: transparent; border-radius: 18px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; font-size: 14px; font-weight: 650; padding: 5px 10px;
+}
+.granny-app .bottom-nav button.active { color: var(--gw-pink); background: var(--gw-pale); }
+.granny-app .nav-icon, .granny-app .bottom-nav svg, .granny-app .bottom-nav img { width: 25px; height: 25px; }
+.granny-app .bottom-nav .nav-icon { display: grid; place-items: center; position: relative; }
+.granny-app .builder-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 42px; }
+.granny-app .product-studio {
+  position: sticky; top: 104px; min-width: 0; background: var(--gw-blush);
+  border-radius: 22px; overflow: hidden;
+  border: 1px solid var(--gw-border);
+}
+.granny-app .studio-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 19px 20px 0;
+}
+.granny-app .studio-title { font-size: 21px; font-weight: 800; letter-spacing: -.55px; }
+.granny-app .preview-stage { width: 100%; aspect-ratio: 1.2; position: relative; display: grid; place-items: center; overflow: hidden; }
+.granny-app .preview-stage canvas, .granny-app .preview-stage svg.food-engine-svg { width: 100%; height: 100%; object-fit: contain; display: block; }
+.granny-app .preview-note {
+  display: flex; justify-content: center; align-items: center; gap: 7px;
+  padding: 2px 18px 20px; color: var(--gw-muted); font-size: 12px; text-align: center;
+}
+.granny-app .favorite-button {
+  min-width: 40px; height: 40px; border: 1px solid rgb(212 0 120 / 14%);
+  background: var(--gw-paper); color: var(--gw-pink); display: grid;
+  place-items: center; border-radius: 50%; padding: 8px; flex-shrink: 0;
+}
+.granny-app .favorite-button svg { width: 22px; height: 22px; }
+.granny-app .builder-controls { min-width: 0; }
+.granny-app .wizard-steps { display: flex; gap: 5px; padding: 0 0 5px; margin-bottom: 25px; overflow-x: auto; scrollbar-width: none; }
+.granny-app .wizard-steps button {
+  background: var(--gw-pale); border-radius: 13px; min-height: 52px;
+  display: flex; flex: 1; flex-direction: column; gap: 4px; justify-content: center;
+  align-items: center; color: var(--gw-muted); font-size: 14px; font-weight: 650;
+  padding: 8px; white-space: nowrap; min-width: 0;
+}
+.granny-app .wizard-steps button.active { background: var(--gw-pink); color: white; }
+.granny-app .wizard-steps button.done { color: var(--gw-pink); }
+.granny-app .wizard-steps button span:first-child { font-size: 12px; line-height: 1; }
+.granny-app .step-heading small { display: inline-block; color: var(--gw-pink); font-size: 12px; font-weight: 650; margin-bottom: 6px; }
+.granny-app .step-heading h1 { font-weight: 800; font-size: 34px; letter-spacing: -1.1px; line-height: 1.15; }
+.granny-app .step-heading p { font-size: 16px; color: var(--gw-muted); margin-top: 10px; line-height: 1.55; }
+.granny-app .ingredient-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0 16px; }
+.granny-app button.ingredient {
+  min-width: 0; min-height: 149px; padding: 10px 10px 13px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; background: var(--gw-white); border-radius: 18px;
+  border: 1.5px solid var(--gw-border); position: relative;
+  box-shadow: 0 3px 6px rgb(88 21 57 / 4%);
+  transition: border-color .16s, background .16s, box-shadow .16s;
+}
+.granny-app button.ingredient.selected {
+  border: 2px solid var(--gw-pink); background: var(--gw-paper);
+  box-shadow: 0 0 0 1px var(--gw-pink), 0 4px 10px rgb(212 0 120 / 6%);
+}
+.granny-app button.ingredient:hover { border-color: var(--gw-pink); }
+.granny-app .ingredient-photo { display: grid; place-items: center; height: 88px; width: 100%; max-width: 135px; }
+.granny-app .ingredient-photo img { object-fit: contain; max-width: 100%; width: 100%; height: 100%; }
+.granny-app .ingredient-name { display: block; font-size: 16px; font-weight: 750; line-height: 1.2; margin-top: 7px; }
+.granny-app .ingredient-sub { display: block; color: var(--gw-muted); font-size: 13px; line-height: 1.35; margin-top: 5px; }
+.granny-app .select-check {
+  position: absolute; top: 10px; right: 10px; width: 24px; height: 24px;
+  border-radius: 50%; display: grid; place-items: center;
+  border: 1.5px solid #cda6b9; background: var(--gw-white); color: var(--gw-white);
+  font-size: 14px; font-weight: 750;
+}
+.granny-app .ingredient.selected .select-check { background: var(--gw-pink); border-color: var(--gw-pink); }
+.granny-app .selected-count { font-size: 14px; color: var(--gw-muted); margin: 12px 0; }
+.granny-app .selection-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.granny-app .selection-chips > * { font-size: 12px; border-radius: 20px; background: var(--gw-pale); color: var(--gw-pink); padding: 5px 10px; }
+.granny-app .price-dock {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 15px 17px; border: 1px solid var(--gw-border); background: var(--gw-pale);
+  border-radius: 20px; margin-top: 20px; position: sticky; bottom: 111px; z-index: 20;
+  box-shadow: 0 -4px 18px rgb(94 28 59 / 3%);
+}
+.granny-app .price-label { display: flex; flex-direction: column; gap: 1px; font-size: 12px; color: var(--gw-muted); white-space: nowrap; }
+.granny-app .amount { font-size: 31px; font-weight: 800; color: var(--gw-ink); line-height: 1.05; letter-spacing: -1px; }
+.granny-app .next-button {
+  flex: 1; min-height: 49px; max-width: 250px; padding: 12px 20px;
+  background: var(--gw-pink); color: white; border-radius: 14px;
+  font-size: 17px; font-weight: 750; box-shadow: 0 3px 0 var(--gw-pink-dark);
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+}
+.granny-app .next-button:hover { background: var(--gw-pink-dark); }
+.granny-app .previous-button {
+  width: 43px; height: 43px; padding: 10px; display: grid; place-items: center;
+  border-radius: 50%; border: 1px solid var(--gw-border); background: var(--gw-white);
+}
+.granny-app .allergen-note { color: var(--gw-muted); font-size: 12px; line-height: 1.65; margin: 18px 0 10px; }
+.granny-app .allergen-note summary { font-size: 14px; cursor: pointer; color: var(--gw-ink); }
+.granny-app .allergen-note p { margin-top: 8px; }
+.granny-app .canvas-loading, .granny-app .canvas-error { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font-size: 14px; padding: 24px; color: var(--gw-muted); background: var(--gw-blush); }
+.granny-app .canvas-loading::after { content: ""; position: absolute; width: 50%; height: 40%; border-radius: 50%; background: var(--gw-pale); filter: blur(18px); z-index: -1; }
+.granny-app .summary-card { background: var(--gw-white); border: 1px solid var(--gw-border); border-radius: 20px; padding: 6px 21px; margin: 20px 0; }
+.granny-app .summary-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid var(--gw-border); padding: 15px 0; font-size: 16px; }
+.granny-app .summary-row:last-child { border-bottom: 0; }
+.granny-app .summary-row span:first-child { color: var(--gw-muted); font-size: 14px; }
+.granny-app .summary-row strong { text-align: right; font-weight: 650; }
+.granny-app .summary-row button { color: var(--gw-pink); background: transparent; width: 36px; height: 36px; padding: 8px; }
+.granny-app .note-label { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; margin: 18px 0; }
+.granny-app .note-label textarea, .granny-app .note-label input { background: var(--gw-white); color: var(--gw-ink); border: 1px solid var(--gw-border); border-radius: 14px; padding: 14px 15px; width: 100%; font-size: 16px; font-weight: 400; resize: vertical; min-height: 85px; }
+.granny-app textarea::placeholder, .granny-app input::placeholder { color: var(--gw-muted); opacity: .85; }
+.granny-app .quantity-stepper { display: inline-flex; gap: 16px; align-items: center; font-size: 18px; font-weight: 650; }
+.granny-app .quantity-stepper button { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--gw-pale); color: var(--gw-pink); border: 1px solid var(--gw-border); font-size: 23px; }
+.granny-app .modal-backdrop { position: fixed; inset: 0; background: rgb(49 28 39 / 55%); z-index: 100; display: grid; place-items: center; padding: 22px; }
+.granny-app .modal-panel { background: var(--gw-paper); color: var(--gw-ink); width: 100%; max-width: 650px; max-height: min(88dvh, 900px); overflow-y: auto; border-radius: 24px; box-shadow: 0 25px 80px rgb(49 28 39 / 22%); }
+.granny-app .modal-header { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 23px 25px 19px; border-bottom: 1px solid var(--gw-border); position: sticky; top: 0; z-index: 2; background: var(--gw-paper); }
+.granny-app .modal-header h2 { font-size: 27px; font-weight: 800; letter-spacing: -.8px; }
+.granny-app .modal-close { width: 39px; height: 39px; display: grid; place-items: center; background: var(--gw-pale); border-radius: 50%; font-size: 25px; flex-shrink: 0; }
+.granny-app .modal-body { padding: 21px 25px 27px; }
+.granny-app .modal-body > p { color: var(--gw-muted); margin-bottom: 18px; font-size: 16px; }
+.granny-app .modal-body input { width: 100%; min-height: 48px; background: white; border: 1px solid var(--gw-border); border-radius: 12px; padding: 12px; color: var(--gw-ink); }
+.granny-app .cart-row { display: flex; align-items: flex-start; gap: 15px; border-bottom: 1px solid var(--gw-border); padding: 18px 0; }
+.granny-app .cart-thumb { width: 86px; height: 95px; object-fit: contain; background: var(--gw-blush); border-radius: 14px; flex-shrink: 0; }
+.granny-app .cart-details { flex: 1; min-width: 0; }
+.granny-app .cart-details h3 { font-size: 18px; font-weight: 750; line-height: 1.2; }
+.granny-app .cart-details p { font-size: 13px; color: var(--gw-muted); margin: 7px 0 11px; line-height: 1.55; }
+.granny-app .cart-row > strong { white-space: nowrap; font-size: 17px; }
+.granny-app .cart-total { display: flex; justify-content: space-between; gap: 16px; font-size: 25px; margin: 23px 0; font-weight: 700; }
+.granny-app .cart-total strong { font-size: 29px; }
+.granny-app .empty-state { padding: 32px 14px; text-align: center; }
+.granny-app .empty-state h3 { font-size: 25px; font-weight: 800; line-height: 1.2; }
+.granny-app .empty-state p { max-width: 320px; margin: 12px auto 25px; color: var(--gw-muted); font-size: 16px; }
+.granny-app .empty-icon { display: grid; place-items: center; color: var(--gw-pink); width: 76px; height: 76px; margin: 0 auto 20px; border-radius: 50%; background: var(--gw-pale); }
+.granny-app .empty-icon svg { width: 38px; height: 38px; }
+.granny-app .basket-action { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; width: 100%; background: var(--gw-pink); color: white; font-size: 17px; font-weight: 750; border-radius: 15px; padding: 14px 22px; box-shadow: 0 3px 0 var(--gw-pink-dark); }
+.granny-app .toast { position: fixed; left: 50%; bottom: 115px; transform: translateX(-50%); z-index: 150; background: var(--gw-ink); color: white; border-radius: 14px; padding: 13px 21px; max-width: calc(100% - 40px); width: max-content; text-align: center; font-size: 14px; box-shadow: 0 8px 30px rgb(49 28 39 / 15%); }
+.granny-app .awning { height: 11px; background: repeating-linear-gradient(90deg, #f6d6e5 0 18px, #fff2f8 18px 36px); border-bottom: 1px solid var(--gw-border); }
+.granny-app .cinema-wrap { position: relative; background: var(--gw-blush); color: var(--gw-ink); }
+.granny-app .cinema-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; padding: 22px 4%; display: flex; justify-content: space-between; gap: 20px; align-items: center; pointer-events: none; }
+.granny-app .cinema-nav > * { pointer-events: auto; }
+.granny-app .cinema-logo { width: 72px; height: 72px; border-radius: 50%; filter: drop-shadow(0 4px 14px rgb(73 10 42 / 10%)); }
+.granny-app .skip-intro { background: var(--gw-paper); border: 1px solid var(--gw-border); border-radius: 24px; padding: 11px 18px; min-height: 44px; font-size: 14px; font-weight: 600; color: var(--gw-ink); }
+.granny-app .cinema-footer { position: fixed; z-index: 60; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; gap: 12px; align-items: center; width: calc(100% - 40px); pointer-events: none; }
+.granny-app .cinema-footer > * { pointer-events: auto; }
+.granny-app .enter-menu { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; min-width: 225px; padding: 15px 32px; color: white; background: var(--gw-pink); border-radius: 18px; font-size: 18px; font-weight: 750; box-shadow: 0 4px 0 var(--gw-pink-dark), 0 12px 30px rgb(145 3 81 / 15%); }
+.granny-app .intro-label { font-size: 14px; color: var(--gw-ink); background: var(--gw-paper); border-radius: 20px; padding: 6px 13px; text-align: center; }
+
+@media (max-width: 1000px) {
+  .granny-app .app-header { padding: 0 24px; }
+  .granny-app .builder-layout { gap: 27px; }
+  .granny-app .menu-card-copy { padding: 20px; }
+  .granny-app .menu-card-copy h2 { font-size: 25px; }
+  .granny-app .menu-card-copy > .card-price { right: 20px; top: 24px; font-size: 20px; }
+  .granny-app .studio-title { font-size: 19px; }
+  .granny-app .wizard-steps button { font-size: 12px; padding: 8px 5px; }
+}
+@media (max-width: 700px) {
+  .granny-app .app-header { height: 75px; padding: 0 18px; gap: 10px; }
+  .granny-app .brand-lockup { gap: 8px; }
+  .granny-app .brand-logo, .granny-app .brand-logo img, .granny-app img.brand-logo { width: 45px; height: 45px; }
+  .granny-app .brand-name strong { font-size: 19px; letter-spacing: -.5px; }
+  .granny-app .brand-name small { font-size: 9px; letter-spacing: 1.1px; margin-top: 4px; }
+  .granny-app .header-tools { gap: 7px; }
+  .granny-app .table-button { min-height: 38px; padding: 8px 12px; font-size: 13px; }
+  .granny-app .bag-button { width: 34px; height: 40px; }
+  .granny-app .bag-button svg { width: 25px; height: 25px; }
+  .granny-app .app-container { padding: 25px 18px 112px; }
+  .granny-app .menu-heading { margin-bottom: 20px; }
+  .granny-app .menu-heading h1 { font-size: 32px; letter-spacing: -1.1px; }
+  .granny-app .menu-heading p { font-size: 14px; line-height: 1.5; margin-top: 8px; }
+  .granny-app .category-bar { gap: 7px; margin-bottom: 20px; padding: 2px 0; }
+  .granny-app .category-bar button { min-height: 43px; padding: 9px 15px; font-size: 14px; gap: 7px; }
+  .granny-app .category-bar button svg, .granny-app .category-bar button img { width: 21px; height: 21px; }
+  .granny-app .menu-grid { grid-template-columns: 1fr; gap: 24px; }
+  .granny-app .menu-card { border-radius: 20px; }
+  .granny-app .menu-photo { aspect-ratio: 1.27; }
+  .granny-app .menu-card-copy { padding: 20px 18px 21px; }
+  .granny-app .menu-card-copy h2 { font-size: 26px; padding-right: 75px; line-height: 1.12; }
+  .granny-app .menu-card-copy > .card-price { top: 22px; right: 18px; font-size: 22px; }
+  .granny-app .menu-card-copy p { font-size: 14px; margin-top: 7px; }
+  .granny-app .make-button { min-height: 50px; margin-top: 17px; font-size: 17px; border-radius: 13px; }
+  .granny-app .menu-shortcuts { margin-top: 23px; padding: 16px 0; }
+  .granny-app .bottom-nav {
+    bottom: 0; left: 0; transform: none; width: 100%; min-height: calc(73px + env(safe-area-inset-bottom));
+    padding: 5px 15px calc(5px + env(safe-area-inset-bottom)); border-radius: 23px 23px 0 0;
+    border-bottom: 0; box-shadow: 0 -5px 25px rgb(94 28 59 / 8%);
+  }
+  .granny-app .bottom-nav button { min-height: 62px; font-size: 14px; border-radius: 18px; }
+  .granny-app .bottom-nav svg, .granny-app .bottom-nav img, .granny-app .nav-icon { width: 25px; height: 25px; }
+  .granny-app .builder-layout { display: flex; flex-direction: column; gap: 21px; }
+  .granny-app .product-studio {
+    width: 100%; top: 75px; z-index: 25; border-radius: 17px; margin-top: -8px;
+    box-shadow: 0 8px 22px rgb(96 27 61 / 8%); max-height: 320px;
+  }
+  .granny-app .studio-header { padding: 12px 14px 0; gap: 8px; }
+  .granny-app .studio-title { font-size: 19px; }
+  .granny-app .favorite-button { width: 34px; min-width: 34px; height: 34px; padding: 7px; }
+  .granny-app .favorite-button svg { width: 19px; height: 19px; }
+  .granny-app .preview-stage { aspect-ratio: 1.48; max-height: 246px; }
+  .granny-app .preview-stage canvas, .granny-app .preview-stage svg.food-engine-svg { max-height: 246px; }
+  .granny-app .preview-note { font-size: 10px; padding: 0 10px 10px; line-height: 1.3; }
+  .granny-app .builder-controls { width: 100%; }
+  .granny-app .wizard-steps { margin-bottom: 21px; gap: 5px; padding-bottom: 3px; }
+  .granny-app .wizard-steps button { min-height: 45px; padding: 6px 4px; font-size: 11px; border-radius: 11px; }
+  .granny-app .wizard-steps button span:first-child { font-size: 10px; }
+  .granny-app .step-heading small { font-size: 12px; margin-bottom: 5px; }
+  .granny-app .step-heading h1 { font-size: 30px; letter-spacing: -.9px; }
+  .granny-app .step-heading p { font-size: 14px; line-height: 1.5; margin-top: 8px; }
+  .granny-app .ingredient-grid { margin: 20px 0 14px; gap: 11px; }
+  .granny-app button.ingredient { min-height: 137px; padding: 9px 9px 12px; border-radius: 17px; }
+  .granny-app .ingredient-photo { height: 80px; max-width: 126px; }
+  .granny-app .ingredient-name { font-size: 16px; margin-top: 6px; }
+  .granny-app .ingredient-sub { font-size: 12px; margin-top: 4px; }
+  .granny-app .select-check { top: 9px; right: 9px; width: 22px; height: 22px; }
+  .granny-app .selected-count { font-size: 13px; }
+  .granny-app .selection-chips > * { font-size: 11px; }
+  .granny-app .price-dock {
+    bottom: calc(81px + env(safe-area-inset-bottom)); padding: 13px 14px;
+    margin-top: 17px; border-radius: 18px; gap: 10px;
+  }
+  .granny-app .price-label { font-size: 11px; }
+  .granny-app .amount { font-size: 29px; }
+  .granny-app .next-button { min-height: 47px; padding: 11px 16px; font-size: 17px; border-radius: 13px; max-width: 210px; }
+  .granny-app .previous-button { width: 35px; height: 39px; padding: 7px; }
+  .granny-app .allergen-note { font-size: 12px; margin: 15px 0 10px; }
+  .granny-app .allergen-note summary { font-size: 14px; }
+  .granny-app .summary-card { padding: 4px 16px; border-radius: 17px; }
+  .granny-app .summary-row { padding: 13px 0; font-size: 15px; gap: 10px; }
+  .granny-app .summary-row span:first-child { font-size: 13px; }
+  .granny-app .quantity-stepper { gap: 14px; }
+  .granny-app .modal-backdrop { align-items: end; padding: 12px 0 0; }
+  .granny-app .modal-panel { border-radius: 25px 25px 0 0; max-height: 91dvh; padding-bottom: env(safe-area-inset-bottom); }
+  .granny-app .modal-header { padding: 20px 19px 17px; }
+  .granny-app .modal-header h2 { font-size: 24px; }
+  .granny-app .modal-body { padding: 18px 19px 24px; }
+  .granny-app .modal-body > p { font-size: 14px; }
+  .granny-app .cart-row { gap: 11px; padding: 16px 0; }
+  .granny-app .cart-thumb { width: 70px; height: 83px; border-radius: 12px; }
+  .granny-app .cart-details h3 { font-size: 16px; }
+  .granny-app .cart-details p { font-size: 12px; margin: 6px 0 9px; }
+  .granny-app .cart-row > strong { font-size: 15px; }
+  .granny-app .cart-row .quantity-stepper { gap: 11px; font-size: 15px; }
+  .granny-app .cart-row .quantity-stepper button { width: 29px; height: 29px; font-size: 20px; }
+  .granny-app .cart-total { font-size: 22px; margin: 21px 0; }
+  .granny-app .cart-total strong { font-size: 27px; }
+  .granny-app .toast { bottom: calc(98px + env(safe-area-inset-bottom)); font-size: 13px; border-radius: 12px; padding: 12px 18px; }
+  .granny-app .awning { height: 8px; }
+  .granny-app .cinema-nav { padding: 18px; }
+  .granny-app .cinema-logo { width: 56px; height: 56px; }
+  .granny-app .skip-intro { padding: 10px 15px; font-size: 13px; min-height: 42px; }
+  .granny-app .cinema-footer { bottom: calc(25px + env(safe-area-inset-bottom)); }
+  .granny-app .enter-menu { min-height: 54px; min-width: 220px; border-radius: 16px; font-size: 18px; }
+  .granny-app .intro-label { font-size: 12px; padding: 6px 12px; }
+}
+@media (max-width: 370px) {
+  .granny-app .app-header { padding: 0 13px; }
+  .granny-app .app-container { padding-right: 13px; padding-left: 13px; }
+  .granny-app .brand-name strong { font-size: 17px; }
+  .granny-app .brand-name small { font-size: 8px; letter-spacing: .7px; }
+  .granny-app .category-bar button { padding: 9px 12px; font-size: 13px; }
+  .granny-app .menu-heading h1 { font-size: 29px; }
+  .granny-app .step-heading h1 { font-size: 27px; }
+  .granny-app .wizard-steps button { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .granny-app *, .granny-app *::before, .granny-app *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+  .granny-app .menu-card:hover .menu-photo img { transform: none; }
+}
+
+
+.granny-app .ui-icon { width: 25px; height: 25px; object-fit: contain; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+.granny-app .category-bar button.active .ui-icon, .granny-app .make-button .ui-icon, .granny-app .next-button .ui-icon, .granny-app .basket-action .ui-icon { filter: brightness(0) invert(1); }
+
+/* Compatibility with the authored application structure. */
+html, body {
+  font-family: Outfit, "Arial Rounded MT Bold", Arial, sans-serif;
+  background: var(--gw-paper); color: var(--gw-ink); color-scheme: light;
+}
+.granny-app .builder-topline { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin: -5px 0 23px; color: var(--gw-muted); font-size: 14px; }
+.granny-app .builder-topline button { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 5px 0; background: transparent; color: var(--gw-ink); }
+.granny-app .builder-topline svg { width: 19px; height: 19px; }
+.granny-app .dock-actions { display: flex; justify-content: flex-end; align-items: center; flex: 1; gap: 9px; min-width: 0; }
+.granny-app .dock-actions .next-button { min-width: 0; white-space: nowrap; }
+.granny-app .service-note { color: var(--gw-muted); font-size: 12px; line-height: 1.65; margin: 17px 0 0; }
+.granny-app .basket-intro { margin-bottom: 15px; }
+.granny-app .cart-details > strong { font-size: 18px; line-height: 1.25; font-weight: 750; }
+.granny-app .full-menu > p { color: var(--gw-muted); font-size: 14px; margin-bottom: 24px; }
+.granny-app .full-menu > section + section { margin-top: 29px; }
+.granny-app .full-menu h3 { color: var(--gw-pink); font-size: 25px; font-weight: 800; letter-spacing: -.55px; margin: 0 0 6px; }
+.granny-app .full-menu .summary-row { font-size: 14px; padding: 12px 0; }
+.granny-app .full-menu .summary-row strong { white-space: nowrap; }
+.granny-app .summary-card > button.summary-row { width: 100%; background: transparent; text-align: left; }
+.granny-app .summary-card > button.summary-row > span { text-align: left; font-size: 15px; color: var(--gw-ink); }
+.granny-app .summary-card > button.summary-row > span strong { text-align: left; display: block; font-size: 15px; }
+.granny-app .summary-card > button.summary-row > span > span { display: block; color: var(--gw-muted); font-size: 14px; line-height: 1.5; margin-top: 3px; }
+.granny-app .summary-card > button.summary-row > svg { width: 20px; height: 20px; color: var(--gw-pink); }
+.granny-app .summary-card > p { padding-bottom: 14px; font-size: 14px; color: var(--gw-muted); line-height: 1.6; }
+.granny-app dialog.modal-panel { margin: auto; border: 0; padding: 0; width: calc(100% - 36px); }
+.granny-app dialog.modal-panel[open] { display: block; }
+.granny-app dialog.modal-panel::backdrop { background: rgb(49 28 39 / 55%); }
+.granny-app .note-label input { min-height: 48px; }
+.granny-app .canvas-error { align-content: center; gap: 13px; }
+.granny-app .canvas-error button { min-height: 42px; border-radius: 12px; padding: 10px 18px; color: white; background: var(--gw-pink); font-weight: 600; }
+.granny-app .product-studio > .selection-chips { padding: 0 17px 13px; margin-top: 0; max-height: 84px; overflow-y: auto; }
+.granny-app .product-studio > .selection-chips:empty { padding: 0; margin: 0; max-height: 0; }
+.granny-app .sauce-swatch {
+  --sauce: #804a30; position: relative; display: block; width: 96px; height: 67px;
+  border-radius: 50%; overflow: hidden; background: var(--sauce);
+  box-shadow: inset 0 2px 6px rgb(255 255 255 / 30%), inset 0 -4px 8px rgb(54 22 19 / 16%), 0 3px 6px rgb(75 31 27 / 10%);
+}
+.granny-app .sauce-swatch img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: luminosity; opacity: .55; }
+.granny-app .sauce-swatch::after { content: ""; position: absolute; left: 17%; top: 13%; width: 43%; height: 13%; border-radius: 50%; background: rgb(255 255 255 / 20%); filter: blur(2px); transform: rotate(-12deg); pointer-events: none; }
+.granny-app .sauce-milk { --sauce: #804a30; }
+.granny-app .sauce-white { --sauce: #f0dfb5; }
+.granny-app .sauce-white img { filter: brightness(2.3) saturate(.2); mix-blend-mode: soft-light; opacity: .45; }
+.granny-app .sauce-dark { --sauce: #3d2421; }
+.granny-app .sauce-hazelnut-chocolate { --sauce: #a66f43; }
+.granny-app .sauce-strawberry-chocolate { --sauce: #df839d; }
+.granny-app .sauce-pistachio { --sauce: #9aa258; }
+.granny-app .sauce-caramel { --sauce: #bb7c39; }
+.granny-app .sauce-raspberry { --sauce: #b33d6a; }
+.system-error { margin: 0 auto; max-width: 560px; min-height: 70dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 17px; text-align: center; padding: 40px 24px; font-family: Outfit, Arial, sans-serif; color: var(--gw-ink); }
+.system-error h1 { font-size: 32px; line-height: 1.15; font-weight: 800; letter-spacing: -1px; }
+.system-error p { color: var(--gw-muted); font-size: 16px; line-height: 1.6; }
+.system-error button, .system-error a { min-height: 48px; border-radius: 13px; padding: 12px 21px; background: var(--gw-pink); color: white; text-decoration: none; }
+.granny-app .cinema-wrap .scroll-scrub__chapter-pin,
+.granny-app .cinema-wrap .scroll-scrub__chapter[data-align="right"] .scroll-scrub__chapter-pin {
+  align-items: flex-end; justify-content: flex-start; padding: 130px 7% 152px;
+}
+.granny-app .cinema-wrap .scroll-scrub__copy { width: min(590px, 100%); }
+.granny-app .cinema-wrap .scroll-scrub__copy::before { inset: -30px -45px; border-radius: 28px; background: radial-gradient(ellipse at 38% 60%, rgb(255 249 252 / 93%) 0%, rgb(255 249 252 / 75%) 44%, transparent 76%); }
+.granny-app .cinema-wrap .scroll-scrub__title { max-width: 17ch; font-family: Outfit, Arial, sans-serif; font-size: clamp(39px, 4.8vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; text-wrap: balance; }
+.granny-app .cinema-wrap .scroll-scrub__body { max-width: 35ch; font-size: 17px; line-height: 1.6; margin-top: 14px; }
+.granny-app .cinema-wrap .scroll-scrub__route { display: none; }
+.granny-app .cinema-footer > div { display: none; }
+.granny-app .cinema-footer .ui-icon { filter: brightness(0) invert(1); }
+@media (max-width: 700px) {
+  .granny-app .builder-topline { margin: -7px 0 19px; font-size: 13px; }
+  .granny-app .builder-topline button { font-size: 14px; }
+  .granny-app .dock-actions { gap: 7px; }
+  .granny-app .dock-actions .next-button { padding-left: 12px; padding-right: 12px; font-size: 16px; }
+  .granny-app .dock-actions .next-button svg { width: 19px; height: 19px; }
+  .granny-app .cart-details > strong { font-size: 16px; }
+  .granny-app .full-menu h3 { font-size: 23px; }
+  .granny-app .full-menu .summary-row { font-size: 13px; gap: 13px; }
+  .granny-app .full-menu .summary-row > span { font-size: 13px; }
+  .granny-app dialog.modal-panel { width: 100%; margin: auto 0 0; inset: auto 0 0; }
+  .granny-app .product-studio > .selection-chips { display: none; }
+  .granny-app .sauce-swatch { width: 88px; height: 62px; }
+  .granny-app .cinema-wrap .scroll-scrub__chapter-pin,
+  .granny-app .cinema-wrap .scroll-scrub__chapter[data-align="right"] .scroll-scrub__chapter-pin {
+    padding: 120px 23px calc(128px + env(safe-area-inset-bottom));
+  }
+  .granny-app .cinema-wrap .scroll-scrub__copy::before { inset: -30px -30px; }
+  .granny-app .cinema-wrap .scroll-scrub__title { font-size: clamp(35px, 10.2vw, 44px); max-width: 16ch; line-height: 1.05; letter-spacing: -1.3px; }
+  .granny-app .cinema-wrap .scroll-scrub__body { max-width: 28ch; font-size: 15px; line-height: 1.55; margin-top: 12px; }
+}
+
+.select-check .ui-icon{width:14px;height:14px;filter:brightness(0) invert(1)}
+
+/* Product-first menu: four compact DIY entrances, then the ready catalogue. */
+.granny-app .awning {
+  height: 3px;
+  background: var(--gw-border);
+  border: 0;
+}
+.granny-app .diy-welcome { margin: 0 0 23px; }
+.granny-app .welcome-kicker {
+  display: block; margin-bottom: 6px; color: var(--gw-pink);
+  font-size: 12px; line-height: 1.2; letter-spacing: 1.4px; font-weight: 650;
+}
+.granny-app .diy-welcome h1 {
+  color: var(--gw-ink); font-size: 42px; line-height: 1.08;
+  font-weight: 800; letter-spacing: -1.5px;
+}
+.granny-app .diy-welcome p {
+  max-width: 46ch; margin-top: 9px; color: var(--gw-muted);
+  font-size: 16px; line-height: 1.5;
+}
+.granny-app .diy-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px; margin: 0; align-items: stretch;
+}
+.granny-app button.diy-card {
+  display: flex; flex-direction: column; min-width: 0; padding: 0; height: 232px;
+  border-radius: 18px; border: 1px solid var(--gw-border);
+  background: var(--gw-white); text-align: left; overflow: hidden;
+  box-shadow: 0 3px 11px rgb(68 26 47 / 3%);
+  transition: border-color .18s, box-shadow .18s, transform .18s;
+}
+.granny-app button.diy-card:hover {
+  border-color: var(--gw-pink); box-shadow: 0 8px 22px rgb(88 19 54 / 7%);
+}
+.granny-app button.diy-card:active { transform: scale(.98); }
+.granny-app .diy-product {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 164px; padding: 11px 15px 2px;
+  background: var(--gw-white); overflow: hidden;
+}
+.granny-app .diy-product img {
+  height: 100%; width: 100%; object-fit: contain;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.granny-app .diy-card:hover .diy-product img { transform: translateY(-2px) scale(1.025); }
+.granny-app .diy-card-caption {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 9px; padding: 10px 17px 15px; width: 100%; min-height: 65px;
+}
+.granny-app .diy-card-caption > span { min-width: 0; display: block; }
+.granny-app .diy-card-caption strong {
+  display: block; font-weight: 750; font-size: 23px; letter-spacing: -.5px; line-height: 1.15;
+}
+.granny-app .diy-card-caption small {
+  display: block; color: var(--gw-pink); font-weight: 550; font-size: 12px; line-height: 1.3; margin-top: 4px;
+}
+.granny-app .diy-card-caption > svg {
+  width: 21px; height: 21px; color: var(--gw-pink); flex-shrink: 0;
+}
+.granny-app .ready-section {
+  margin-top: 45px; padding-top: 30px; border-top: 1px solid var(--gw-border);
+  scroll-margin-top: 106px;
+}
+.granny-app .ready-heading {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  margin-bottom: 19px;
+}
+.granny-app .ready-heading h2 {
+  color: var(--gw-ink); font-size: 30px; line-height: 1.12; font-weight: 800; letter-spacing: -.85px;
+}
+.granny-app .ready-heading p {
+  color: var(--gw-muted); font-size: 14px; line-height: 1.5; margin-top: 7px;
+}
+.granny-app .ready-heading > button {
+  color: var(--gw-pink); background: transparent; font-size: 14px; line-height: 1.3;
+  padding: 11px 0 11px 11px; white-space: nowrap; font-weight: 600;
+  text-decoration: underline; text-underline-offset: 4px;
+}
+.granny-app .ready-filters.category-bar {
+  gap: 8px; margin-bottom: 20px; padding-top: 0; padding-bottom: 1px;
+}
+.granny-app .ready-filters.category-bar button {
+  border-radius: 19px; min-height: 39px; font-size: 14px; padding: 8px 17px;
+}
+.granny-app .ready-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;
+}
+.granny-app .ready-card {
+  min-width: 0; background: var(--gw-white); border-radius: 17px; overflow: hidden;
+  border: 1px solid var(--gw-border); box-shadow: 0 2px 7px rgb(68 26 47 / 2%);
+}
+.granny-app button.ready-photo {
+  display: block; width: 100%; padding: 0; aspect-ratio: 1.3; overflow: hidden;
+  background: var(--gw-pale); border: 0; border-radius: 0; text-align: left;
+}
+.granny-app .ready-photo img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform .4s;
+}
+.granny-app .ready-photo:hover img { transform: scale(1.035); }
+.granny-app .ready-card-info { padding: 16px 16px 7px; }
+.granny-app .ready-card-info h3 {
+  font-size: 20px; line-height: 1.2; font-weight: 750; letter-spacing: -.45px;
+}
+.granny-app .ready-card-info p {
+  font-size: 14px; color: var(--gw-muted); line-height: 1.5; margin-top: 6px;
+}
+.granny-app .ready-card-price {
+  display: block; color: var(--gw-ink); font-size: 19px; font-weight: 750; line-height: 1.2; margin-top: 12px;
+}
+.granny-app button.ready-customize {
+  display: inline-flex; align-items: center; gap: 5px; padding: 10px 16px 16px;
+  min-height: 43px; background: transparent; color: var(--gw-pink);
+  border: 0; border-radius: 0; font-size: 14px; font-weight: 600;
+}
+.granny-app .ready-customize:hover { text-decoration: underline; text-underline-offset: 4px; }
+.granny-app .ready-customize svg { width: 17px; height: 17px; }
+@media (min-width: 1180px) {
+  .granny-app .ready-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 950px) and (min-width: 701px) {
+  .granny-app .diy-grid { gap: 13px; }
+  .granny-app button.diy-card { height: 201px; }
+  .granny-app .diy-product { height: 140px; padding: 9px 8px 0; }
+  .granny-app .diy-card-caption { padding: 9px 12px 13px; min-height: 60px; }
+  .granny-app .diy-card-caption strong { font-size: 20px; }
+  .granny-app .ready-grid { gap: 16px; }
+  .granny-app .ready-card-info { padding: 14px 13px 5px; }
+  .granny-app .ready-card-info h3 { font-size: 18px; }
+}
+@media (max-width: 700px) {
+  .granny-app .app-header { height: 72px; }
+  .granny-app .brand-logo, .granny-app .brand-logo img, .granny-app img.brand-logo { width: 50px; height: 50px; }
+  .granny-app .diy-welcome { margin-bottom: 19px; }
+  .granny-app .welcome-kicker { font-size: 11px; line-height: 1.2; letter-spacing: 1.2px; margin-bottom: 5px; }
+  .granny-app .diy-welcome h1 { font-size: 32px; line-height: 1.08; letter-spacing: -1px; }
+  .granny-app .diy-welcome p { max-width: 35ch; font-size: 14px; line-height: 1.45; margin-top: 7px; }
+  .granny-app .diy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .granny-app button.diy-card { height: 168px; border-radius: 16px; }
+  .granny-app .diy-product { height: 112px; padding: 8px 10px 0; }
+  .granny-app .diy-card-caption { min-height: 54px; padding: 6px 12px 11px; gap: 5px; }
+  .granny-app .diy-card-caption strong { font-size: 20px; letter-spacing: -.45px; line-height: 1.15; }
+  .granny-app .diy-card-caption small { font-size: 11px; line-height: 1.3; margin-top: 3px; }
+  .granny-app .diy-card-caption > svg { width: 19px; height: 19px; }
+  .granny-app .ready-section { margin-top: 31px; padding-top: 23px; scroll-margin-top: 93px; }
+  .granny-app .ready-heading { margin-bottom: 17px; align-items: center; gap: 14px; }
+  .granny-app .ready-heading h2 { font-size: 26px; letter-spacing: -.75px; line-height: 1.1; }
+  .granny-app .ready-heading p { font-size: 13px; line-height: 1.45; margin-top: 6px; }
+  .granny-app .ready-heading > button { font-size: 12px; padding-left: 8px; }
+  .granny-app .ready-filters.category-bar { gap: 7px; margin-bottom: 17px; }
+  .granny-app .ready-filters.category-bar button { min-height: 36px; font-size: 13px; padding: 7px 15px; }
+  .granny-app .ready-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 12px; }
+  .granny-app .ready-card { border-radius: 14px; box-shadow: none; }
+  .granny-app button.ready-photo { aspect-ratio: 1.12; }
+  .granny-app .ready-card-info { padding: 12px 11px 5px; }
+  .granny-app .ready-card-info h3 { font-size: 17px; line-height: 1.22; letter-spacing: -.25px; }
+  .granny-app .ready-card-info p { font-size: 12px; line-height: 1.45; margin-top: 5px; }
+  .granny-app .ready-card-price { font-size: 17px; margin-top: 10px; }
+  .granny-app button.ready-customize { min-height: 40px; padding: 7px 11px 12px; font-size: 12px; gap: 3px; }
+  .granny-app .ready-customize svg { width: 15px; height: 15px; }
+}
+@media (max-width: 370px) {
+  .granny-app button.diy-card { height: 158px; }
+  .granny-app .diy-product { height: 103px; padding-left: 8px; padding-right: 8px; }
+  .granny-app .diy-card-caption { padding-left: 10px; padding-right: 9px; }
+  .granny-app .diy-card-caption strong { font-size: 18px; }
+  .granny-app .diy-welcome h1 { font-size: 30px; }
+  .granny-app .diy-grid { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .granny-app .diy-card:hover .diy-product img,
+  .granny-app .ready-photo:hover img { transform: none; }
+}
+
+.granny-app svg.ui-icon{color:currentColor;filter:none!important;flex-shrink:0}
+.granny-app .diy-card-caption>span{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.granny-app .ready-card-info>div{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}
+
+.granny-app .diy-product{background:transparent}
+.granny-app .ready-customize{white-space:nowrap}
+
+/* Granny's pink storefront: photography stays opaque and uncropped by decorative shapes. */
+html:has(.pink-world), body:has(.pink-world) { background: #e50078; }
+.granny-app.pink-world {
+  --gw-pink: #d40078; --gw-pink-dark: #ad005c; --gw-border: #efd1df;
+  min-height: 100dvh; color: #311c27; background-color: #e50078;
+  background-image: linear-gradient(rgb(229 0 120 / 96%),rgb(229 0 120 / 96%)),url('/assets/pink-world-pattern.webp');
+  background-size: auto,540px auto; background-position: center top;
+}
+.pink-world .app-header {
+  height: 84px; padding: 0 max(24px,calc((100vw - 1200px)/2));
+  background: #d90072; border-bottom: 1px solid rgb(255 255 255 / 18%); box-shadow: none;
+}
+.pink-world .brand-lockup, .pink-world .brand-name strong { color: white; }
+.pink-world .brand-name strong { font-size: 23px; font-weight: 750; text-shadow: none; }
+.pink-world .brand-logo { background: white; border: 0; box-shadow: none; }
+.pink-world .brand-logo img { padding: 2px; }
+.pink-world .table-button { color: #ae005d; background: white; border: 0; box-shadow: none; }
+.pink-world .bag-button { color: white; }
+.pink-world .header-tools .bag-button .ui-icon { color: white; }
+.pink-world .header-tools .bag-button img.ui-icon { filter: brightness(0) invert(1); }
+.pink-world .bag-button > b { background: white; color: #b40060; border-color: #d90072; }
+.granny-app .desktop-nav { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.granny-app .desktop-nav button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 43px; padding: 10px 16px; color: white; background: transparent;
+  border-radius: 12px; font-size: 14px; font-weight: 600;
+}
+.granny-app .desktop-nav button:hover, .granny-app .desktop-nav button.active { background: rgb(255 255 255 / 16%); }
+.granny-app .desktop-nav svg { width: 20px; height: 20px; }
+.pink-world .awning {
+  height: 10px; border: 0; box-shadow: none;
+  background: repeating-linear-gradient(90deg,#fff9fc 0 22px,#f0449c 22px 44px);
+}
+.pink-world .app-container { padding: 36px 28px 60px; }
+.pink-world .diy-welcome { margin: 0 0 24px; padding: 0; }
+.pink-world .welcome-kicker {
+  display: inline-block; margin: 0 0 12px; padding: 0; color: white; background: transparent;
+  border-radius: 0; box-shadow: none; font-size: 12px; line-height: 1.4; font-weight: 600; letter-spacing: 1.5px;
+}
+.pink-world .diy-welcome h1 {
+  color: white; font-size: 50px; line-height: 1.08; font-weight: 750;
+  letter-spacing: -1.8px; white-space: normal; text-shadow: none;
+}
+.pink-world .diy-welcome h1 span { color: white; text-decoration: none; }
+.pink-world .diy-welcome p { margin-top: 12px; max-width: 48ch; color: white; font-size: 16px; line-height: 1.5; }
+.pink-world .diy-grid { gap: 20px; }
+.pink-world button.diy-card {
+  height: auto; border: 1px solid rgb(255 255 255 / 65%); border-radius: 18px;
+  background: white; overflow: hidden; box-shadow: 0 10px 24px rgb(91 0 43 / 12%);
+}
+.pink-world button.diy-card:hover { transform: translateY(-3px); border-color: white; box-shadow: 0 15px 28px rgb(91 0 43 / 17%); }
+.pink-world button.diy-card:active { transform: translateY(0); }
+.pink-world .diy-product {
+  width: 100%; height: auto; aspect-ratio: 1.25; flex-shrink: 0; padding: 0;
+  background: #fff; background-image: none; isolation: isolate;
+}
+.pink-world .diy-product img {
+  display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center;
+  padding: 0; border: 0; border-radius: 0; background: white; box-shadow: none;
+  mix-blend-mode: normal; opacity: 1; filter: none; transform: none;
+}
+.pink-world .diy-card:hover .diy-product img { transform: none; }
+.pink-world .diy-card-caption { min-height: 78px; padding: 15px 18px; background: white; border: 0; gap: 10px; }
+.pink-world .diy-card-caption strong { color: #5e123b; font-size: 23px; line-height: 1.1; font-weight: 700; letter-spacing: -.5px; }
+.pink-world .diy-card-caption small { color: #9f3c70; font-size: 13px; line-height: 1.3; font-weight: 500; margin-top: 4px; }
+.pink-world .diy-card-caption > svg { width: 23px; height: 23px; padding: 0; color: #d40078; background: transparent; border-radius: 0; }
+.pink-world .ready-section {
+  margin-top: 38px; padding: 28px; background: #fff9fc; color: #311c27;
+  border: 0; border-radius: 22px; box-shadow: 0 12px 30px rgb(91 0 43 / 10%);
+}
+.pink-world .ready-section::before { content: none; }
+.pink-world .ready-heading h2 { color: #6d1647; font-size: 30px; font-weight: 700; letter-spacing: -.8px; }
+.pink-world .ready-heading p { color: #795969; font-size: 15px; }
+.pink-world .ready-heading > button { color: #b80066; background: transparent; font-size: 14px; }
+.pink-world .ready-grid { gap: 20px; }
+.pink-world .ready-card { border: 1px solid #efd1df; border-radius: 15px; box-shadow: none; background: white; }
+.pink-world button.ready-photo { background: white; border: 0; }
+.pink-world .ready-card-info h3 { color: #5e123b; }
+.pink-world .ready-card-price { color: #a7005a; }
+.pink-world .menu-shortcuts { border-color: rgb(255 255 255 / 30%); }
+.pink-world .menu-shortcuts button { color: white; }
+.pink-world .bottom-nav { display: none; }
+.pink-world .builder-topline, .pink-world .builder-topline button { color: white; }
+.pink-world .product-studio { border: 1px solid #f6cedf; background: #fff5fa; background-image: none; box-shadow: 0 12px 30px rgb(91 0 43 / 10%); }
+.pink-world .studio-header { padding: 16px 16px 0; }
+.pink-world .studio-title { color: #6d1647; background: transparent; box-shadow: none; padding: 0; }
+.pink-world .favorite-button { color: #b60064; background: white; border: 1px solid #efd1df; box-shadow: none; }
+.pink-world .preview-stage { background: #fff5fa; }
+.pink-world .preview-note { color: #795969; background: transparent; padding: 0 14px; margin-bottom: 13px; }
+.pink-world .builder-controls { border: 0; border-radius: 22px; padding: 25px; background: #fff9fc; box-shadow: 0 12px 30px rgb(91 0 43 / 10%); }
+.pink-world .wizard-steps button { color: #a3005a; background: #ffe5f1; border: 1px solid #f6bdd8; }
+.pink-world .wizard-steps button.active { color: white; background: #d40078; border-color: #d40078; box-shadow: none; }
+.pink-world .step-heading h1 { color: #6d1647; }
+.pink-world button.ingredient { border: 1px solid #e9cbd9; background: white; box-shadow: none; }
+.pink-world button.ingredient.selected { border-color: #d40078; box-shadow: 0 0 0 1px #d40078; }
+.pink-world .price-dock { bottom: 24px; border: 1px solid #e9cbd9; background: white; box-shadow: 0 6px 22px rgb(91 0 43 / 8%); }
+.pink-world .amount { color: #a7005a; }
+.pink-world .next-button, .pink-world .basket-action { color: white; background: #d40078; box-shadow: none; }
+.pink-world .previous-button { color: #b00060; background: #fff0f7; }
+.pink-world .modal-panel { color: #311c27; border: 0; box-shadow: 0 20px 80px rgb(61 0 29 / 22%); }
+.pink-world .modal-header { background: white; color: #6d1647; border-bottom: 1px solid #efd1df; }
+.pink-world .modal-header h2 { color: #6d1647; }
+.pink-world .modal-close { color: #b00060; background: #fff0f7; }
+.pink-world .modal-body { background: #fff9fc; }
+.pink-world .summary-card { border-color: #efd1df; background: white; }
+@media (max-width: 899px) {
+  .granny-app .desktop-nav { display: none; }
+  .pink-world .app-header { height: 72px; padding: 0 20px; }
+  .pink-world .brand-logo, .pink-world .brand-logo img { width: 48px; height: 48px; }
+  .pink-world .brand-name strong { font-size: 20px; }
+  .pink-world .app-container { padding: 24px 20px calc(100px + env(safe-area-inset-bottom)); }
+  .pink-world .bottom-nav {
+    position: fixed; z-index: 45; left: 0; bottom: 0; transform: none; display: flex;
+    width: 100%; min-height: 66px; padding: 5px 16px calc(5px + env(safe-area-inset-bottom));
+    border: 0; border-top: 1px solid #efd1df; border-radius: 0; background: white;
+    box-shadow: 0 -3px 20px rgb(91 0 43 / 6%); gap: 10px;
+  }
+  .pink-world .bottom-nav button { min-height: 54px; border-radius: 12px; padding: 4px 8px; font-size: 12px; gap: 2px; color: #795969; }
+  .pink-world .bottom-nav button.active { color: #b80066; background: #fff0f7; }
+  .pink-world .bottom-nav svg { width: 22px; height: 22px; }
+  .pink-world .price-dock { bottom: calc(78px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 700px) {
+  .pink-world .app-header { padding: 0 18px; }
+  .pink-world .awning { height: 8px; }
+  .pink-world .app-container { padding: 22px 18px calc(96px + env(safe-area-inset-bottom)); }
+  .pink-world .diy-welcome { margin-bottom: 20px; }
+  .pink-world .welcome-kicker { font-size: 12px; letter-spacing: 1.1px; margin-bottom: 9px; }
+  .pink-world .diy-welcome h1 { font-size: 38px; letter-spacing: -1.3px; }
+  .pink-world .diy-welcome p { font-size: 14px; line-height: 1.45; margin-top: 9px; max-width: 32ch; }
+  .pink-world .diy-grid { gap: 14px 12px; }
+  .pink-world button.diy-card { height: auto; border-radius: 14px; box-shadow: 0 7px 18px rgb(91 0 43 / 10%); }
+  .pink-world .diy-product { height: auto; aspect-ratio: 1.15; }
+  .pink-world .diy-product img { width: 100%; height: 100%; padding: 0; }
+  .pink-world .diy-card-caption { min-height: 62px; padding: 10px 12px; }
+  .pink-world .diy-card-caption strong { font-size: 20px; }
+  .pink-world .diy-card-caption small { font-size: 12px; margin-top: 3px; }
+  .pink-world .diy-card-caption > svg { width: 19px; height: 19px; }
+  .pink-world .ready-section { margin-top: 28px; padding: 22px 14px; border-radius: 18px; }
+  .pink-world .ready-heading { gap: 10px; }
+  .pink-world .ready-heading h2 { font-size: 25px; }
+  .pink-world .ready-heading p { font-size: 14px; }
+  .pink-world .ready-heading > button { font-size: 13px; }
+  .pink-world .ready-grid { gap: 16px 10px; }
+  .pink-world .product-studio { top: 72px; border-radius: 17px; }
+  .pink-world .builder-controls { padding: 22px 14px; border-radius: 18px; }
+}
+@media (max-width: 370px) {
+  .pink-world .app-header { padding: 0 13px; gap: 10px; }
+  .pink-world .brand-lockup { gap: 7px; }
+  .pink-world .brand-logo, .pink-world .brand-logo img { width: 42px; height: 42px; }
+  .pink-world .brand-name strong { font-size: 18px; }
+  .pink-world .header-tools { gap: 5px; }
+  .pink-world .table-button { font-size: 12px; padding: 8px 10px; }
+  .pink-world .diy-card-caption { padding: 10px; }
+  .pink-world .diy-card-caption strong { font-size: 18px; }
+  .pink-world .diy-welcome h1 { font-size: 35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pink-world .diy-card, .pink-world .diy-product img { transition: none; }
+  .pink-world button.diy-card:hover { transform: none; }
+}
+
+/* Complete searchable printed catalogue and product detail sheets. */
+.granny-app .catalogue-search {
+  display: flex; flex-direction: column; gap: 9px; margin: 22px 0 16px;
+  min-width: 0; width: 100%;
+}
+.granny-app .catalogue-search label {
+  color: #702345; font-size: 15px; line-height: 1.4; font-weight: 650;
+}
+.granny-app .catalogue-search input[type="search"] {
+  display: block; width: 100%; min-width: 0; min-height: 52px;
+  border: 2px solid #e993bb; border-radius: 14px; padding: 13px 15px;
+  background: white; color: #311c27; font-family: Outfit, Arial, sans-serif;
+  font-size: 16px; line-height: 1.4; appearance: none;
+  box-shadow: inset 0 2px 0 rgb(137 27 81 / 3%);
+}
+.granny-app .catalogue-search input[type="search"]::placeholder { color: #795969; opacity: 1; }
+.granny-app .catalogue-search input[type="search"]:focus-visible {
+  outline: 3px solid #d40078; outline-offset: 3px; border-color: #d40078;
+}
+.granny-app .catalogue-meta {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  flex-wrap: wrap; margin: 13px 0 17px; color: #795969;
+}
+.granny-app .catalogue-meta small, .granny-app .catalogue-count {
+  font-size: 14px; line-height: 1.5;
+}
+.granny-app .catalogue-count { color: #ac005d; font-weight: 700; }
+.granny-app .catalogue-source-note {
+  display: block; color: #795969; font-size: 14px; line-height: 1.65;
+  margin: 18px 0 0; max-width: 72ch;
+}
+.granny-app .catalogue-filters.category-bar { gap: 8px; margin-bottom: 20px; }
+.granny-app .catalogue-filters.category-bar button {
+  min-height: 43px; font-size: 14px; line-height: 1.3; padding: 10px 15px;
+}
+.granny-app .catalogue-card {
+  display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+}
+.granny-app .catalogue-card .ready-photo { width: 100%; flex-shrink: 0; }
+.granny-app .catalogue-card .ready-card-info {
+  flex: 1; min-width: 0; padding: 15px 14px 11px;
+}
+.granny-app .catalogue-card .ready-card-info h3 {
+  font-size: 19px; line-height: 1.25; font-weight: 750; letter-spacing: -.35px;
+  overflow-wrap: break-word; margin-top: 6px;
+}
+.granny-app .catalogue-card .ready-card-info p {
+  font-size: 14px; line-height: 1.55; color: #795969; overflow-wrap: break-word;
+}
+.granny-app .catalogue-category {
+  display: block; color: #a9005c; font-size: 14px; line-height: 1.35;
+  font-weight: 600; margin-bottom: 5px;
+}
+.granny-app .catalogue-portion {
+  display: block; margin-top: 6px; color: #795969;
+  font-size: 14px; line-height: 1.45;
+}
+.granny-app .catalogue-card .ready-card-price {
+  display: block; font-size: 22px; line-height: 1.15; font-weight: 800;
+  color: #a9005c; margin-top: 13px; white-space: nowrap;
+}
+.granny-app .catalogue-info-button {
+  display: inline-flex; justify-content: center; align-items: center; gap: 6px;
+  width: calc(100% - 28px); min-height: 44px; margin: 0 14px 15px; padding: 9px 10px;
+  border: 1.5px solid #d40078; border-radius: 10px; background: #fff6fa;
+  color: #b00060; font-size: 14px; line-height: 1.4; font-weight: 650;
+}
+.granny-app .catalogue-info-button svg { width: 17px; height: 17px; }
+.granny-app .catalogue-info-button:hover { background: #ffe5f1; }
+.granny-app .catalogue-no-results {
+  grid-column: 1 / -1; padding: 31px 16px; text-align: center;
+  border: 2px dashed #e99cc0; border-radius: 17px; background: white;
+}
+.granny-app .catalogue-no-results h3 {
+  margin: 0; font-size: 23px; line-height: 1.2; font-weight: 750; color: #a9005c;
+}
+.granny-app .catalogue-no-results p {
+  color: #795969; font-size: 15px; line-height: 1.6; max-width: 42ch;
+  margin: 12px auto 19px;
+}
+.granny-app .catalogue-no-results button {
+  min-height: 45px; border-radius: 12px; background: #d40078; color: white;
+  padding: 11px 19px; font-size: 14px; line-height: 1.4; font-weight: 650;
+}
+.granny-app .extras-list {
+  margin-top: 21px; padding: 0 17px; border: 2px solid #f0bfd6; border-radius: 16px;
+  background: white;
+}
+.granny-app .extra-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  min-width: 0; padding: 16px 0; border-bottom: 1px solid #f0d7e3;
+}
+.granny-app .extra-row:last-child { border-bottom: 0; }
+.granny-app .extra-row > div { min-width: 0; }
+.granny-app .extra-row strong { display: block; font-size: 16px; line-height: 1.35; font-weight: 700; color: #702345; }
+.granny-app .extra-row small { display: block; font-size: 14px; line-height: 1.5; color: #795969; margin-top: 5px; }
+.granny-app .extra-row > span:last-child, .granny-app .extra-row > b:last-child {
+  flex-shrink: 0; color: #a9005c; font-size: 20px; line-height: 1.25;
+  white-space: nowrap; font-weight: 750;
+}
+.granny-app .product-detail-photo {
+  width: 100%; aspect-ratio: 1.6; border-radius: 16px; overflow: hidden;
+  margin: 0 0 17px; background: #ffe8f2; border: 1px solid #efb9d2;
+}
+.granny-app .product-detail-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.granny-app img.product-detail-photo { object-fit: cover; display: block; }
+.granny-app .detail-portion {
+  display: inline-block; margin: 1px 0 13px; color: #a9005c;
+  font-size: 14px; line-height: 1.4; font-weight: 650;
+  background: #ffe5f1; padding: 6px 11px; border-radius: 14px;
+}
+.granny-app .detail-price {
+  display: flex; justify-content: space-between; align-items: center; gap: 17px;
+  margin: 2px 0 18px; color: #795969; font-size: 15px; line-height: 1.4;
+}
+.granny-app .detail-price strong {
+  color: #b00060; font-size: 29px; line-height: 1.1; font-weight: 800; white-space: nowrap;
+}
+.granny-app .ingredient-groups { margin: 19px 0 0; }
+.granny-app .ingredient-groups h3 {
+  font-size: 19px; line-height: 1.3; color: #a9005c; font-weight: 750;
+  margin: 24px 0 10px;
+}
+.granny-app .ingredient-groups h3:first-child { margin-top: 0; }
+.granny-app .ingredient-groups p {
+  color: #795969; font-size: 14px; line-height: 1.65; margin: 8px 0 15px;
+}
+.granny-app .ingredient-groups ul {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 16px;
+  list-style: none; margin: 0; padding: 0;
+}
+.granny-app .ingredient-groups li {
+  min-width: 0; font-size: 14px; line-height: 1.5; padding: 7px 0;
+  color: #553040; border-bottom: 1px solid #f0dce6; overflow-wrap: break-word;
+}
+.granny-app .recipe-note {
+  display: block; margin: 19px 0; padding: 13px 15px; border-radius: 13px;
+  color: #702345; background: #ffe7f2; border: 1px solid #f0bad3;
+  font-size: 14px; line-height: 1.65;
+}
+.granny-app button.detail-configure, .granny-app .detail-configure button {
+  display: flex; justify-content: center; align-items: center; gap: 9px;
+  width: 100%; min-height: 51px; padding: 13px 18px; margin-top: 20px;
+  color: white; background: #d40078; border-radius: 14px;
+  font-size: 16px; line-height: 1.4; font-weight: 700; box-shadow: 0 3px 0 #aa005a;
+}
+.granny-app button.detail-configure:hover, .granny-app .detail-configure button:hover { background: #bb0068; }
+.granny-app .reference-notes {
+  margin-top: 23px; color: #795969; font-size: 14px; line-height: 1.65;
+}
+.granny-app .reference-notes details {
+  margin-top: 10px; padding: 12px 14px; border: 1px solid #edbdd4;
+  border-radius: 13px; background: white;
+}
+.granny-app .reference-notes summary {
+  cursor: pointer; color: #a9005c; font-size: 14px; line-height: 1.5; font-weight: 650;
+}
+.granny-app .reference-notes p, .granny-app .reference-notes li {
+  margin-top: 9px; font-size: 14px; line-height: 1.65;
+}
+.granny-app .reference-notes ul { margin: 10px 0 0; padding-left: 19px; }
+.granny-app .reference-notes a {
+  color: #ae005d; text-decoration: underline; text-underline-offset: 3px;
+  font-size: 14px; line-height: 1.55; overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .granny-app .catalogue-search { margin: 20px 0 14px; }
+  .granny-app .catalogue-search label { font-size: 14px; }
+  .granny-app .catalogue-search input[type="search"] { min-height: 49px; padding: 12px 13px; border-radius: 12px; }
+  .granny-app .catalogue-meta { gap: 8px; margin: 12px 0 17px; }
+  .granny-app .catalogue-meta small, .granny-app .catalogue-count,
+  .granny-app .catalogue-source-note { font-size: 14px; }
+  .granny-app .catalogue-filters.category-bar button { min-height: 41px; padding: 9px 13px; font-size: 14px; }
+  .granny-app .catalogue-card .ready-card-info { padding: 12px 10px 10px; }
+  .granny-app .catalogue-card .ready-card-info h3 { font-size: 17px; line-height: 1.27; }
+  .granny-app .catalogue-card .ready-card-info p { font-size: 14px; line-height: 1.5; }
+  .granny-app .catalogue-category { font-size: 14px; }
+  .granny-app .catalogue-portion { font-size: 14px; line-height: 1.45; }
+  .granny-app .catalogue-card .ready-card-price { font-size: 21px; margin-top: 12px; }
+  .granny-app .catalogue-info-button {
+    width: calc(100% - 20px); min-height: 44px; margin: 0 10px 12px; padding: 9px 7px;
+    font-size: 14px; line-height: 1.3; border-radius: 9px;
+  }
+  .granny-app .catalogue-info-button svg { width: 15px; height: 15px; }
+  .granny-app .catalogue-no-results { padding: 27px 14px; }
+  .granny-app .catalogue-no-results h3 { font-size: 21px; }
+  .granny-app .catalogue-no-results p { font-size: 14px; }
+  .granny-app .extras-list { padding: 0 13px; border-radius: 14px; }
+  .granny-app .extra-row { padding: 14px 0; gap: 12px; }
+  .granny-app .extra-row strong { font-size: 15px; }
+  .granny-app .extra-row small { font-size: 14px; }
+  .granny-app .extra-row > span:last-child, .granny-app .extra-row > b:last-child { font-size: 19px; }
+  .granny-app .product-detail-photo { border-radius: 13px; margin-bottom: 15px; }
+  .granny-app .detail-price { font-size: 14px; }
+  .granny-app .detail-price strong { font-size: 27px; }
+  .granny-app .ingredient-groups h3 { font-size: 18px; margin-top: 21px; }
+  .granny-app .ingredient-groups ul { column-gap: 12px; }
+  .granny-app .ingredient-groups li { font-size: 14px; }
+  .granny-app .recipe-note { padding: 12px 13px; font-size: 14px; }
+  .granny-app .reference-notes { margin-top: 20px; font-size: 14px; }
+  .granny-app .reference-notes details { padding: 11px 12px; }
+  .granny-app .reference-notes summary, .granny-app .reference-notes a { font-size: 14px; }
+
+  /* The preparation stage stays visible without consuming the entire phone. */
+  .pink-world .product-studio { max-height: 282px; }
+  .pink-world .preview-stage { max-height: 220px; aspect-ratio: 1.55; }
+  .pink-world .preview-stage canvas, .pink-world .preview-stage svg.food-engine-svg { max-height: 220px; }
+  .pink-world .studio-header { padding-top: 9px; }
+  .pink-world .studio-title { font-size: 16px; padding-top: 6px; padding-bottom: 6px; }
+  .pink-world .preview-note { margin-bottom: 7px; }
+  .pink-world .wizard-steps button { flex: 1 0 61px; font-size: 14px; line-height: 1.2; min-height: 49px; }
+  .pink-world .ingredient-name { font-size: 16px; }
+  .pink-world .ingredient-sub { font-size: 14px; line-height: 1.4; }
+  .pink-world .selected-count, .pink-world .allergen-note, .pink-world .allergen-note summary { font-size: 14px; }
+}
+@media (max-width: 370px) {
+  .granny-app .catalogue-card .ready-card-info { padding-left: 8px; padding-right: 8px; }
+  .granny-app .catalogue-card .ready-card-info h3 { font-size: 16px; }
+  .granny-app .catalogue-card .ready-card-price { font-size: 20px; }
+  .granny-app .catalogue-info-button { width: calc(100% - 16px); margin-left: 8px; margin-right: 8px; padding-left: 5px; padding-right: 5px; }
+}
+
+.granny-app .catalogue-category small { font-size: 14px; }
+.granny-app strong.detail-price, .granny-app b.detail-price, .granny-app span.detail-price { display: block; color: #b00060; font-size: 29px; line-height: 1.15; font-weight: 800; }
+.granny-app .catalogue-photo-pending { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; background:repeating-linear-gradient(90deg,#ffe0ef 0 22px,#fff4f9 22px 44px); color:#9e0053; font-size:14px; }
+.granny-app .catalogue-photo-pending img { width:72px; height:72px; object-fit:contain; }
+.granny-app .catalogue-photo-pending span { padding:4px 8px; border-radius:12px; background:#fff8fc; }
+
+/* One consistent catalogue composition: photo, recipe, price and action. */
+.granny-app .catalogue-card { height: 100%; overflow: hidden; display: flex; flex-direction: column; }
+.granny-app .catalogue-card button.ready-photo {
+  position: relative; display: block; width: 100%; height: auto; min-height: 0; flex: 0 0 auto;
+  aspect-ratio: 4 / 3; padding: 0; text-align: center; background: #fff4f9; overflow: hidden;
+}
+.granny-app .catalogue-card button.ready-photo > img {
+  position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: 8px;
+  object-fit: contain; object-position: center; border: 0; border-radius: 0;
+  opacity: 1; filter: none; mix-blend-mode: normal; background: #fff4f9; transform: none;
+}
+.granny-app .catalogue-photo-label {
+  position: absolute; left: 10px; bottom: 10px; z-index: 1;
+  max-width: calc(100% - 20px); padding: 4px 8px; border-radius: 7px;
+  background: rgb(255 255 255 / 94%); color: #6d1647; font-size: 12px; line-height: 1.4;
+}
+.granny-app .catalogue-card .ready-card-info {
+  display: flex; flex-direction: column; flex: 1; padding: 16px 15px 14px; min-width: 0;
+}
+.granny-app .catalogue-card .catalogue-topline {
+  display: flex; align-items: center; justify-content: space-between; gap: 5px 8px;
+  flex-wrap: wrap; margin: 0 0 8px; min-height: 20px;
+}
+.granny-app .catalogue-topline .catalogue-category, .granny-app .catalogue-topline .catalogue-portion {
+  margin: 0; color: #8c4268; font-size: 13px; line-height: 1.4;
+}
+.granny-app .catalogue-card .ready-card-info h3 {
+  margin: 0 0 9px; min-height: 2.55em; font-size: 19px; line-height: 1.28; font-weight: 700;
+  color: #5e123b; overflow-wrap: anywhere;
+}
+.granny-app .catalogue-card .ready-card-info p.catalogue-ingredients {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; min-height: 3em; margin: 0 0 15px; color: #795969;
+  font-size: 14px; line-height: 1.5;
+}
+.granny-app .catalogue-card .ready-card-price { margin: auto 0 0; padding-top: 0; color: #a7005a; font-size: 23px; line-height: 1.2; }
+.granny-app .catalogue-info-button { margin-top: 0; flex-shrink: 0; }
+.granny-app .product-detail-photo { aspect-ratio: 4 / 3; background: #fff4f9; }
+.granny-app .product-detail-photo img { padding: 10px; object-fit: contain; background: #fff4f9; }
+.granny-app .detail-sources { margin: 18px 0; padding: 13px 14px; border: 1px solid #efd1df; border-radius: 12px; color: #795969; font-size: 14px; }
+.granny-app .detail-sources summary { color: #9d155e; cursor: pointer; font-weight: 600; }
+.granny-app .detail-sources p { margin-top: 8px; font-size: 14px; line-height: 1.5; }
+.granny-app .detail-sources a { display: inline-block; margin: 10px 13px 0 0; color: #ad005c; text-decoration: underline; }
+@media (max-width:700px) {
+ .granny-app .catalogue-card .ready-card-info { padding: 12px 10px; }
+ .granny-app .catalogue-card .ready-card-info h3 { font-size: 17px; min-height: 2.55em; margin-bottom: 8px; }
+ .granny-app .catalogue-card .catalogue-topline { gap: 3px 6px; margin-bottom: 7px; }
+ .granny-app .catalogue-topline .catalogue-category, .granny-app .catalogue-topline .catalogue-portion { font-size: 12px; }
+ .granny-app .catalogue-card .ready-card-info p.catalogue-ingredients { font-size: 14px; margin-bottom: 12px; }
+ .granny-app .catalogue-card .ready-card-price { font-size: 21px; }
+ .granny-app .catalogue-photo-label { left: 5px; bottom: 5px; max-width: calc(100% - 10px); font-size: 11px; padding: 3px 5px; }
+ .granny-app .catalogue-card button.ready-photo > img { padding: 4px; }
+}
+.granny-app .studio-header { flex-wrap: wrap; gap: 8px; }
+.granny-app .studio-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.granny-app .preview-clear { color: #a7005a; background: white; border: 1px solid #efd1df; border-radius: 10px; min-height: 34px; padding: 6px 10px; font-size: 13px; }
+
+@media (max-width:700px) {
+ .pink-world .product-studio { max-height: none; }
+ .pink-world .preview-stage { aspect-ratio: 1.65; max-height: 210px; }
+ .pink-world .preview-stage canvas, .pink-world .preview-stage svg.food-engine-svg { max-height: 210px; }
+ .pink-world .studio-header { padding-top: 10px; }
+ .pink-world .product-studio > .selection-chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 12px 10px; padding-bottom: 0; white-space: nowrap; }
+ .pink-world .product-studio > .selection-chips:empty { display: none; }
+ .pink-world .product-studio > .selection-chips > span { flex-shrink: 0; }
+ .pink-world .preview-note { margin: 6px 0 8px; font-size: 12px; }
+}
+/* Original photo-paint rules, scoped to the embedded supplied renderer. */
+.granny-app svg.food-engine-svg { filter: drop-shadow(0 9px 8px #51372926); }
+.granny-app svg.food-engine-svg .food-photo { filter: drop-shadow(0 1px 1px #34232338); }
+.granny-app svg.food-engine-svg .fall { animation: gw-food-fall .24s ease-out both; transform-box: fill-box; transform-origin: center; }
+@keyframes gw-food-fall { from { opacity: 0; transform: translateY(-12px) scale(.9); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion:reduce) { .granny-app svg.food-engine-svg .fall { animation: none; } }
+
+/* Phone ergonomics: keep the complete serving visible and leave room to choose. */
+@media (max-width: 899px) {
+  .granny-app .table-button, .granny-app .bag-button,
+  .granny-app .favorite-button, .granny-app .modal-close,
+  .granny-app .preview-clear { min-width: 44px; min-height: 44px; height: 44px; }
+  .granny-app .preview-clear { padding: 7px 8px; font-size: 14px; }
+  .granny-app .favorite-button { width: 44px; padding: 10px; }
+  .granny-app .bottom-nav button { min-height: 54px; font-size: 14px; }
+  .granny-app .category-bar button, .granny-app .catalogue-info-button,
+  .granny-app .ready-heading > button, .granny-app .gallery-link,
+  .granny-app .menu-shortcuts button { min-height: 44px; font-size: 14px; }
+  .granny-app .catalogue-search input, .granny-app .note-label input,
+  .granny-app .note-label textarea { font-size: 16px; }
+  .granny-app .modal-panel { overflow-x: hidden; overscroll-behavior: contain; max-height: calc(100dvh - 20px); }
+  .granny-app .modal-header { gap: 12px; padding: 16px; }
+  .granny-app .modal-header h2 { min-width: 0; overflow-wrap: anywhere; font-size: 23px; line-height: 1.15; }
+  .granny-app .modal-body { padding: 16px; overflow-wrap: anywhere; }
+  .granny-app .cart-row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; align-items: start; }
+  .granny-app .cart-thumb { grid-column: 1; grid-row: 1 / span 2; width: 64px; height: 74px; }
+  .granny-app .cart-details { grid-column: 2; min-width: 0; }
+  .granny-app .cart-details strong { display: block; font-size: 17px; line-height: 1.3; }
+  .granny-app .cart-details p, .granny-app .service-note, .granny-app .basket-intro { font-size: 14px; line-height: 1.5; }
+  .granny-app .cart-row > strong { grid-column: 2; font-size: 18px; }
+  .granny-app .cart-row:has(> .modal-close) { grid-template-columns: 64px minmax(0, 1fr) 44px; }
+  .granny-app .cart-row > .modal-close { grid-column: 3; grid-row: 1; padding: 10px; }
+  .granny-app .cart-row .quantity-stepper { gap: 10px; justify-content: flex-start; flex-wrap: wrap; }
+  .granny-app .quantity-stepper button, .granny-app .cart-row .quantity-stepper button { width: 44px; height: 44px; min-width: 44px; font-size: 23px; }
+  .granny-app .gallery-link { display: inline-flex; align-items: center; padding: 8px 0; }
+}
+@media (max-width: 700px) {
+  .granny-app.pink-world .app-header { height: 64px; padding-inline: 14px; }
+  .granny-app.pink-world .app-container { padding: 14px 14px calc(100px + env(safe-area-inset-bottom)); }
+  .granny-app .builder-topline { margin: -4px 0 8px; font-size: 14px; }
+  .granny-app .builder-topline button { min-height: 44px; }
+  .granny-app .builder-layout { gap: 12px; }
+  .granny-app.pink-world .product-studio {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto; align-items: center; top: 64px;
+    margin-top: 0; max-height: none; border-radius: 16px;
+  }
+  .granny-app.pink-world .product-studio .preview-stage {
+    grid-column: 1; grid-row: 1 / span 2; width: 100%; height: 140px;
+    min-height: 0; max-height: none; aspect-ratio: auto; align-self: stretch;
+  }
+  .granny-app.pink-world .preview-stage canvas,
+  .granny-app.pink-world .preview-stage svg.food-engine-svg { max-height: none; }
+  .granny-app .product-studio .studio-header {
+    grid-column: 2; grid-row: 1; display: flex; flex-direction: column;
+    align-items: flex-start; justify-content: end; align-self: end;
+    flex-wrap: nowrap; gap: 7px; padding: 10px 8px 0;
+  }
+  .granny-app .product-studio .studio-title { padding: 0; font-size: 16px; line-height: 1.2; letter-spacing: -.2px; }
+  .granny-app .product-studio .studio-actions { gap: 5px; margin-left: 0; }
+  .granny-app.pink-world .product-studio .preview-note {
+    grid-column: 2; grid-row: 2; align-self: start; justify-content: flex-start;
+    text-align: left; padding: 0 8px; margin: 6px 0 10px;
+    font-size: 12px; line-height: 1.35;
+  }
+  .granny-app.pink-world .builder-controls { padding: 15px 12px; border-radius: 16px; }
+  .granny-app .wizard-steps { gap: 6px; margin-bottom: 12px; padding: 1px 1px 6px; scroll-padding-inline: 1px; scrollbar-width: thin; }
+  .granny-app.pink-world .wizard-steps button {
+    flex: 0 0 auto; min-width: 64px; min-height: 44px; padding: 7px 9px;
+    font-size: 14px; line-height: 1.2; white-space: nowrap; scroll-snap-align: start;
+  }
+  .granny-app .step-heading small { font-size: 13px; margin-bottom: 4px; }
+  .granny-app .step-heading h1 { font-size: 26px; line-height: 1.12; letter-spacing: -.65px; }
+  .granny-app .step-heading p { font-size: 14px; line-height: 1.4; margin-top: 7px; }
+  .granny-app .selected-count { margin: 9px 0; font-size: 14px; }
+  .granny-app .ingredient-grid { gap: 10px; margin: 12px 0 14px; }
+  .granny-app button.ingredient { min-height: 138px; padding: 8px 7px 10px; scroll-margin-top: 225px; scroll-margin-bottom: 160px; }
+  .granny-app .ingredient-photo { height: 66px; max-width: 116px; }
+  .granny-app .ingredient-name { font-size: 16px; line-height: 1.2; margin-top: 5px; }
+  .granny-app .ingredient-sub { font-size: 14px; line-height: 1.3; margin-top: 4px; }
+  .granny-app .price-dock { padding: 10px 11px; gap: 9px; border-radius: 16px; bottom: calc(74px + env(safe-area-inset-bottom)); }
+  .granny-app .amount { font-size: 26px; }
+  .granny-app .previous-button { width: 44px; height: 44px; min-width: 44px; }
+  .granny-app .next-button { min-height: 46px; padding: 10px 14px; font-size: 16px; }
+  .granny-app .dock-actions { gap: 6px; }
+  .granny-app .allergen-note summary { min-height: 44px; display: flex; align-items: center; }
+  .granny-app .catalogue-topline .catalogue-category,
+  .granny-app .catalogue-topline .catalogue-portion { font-size: 14px; }
+  .granny-app .diy-card-caption small { font-size: 14px; }
+  .granny-app.pink-world .ready-section { padding: 16px 12px; }
+}
+@media (max-width: 370px) {
+  .granny-app.pink-world .app-container { padding-left: 12px; padding-right: 12px; }
+  .granny-app.pink-world .product-studio .preview-stage { height: 132px; }
+  .granny-app .step-heading h1 { font-size: 24px; }
+  .granny-app .price-dock { padding: 10px 9px; gap: 6px; }
+  .granny-app .amount { font-size: 24px; }
+  .granny-app .next-button { padding-inline: 10px; }
+  .granny-app .dock-actions { gap: 5px; }
+}
+/* Small windows scroll naturally; neither the preview nor payment controls cover choices. */
+@media (max-width: 700px) and (max-height: 680px) {
+  .granny-app.pink-world .product-studio { position: relative; top: auto; }
+  .granny-app .price-dock { position: relative; bottom: auto; }
+  .granny-app button.ingredient { scroll-margin-top: 78px; scroll-margin-bottom: 84px; }
+}
+@media (max-width: 899px) and (max-height: 500px) and (orientation: landscape) {
+  .granny-app.pink-world .app-header { height: 56px; }
+  .granny-app.pink-world .app-container { padding: 12px 20px calc(88px + env(safe-area-inset-bottom)); }
+  .granny-app .builder-topline { margin: -4px 0 8px; }
+  .granny-app .builder-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 16px; }
+  .granny-app.pink-world .product-studio { position: sticky; top: 64px; max-height: none; }
+  .granny-app .studio-header { padding: 10px 10px 0; }
+  .granny-app .studio-title { font-size: 16px; }
+  .granny-app.pink-world .preview-stage { height: 160px; aspect-ratio: auto; max-height: none; }
+  .granny-app.pink-world .preview-stage svg.food-engine-svg,
+  .granny-app.pink-world .preview-stage canvas { max-height: none; }
+  .granny-app.pink-world .preview-note { margin: 6px 0 10px; font-size: 12px; }
+  .granny-app .product-studio > .selection-chips { display: none; }
+  .granny-app.pink-world .builder-controls { padding: 14px; }
+  .granny-app .wizard-steps { margin-bottom: 10px; }
+  .granny-app .step-heading h1 { font-size: 25px; }
+  .granny-app .step-heading p { font-size: 14px; line-height: 1.4; }
+  .granny-app .price-dock { position: relative; bottom: auto; }
+  .granny-app .bottom-nav { min-height: 58px; padding-top: 3px; padding-bottom: calc(3px + env(safe-area-inset-bottom)); }
+  .granny-app .bottom-nav button { min-height: 48px; }
+  .granny-app .modal-panel { max-height: calc(100dvh - 12px); }
+  .granny-app .modal-header { padding: 10px 16px; }
+  .granny-app .modal-header h2 { font-size: 21px; }
+}
+@media (max-width:700px) {
+  .granny-app.pink-world .wizard-steps { gap: 4px; }
+  .granny-app.pink-world .wizard-steps button { flex: 1 0 62px; min-width: 62px; padding: 7px 3px; white-space: normal; }
+  .granny-app.pink-world .wizard-steps button > span:first-child { display: none; }
+}
+@media (max-width:700px) and (max-height:680px) {
+  .granny-app.pink-world .product-studio .preview-stage { height: 102px; }
+  .granny-app.pink-world .product-studio .preview-note { display: none; }
+  .granny-app.pink-world .product-studio .studio-header { padding: 8px; align-self: center; }
+  .granny-app .wizard-steps { margin-bottom: 9px; }
+  .granny-app .step-heading small { display: none; }
+}
+@media (max-width:899px) {
+  .granny-app .brand-lockup, .granny-app .builder-topline button { min-height: 44px; }
+  .granny-app .previous-button { width: 44px; height: 44px; min-width: 44px; }
+}
+.granny-app .preview-retry { max-width: calc(100% - 16px); }
+.granny-app .preview-retry button {
+ min-height: 44px; padding: 8px 10px; border: 1px solid #efd1df; border-radius: 10px;
+ background: white; color: #a7005a; font-size: 14px; line-height: 1.3;
+ box-shadow: 0 2px 8px rgb(91 0 43 / 8%);
+}
