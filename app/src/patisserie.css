@@ -419,6 +419,15 @@
 .granny-app .notebook-dialog .stamp-claim small {font-size:13px;color:#754154;}
 .granny-app .notebook-dialog .flavour-pass span {padding:4px 9px;border-radius:14px;}
 .granny-app .notebook-dialog .club-fold {margin:0;}
+.granny-app .notebook-dialog .club-fold summary {
+  display:flex; align-items:center; gap:9px; list-style:none;
+}
+.granny-app .notebook-dialog .club-fold summary::-webkit-details-marker {display:none;}
+.granny-app .notebook-dialog .club-fold summary::before {
+  content:""; flex:none; width:7px; height:7px; margin-inline:2px;
+  border:solid #9a5369; border-width:0 1.5px 1.5px 0; transform:rotate(-45deg);
+}
+.granny-app .notebook-dialog .club-fold[open]>summary::before {transform:rotate(45deg);}
 .granny-app .notebook-dialog [hidden] {display:none;}
 @media(max-width:370px) and (max-height:620px) {
   .granny-app .spread-heading {min-height:94px;padding:9px 44% 9px 13px;}
