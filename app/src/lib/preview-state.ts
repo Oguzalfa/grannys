@@ -9,10 +9,10 @@ export function matchesRecipePreview(recipe: PreviewRecipe, category: Category, 
     && (category !== 'box' || Boolean(wells) && wellsKey(recipe.sauceWells) === wellsKey(wells!))
 }
 /** A late thumbnail can complete a saved recipe, but never another recipe's image. */
-export function completeRecipeThumbnails<T extends PreviewRecipe>(items: T[], thumb: string, category: Category, selections: Selection, wells?: SauceWells): T[] {
+export function completeRecipeThumbnails<T extends PreviewRecipe | {kind:'catalogue';thumb:string}>(items: T[], thumb: string, category: Category, selections: Selection, wells?: SauceWells): T[] {
   let changed = false
   const next = items.map(item => {
-    if (item.thumb || !matchesRecipePreview(item, category, selections, wells)) return item
+    if (!('selections' in item) || item.thumb || !matchesRecipePreview(item, category, selections, wells)) return item
     changed = true
     return { ...item, thumb }
   })

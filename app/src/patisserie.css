@@ -215,3 +215,58 @@
   .granny-app .menu-spread .diy-product { height: 60px; }
   .granny-app .shop-lettering { height: 27px; }
 }
+
+/* A receipt stamp is the membership mark in the header and in the wallet. */
+.granny-app .header-tools .club-ticket {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 44px;
+  padding: 3px 12px 3px 5px; border-radius: 9px; border: 1px solid #fff3c8;
+  background: linear-gradient(110deg, #fff4cd, #ffead0 65%, #ffddae);
+  color: #6f1137; box-shadow: inset 0 0 0 2px #fffbec, inset 0 0 0 3px #d79b86, 0 2px #8c1243;
+  text-align: left; white-space: nowrap;
+}
+.club-ticket img { width: 30px; height: 30px; object-fit: contain; }
+.club-ticket span { display: grid; line-height: 1.05; }
+.granny-app .club-ticket strong { font: 400 19px/1.08 var(--story-heading); }
+.granny-app .club-ticket small { margin-top: 1px; font: 650 13px/1.12 var(--menu-body); color: #803149; }
+.granny-app .catalogue-actions {
+  display: grid; gap: 2px; padding: 0 clamp(8px, 1.3vw, 16px) 5px;
+}
+.granny-app .add-standard {
+  display: inline-flex; gap: 6px; align-items: center; justify-content: center;
+  min-height: 44px; width: 100%; padding: 6px 8px; border: 1px solid #a80051; border-radius: 10px;
+  color: white; background: linear-gradient(#ce0d69,#a3064d); font: 650 16px/1.15 var(--menu-body);
+}
+.granny-app .add-standard svg { width: 17px; height: 17px; flex: none; }
+.granny-app .catalogue-actions .catalogue-info-button {
+  width: 100%; margin: 0; padding: 3px; min-height: 44px;
+  border: 0; background: transparent; color: #7c2048;
+}
+.granny-app .detail-purchase { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.granny-app .detail-purchase > button { flex: 1 1 135px; margin: 0; width: auto; }
+.granny-app .detail-purchase .detail-configure { color: #8c1648; background: #fff1f6; border: 1px solid #d997b2; }
+.granny-app .basket-table, .granny-app .review-card {
+  display: inline-flex; gap: 8px; align-items: center; min-height: 44px;
+  padding: 6px 12px; border: 1px solid #e0a8bd; border-radius: 10px; color: #831445; background: #fff6ed;
+}
+.basket-table svg, .review-card svg { width: 16px; height: 16px; }
+.granny-app .review-card { justify-content: center; width: 100%; margin-top: 8px; }
+.club-progress { display: flex; flex: none; gap: 4px; margin-inline-start: auto; }
+.club-progress > span { width: 15px; height: 15px; border: 1px dashed #ffdfc0; border-radius: 50%; }
+.club-progress > .earned { border-style: solid; background: #fff3d7 url('/assets/waffle-stamp.webp') center / contain; }
+.granny-app .notebook-entry .club-progress + svg { margin-inline-start: 3px; }
+@media (max-width: 370px) {
+  .club-progress { gap: 2px; }
+  .club-progress > span { width: 10px; height: 10px; }
+}
+@media (max-width: 899px) {
+  .granny-app[data-view="menu"] .header-tools .table-button { display: none; }
+  .granny-app .bottom-nav { padding-inline: max(7px,env(safe-area-inset-left)) max(7px,env(safe-area-inset-right)); gap: 2px; }
+  .granny-app .bottom-nav button { min-width: 0; padding-inline: 2px; white-space: nowrap; }
+  .granny-app .bottom-nav .club-nav { color: #901048; }
+  .granny-app .add-standard { font-size: 15px; }
+}
+@media (max-width: 370px) {
+  .granny-app .club-ticket strong { font-size: 17px; }
+  .club-ticket img { width: 24px; height: 24px; }
+  .granny-app .club-ticket small { font-size: 12px; }
+}
