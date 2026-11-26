@@ -37,14 +37,21 @@ export function StampCard({initialCode,wallet}:{initialCode:string;wallet:Return
   catch(e){setMessage((e as Error).message)}finally{setBusy(false)}
  }
  const count=book?(book.total%4):0
- return <section className="stamp-panel" aria-label="Müdavim kartı">
-  <div className="stamp-paper"><div className="stamp-heading"><h3>Damgalarım</h3>{book&&<span>{count} / 4</span>}</div>
+ return <section className="stamp-panel" aria-label="Büyükanne Kartı">
+  <article className="stamp-paper" aria-labelledby="stamp-card-title">
+   <header className="stamp-heading">
+    <img className="granny-portrait" src="/assets/logo.png" width="39" height="39" alt="Granny’s Waffles"/>
+    <div><h3 id="stamp-card-title">Damgalarım</h3>
+     {book&&<span className="ink-balance">{count} / 4 damga</span>}
+    </div>
+    <img className="granny-posy" src="/assets/world/granny-posy.webp" width="70" height="70" alt=""/>
+   </header>
    <div className="stamp-row" aria-hidden="true">{[0,1,2,3].map(i=><span className={i<count?'stamped':''} key={i}>{i<count?<img src="/assets/waffle-stamp.webp" alt=""/>:i+1}</span>)}</div>
    <p>{!book?'Fişindeki damga kodunu bu karta ekleyebilirsin.':book.amount?('Dört damgada '+book.amount+' ₺ Waffle veya Bowl ikramı.'):'Şube damga toplamayı açtığında fişindeki kodu buraya ekleyebilirsin.'}</p>
    {book&&book.rewards.length>0&&<strong>{book.rewards.length} kullanılabilir ikramın var.</strong>}
-  </div>
+  </article>
   {book?.rewards.map(r=><div key={r.code} className="gift-slip"><button onClick={()=>setShown(shown===r.code?'':r.code)}>{r.amount} ₺ ikramı kasaya göster</button>{shown===r.code&&<div><QRCodeSVG value={location.origin+'/kasa#ikram='+r.code} size={132} marginSize={4}/><b>{displayCode(r.code)}</b><p>Yeni bir Waffle veya Bowl fişinde kasiyere göster.</p></div>}</div>)}
-  {book&&<form className="stamp-claim" onSubmit={e=>{e.preventDefault();void claim()}}><label>Fişindeki damga kodu<input value={code} autoCapitalize="characters" spellCheck={false} maxLength={24} placeholder="XXXX XXXX XXXX XXXX" onChange={e=>setCode(e.target.value)}/></label><small>Fişteki kodu 48 saat içinde ekle.</small><button disabled={busy||code.replace(/[\s-]/g,'').length!==16}>{busy?'Ekleniyor…':'Damgamı ekle'}</button></form>}
+  {book&&<form className="stamp-claim" onSubmit={e=>{e.preventDefault();void claim()}}><label htmlFor="stamp-receipt">Fişindeki damga kodu</label><input id="stamp-receipt" aria-describedby="receipt-expiry" value={code} autoCapitalize="characters" spellCheck={false} maxLength={24} placeholder="XXXX XXXX XXXX XXXX" onChange={e=>setCode(e.target.value)}/><button aria-label="Damgamı ekle" disabled={busy||code.replace(/[\s-]/g,'').length!==16}>{busy?'Ekleniyor…':'Ekle'}</button><small id="receipt-expiry">Fişteki kodu 48 saat içinde ekle.</small></form>}
   {message&&<p role="status">{message}</p>}{error&&<div role="status"><p>{error}</p><button onClick={()=>void refresh()}>Yeniden dene</button></div>}
   {book&&book.categories.length>0&&<div className="flavour-pass"><h4>Lezzet pasaportum</h4>{Object.entries(categoryLabels).map(([id,label])=><span className={book.categories.includes(id)?'earned':''} key={id}>{book.categories.includes(id)?'✓ ':''}{label}</span>)}</div>}
   {book&&<details className="club-fold"><summary>Ziyaretlerim ve ikramlarım</summary>
