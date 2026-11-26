@@ -71,7 +71,7 @@ export default async function handler(req,res){
   if(action==='dashboard'){
    const [settings,stats]=await sql.transaction([
     sql`SELECT reward_lira AS amount FROM loyalty_settings WHERE id`,
-    sql`WITH v AS (SELECT owner_hash,claimed_at,row_number() OVER(PARTITION BY owner_hash ORDER BY claimed_at,id) AS n FROM loyalty_receipts WHERE owner_hash IS NOT NULL),
+    sql`WITH v AS (SELECT owner_hash,issued_at AS claimed_at,row_number() OVER(PARTITION BY owner_hash ORDER BY issued_at,id) AS n FROM loyalty_receipts WHERE owner_hash IS NOT NULL),
      c AS (SELECT owner_hash,min(claimed_at) AS first_visit,max(claimed_at) FILTER(WHERE n=2) AS second_visit FROM v GROUP BY owner_hash)
      SELECT count(*)::int AS customers,count(*) FILTER(WHERE second_visit<=first_visit+interval '30 days')::int AS returned FROM c`
    ]);return respond({amount:settings[0]?.amount||null,...stats[0]})
