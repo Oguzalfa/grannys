@@ -5,7 +5,6 @@
   font-style: normal;
   font-display: swap;
 }
-/* The painted sign and the four photographic windows of Granny’s shopfront. */
 .granny-app.pink-world {
   --berry: #920547;
   --cerise: #c00058;
@@ -18,12 +17,6 @@
     radial-gradient(ellipse at 55% 22rem, #ff79bc 0, transparent 60rem),
     linear-gradient(130deg, #ea0069, #fa268a 44%, #cf075c);
 }
-.granny-app.pink-world[data-view="menu"] {
-  background-image: radial-gradient(ellipse at 48% 18rem, #ffb5dcbf, transparent 46rem), linear-gradient(125deg, #ff47a5da, #f91082df 58%, #ed0878db),
-                    url('/assets/pink-world-pattern.webp');
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-size: 100% 60rem, 100% 100%, 340px;
-}
 .granny-app.pink-world .app-header {
   background: linear-gradient(107deg, #ac0056, #d80b70 53%, #ad0053);
   box-shadow: inset 0 -1px #ffb3d2;
@@ -31,110 +24,147 @@
 .granny-app.pink-world .awning {
   filter: saturate(1.15) drop-shadow(0 4px 2px #80043255);
 }
+/* A two-page confectionery window. On phones the cover sits above the four counters. */
+.granny-app.pink-world[data-view="menu"] {
+  background-color: #f82a86;
+  background-image: radial-gradient(ellipse at 48% 25rem, #ffaccc 0, #ff63a055 46rem, transparent 72rem),
+    repeating-linear-gradient(90deg, #fff2e80c 0 1px, transparent 1px 26px),
+    linear-gradient(135deg, #eb146c, #ff4496 55%, #dc1264);
+}
 .granny-app .menu-spread {
-  --menu-gutter: clamp(12px, 2.2vw, 30px);
-  padding: var(--menu-gutter);
-  border: 1px solid #ffdcdf;
-  border-radius: 22px 22px 14px 14px;
-  background-color: #ffe2ed;
-  background-image: repeating-linear-gradient(113deg, #fff7efb5 0 8px, transparent 8px 18px);
-  box-shadow: inset 0 0 0 4px #fff2ec, inset 0 0 0 5px #ed9cb4, 0 4px #a2064e, 0 10px 20px #85063b24;
+  display: grid;
+  grid-template-columns: minmax(0, .84fr) minmax(0, 1.3fr);
+  align-items: stretch; gap: clamp(12px,1.5vw,22px); padding: 0;
+  background: transparent; border: 0; box-shadow: none;
 }
 .granny-app .spread-heading {
-  position: relative; isolation: isolate; overflow: hidden;
-  display: grid; grid-template-columns: minmax(0, 1fr); place-items: center;
-  min-height: clamp(168px, 16vw, 217px);
-  padding: 16px 22%;
-  text-align: center;
-  border: 1px solid #d88496; border-radius: 15px 15px 8px 8px;
-  background: #ffe4d3 url('/assets/world/sugar-theatre.webp') center 53% / cover no-repeat;
-  box-shadow: 0 2px #fff8e6, 0 3px #d05f8b;
+  --hero-ink: #fff8e8;
+  isolation: isolate; overflow: hidden; position: relative;
+  display: flex; align-items: flex-start; flex-direction: column; justify-content: flex-start;
+  min-width: 0; padding: clamp(24px,3vw,43px); color: var(--hero-ink);
+  border: 1px solid #ffbfc6; border-radius: 24px 24px 36px 12px;
+  background: radial-gradient(ellipse at 74% 75%,#ec448c 0,transparent 74%),linear-gradient(145deg,#750133,#9a1349 58%,#c92672);
+  box-shadow: 0 4px 0 #921143, 0 10px 25px #80123b28;
 }
+.granny-app .spread-heading::after {
+  content:""; position:absolute; inset:8px; z-index:2; pointer-events:none;
+  border:1px solid #ffdcb482; border-radius:17px 17px 28px 7px;
+}
+.atelier-miniature { display:block; position:absolute; z-index:-1; bottom:0; left:0; width:100%; height:73%; }
+.atelier-miniature img { display:block; width:100%; height:100%; object-fit:contain; object-position:68% bottom; }
+.atelier-miniature { mask-image:linear-gradient(to bottom,transparent,#000 12%); }
+.atelier-title {position:relative;z-index:1;min-width:0;}
 .granny-app .spread-heading h1 {
-  margin: 0;
-  color: #88083e;
-  font: 400 clamp(48px, 5.7vw, 78px)/1 var(--story-heading);
-  letter-spacing: -.035em;
-  text-shadow: 0 1px #fff7e5, 0 2px #f4b09d;
+  color:var(--hero-ink); margin:0; font:400 clamp(46px,4.9vw,74px)/.98 var(--story-heading);
+  letter-spacing:-.044em; text-shadow:0 2px 0 #840539;
 }
-.granny-app .spread-heading em { color: #a31250; font: inherit; }
-.granny-app .spread-heading p {
-  max-width: 26ch; margin: 6px auto 0; color: #5d1639;
-  font-weight: 600; line-height: 1.2; text-wrap: balance;
+.granny-app .spread-heading h1 em { font:inherit; color:#ffcfdd; }
+.granny-app .spread-heading p { margin:9px 0 0; max-width:26ch; color:#fff4eb; font:550 clamp(15px,1.3vw,18px)/1.25 var(--menu-body); }
+.granny-app .spread-heading .film-link {
+  position:absolute; bottom:19px; left:18px; z-index:3; min-height:44px;
+  display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:4px 12px;
+  border:1px solid #ffefc9b3; border-radius:30px;
+  color:#fff7e6; background:#730c39; text-decoration:none; font:650 14px/1.1 var(--menu-body);
 }
-.granny-app .film-link {
-  position: absolute; inset-inline-end: 2%; bottom: 8%;
-  min-height: 44px; padding: 8px 12px; border: 1px solid #ffcfdf; border-radius: 25px;
-  color: #fff6ef; background: #790033; box-shadow: inset 0 1px #ffb6d066;
-  text-decoration: none; font-weight: 650;
-}
-.granny-app .menu-spread .diy-grid { gap: clamp(11px, 1.7vw, 24px); margin-top: clamp(12px, 2vw, 24px); }
+.granny-app .spread-heading .film-link svg {width:14px;height:14px;flex:none;}
+.granny-app .menu-spread .diy-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(10px,1.3vw,18px); margin:0;}
 .granny-app .menu-spread .diy-card {
-  --ticket-paper: #fff4e8; --ticket-edge: #ce7991;
-  position: relative; display: flex; flex-direction: column; align-items: stretch;
-  padding: 3px; background: var(--ticket-paper); color: #5d2036;
-  border: 1px solid var(--ticket-edge); border-radius: 48% 48% 12px 12px / 30px 30px 12px 12px;
-  box-shadow: 0 3px #b73667, inset 0 0 0 1px #fff;
+  min-width:0; overflow:hidden; display:flex; flex-direction:column; align-items:stretch; padding:0;
+  border:1px solid #ffc6cc; border-radius:18px; background:#fff8ef; box-shadow:0 3px 0 #b82560,0 5px 18px #94124918;
+  text-align:left; color:#5b1933;
 }
-.granny-app .menu-spread .diy-card:nth-child(2) { --ticket-paper: #ecfbf1; --ticket-edge: #81bba9; }
-.granny-app .menu-spread .diy-card:nth-child(3) { --ticket-paper: #fff4d7; --ticket-edge: #d6a365; }
-.granny-app .menu-spread .diy-card:nth-child(4) { --ticket-paper: #fff0f5; --ticket-edge: #dc81a2; }
 .granny-app .menu-spread .diy-product {
-  position: relative; flex: none; border-radius: 48% 48% 0 0 / 26px 26px 0 0;
-  border-bottom: 0;
+  display:block; position:relative; width:100%; flex:none; overflow:hidden; min-height:0;
+  height:clamp(120px,10.4vw,153px); aspect-ratio:auto; border:0; border-radius:0; background:#fee8df;
 }
-.granny-app .diy-product::after {
-  content: ''; position: absolute; inset: auto 0 0; height: 5px; pointer-events: none;
-  background: radial-gradient(ellipse at 50% 125%, var(--ticket-paper) 61%, transparent 64%) 0 0 / 14px 6px repeat-x;
+.granny-app .menu-spread .diy-product img {display:block;width:100%;height:100%;padding:0;object-fit:cover;object-position:center 52%;}
+.granny-app .menu-spread [data-dish="box"] .diy-product img {object-fit:contain; background:#fff8f0;}
+.granny-app .counter-price {
+  position:absolute; top:8px; right:8px; padding:4px 9px; color:#651137; background:#fff9edeF;
+  border:1px solid #fff8ed; border-radius:18px; font:700 14px/1.15 var(--menu-body); font-variant-numeric:tabular-nums;
 }
 .granny-app .menu-spread .diy-card-caption {
-  position: relative; flex: 1; align-items: flex-start;
-  padding: 7px 9px 9px; gap: 0; width: 100%;
+  position:relative; display:block; flex:1; padding:8px 13px 12px; min-height:0; width:100%; text-align:left; background:#fff8ef;
 }
-.granny-app .menu-spread .diy-card-caption > span { display: block; width: 100%; }
-.granny-app .menu-spread .diy-card-caption strong {
-  display: flex; align-items: center; margin: 0; padding: 0 31px 0 0;
-  font: 400 24px/1.1 var(--story-heading); color: var(--berry);
-}
-.granny-app .shop-lettering {
-  display: block; width: auto; max-width: 100%; height: clamp(41px, 4.2vw, 55px); object-fit: contain; object-position: left;
-}
-.granny-app .menu-spread .diy-card-caption small {
-  display: block; margin-top: 5px; color: #552d3c; font: 500 16px/1.25 var(--menu-body);
-}
+.granny-app .menu-spread .diy-card-caption strong{display:block;max-width:calc(100% - 30px);margin:0;line-height:1;}
+.granny-app .shop-lettering { display:block; width:auto; max-width:100%;height:clamp(32px,2.9vw,44px);object-fit:contain;object-position:left; }
+.granny-app .menu-spread .diy-card-caption small {display:block;margin:3px 0 0;color:#622c40;font:525 15px/1.22 var(--menu-body);}
 .granny-app .menu-spread .diy-card-caption > svg {
-  position: absolute; top: 15px; right: 8px; width: 25px; height: 25px; padding: 5px;
-  border-radius: 50%; color: #a6074c; background: #fffaf0; border: 1px solid #da8ca6;
+  position:absolute;right:12px;top:11px;width:24px;height:24px;padding:5px;border:1px solid #da9ba9;border-radius:50%;color:#930443;background:#fff0ed;
 }
-@media (hover:hover) {
-  .granny-app .menu-spread .diy-card:hover { box-shadow: 0 4px #90083d, 0 6px 15px #b30c5730; }
-  .granny-app .menu-spread .diy-card:hover strong { color: white; text-decoration: none; }
-  .granny-app .film-link:hover { background: #5d0028; color: white; }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+  .granny-app .menu-spread .diy-card {transition:transform .18s,box-shadow .18s;}
+  .granny-app .menu-spread .diy-card:hover {transform:translateY(-3px);box-shadow:0 5px 0 #ac1752,0 10px 16px #97114630;}
 }
-.granny-app .menu-spread button:focus-visible, .granny-app .notebook-entry button:focus-visible {
-  outline: 3px solid #48102d; outline-offset: 3px;
+.granny-app .menu-spread button:focus-visible,.granny-app .club-counter button:focus-visible {outline:3px solid #48102d;outline-offset:3px;}
+@media(max-width:760px) {
+  .granny-app .menu-spread {display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:0;}
+  .granny-app .spread-heading {
+    justify-content:center; min-height:clamp(145px,39vw,197px);padding:15px 50% 15px 17px;gap:5px;border-radius:16px 16px 25px 9px;
+  }
+  .granny-app .spread-heading::after {inset:5px;border-radius:12px 12px 21px 6px;}
+  .atelier-miniature {left:auto;right:0;width:53%;height:100%;mask-image:linear-gradient(to right,transparent,#000 15%);}
+  .atelier-miniature img {object-fit:cover;object-position:50% 48%;}
+  .granny-app .spread-heading h1 {font-size:clamp(37px,10.3vw,62px);line-height:.98;}
+  .granny-app .spread-heading p {margin:5px 0 0;font-size:15px;line-height:1.18;max-width:19ch;}
+  .granny-app .spread-heading .film-link {position:relative;inset:auto;margin:0;padding:0 3px;min-height:38px;color:#fff4df;background:none;border:none;border-radius:6px;font-size:14px;}
+  .granny-app .spread-heading .film-link svg {width:24px;height:24px;padding:6px;background:#fff4df;color:#96144a;border-radius:50%;}
+  .granny-app .menu-spread .diy-grid {gap:10px;}
+  .granny-app .menu-spread .diy-product {height:clamp(75px,12.8svh,126px);}
+  .granny-app .menu-spread .diy-card {border-radius:13px;}
+  .granny-app .menu-spread .diy-card-caption {padding:5px 8px 8px;}
+  .granny-app .shop-lettering {height:clamp(31px,8.5vw,42px);}
+  .granny-app .counter-price {font-size:13px;top:5px;right:5px;padding:3px 6px;}
+  .granny-app .menu-spread .diy-card-caption small {font-size:14px;line-height:1.18;}
+  .granny-app .menu-spread .diy-card-caption > svg {right:7px;top:9px;width:21px;height:21px;padding:4px;}
 }
-/* The bevelled cover opens onto a four-place collector's card. */
+@media(max-width:760px) and (max-height:740px) {
+  .granny-app .spread-heading {min-height:112px;padding-block:7px;}
+  .granny-app .spread-heading h1 {font-size:clamp(29px,8.6vw,42px);}
+  .granny-app .spread-heading p {font-size:14px;}
+  .granny-app .menu-spread .diy-product {height:clamp(54px,10.8svh,79px);}
+  .granny-app .menu-spread .diy-card-caption {padding:4px 7px 5px;}
+  .granny-app .shop-lettering {height:28px;}
+  .granny-app .menu-spread .diy-grid,.granny-app .menu-spread {gap:8px;}
+}
+
+/* The wallet and monthly selection sit together below the four entrances. */
+.granny-app .club-counter {
+  display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  gap:clamp(10px,1.5vw,21px);margin:clamp(16px,2vw,26px) 0;
+}
+.granny-app .notebook-entry,.granny-app .month-entry {
+  position:relative; isolation:isolate; display:flex;align-items:center;gap:12px;min-width:0;
+  margin:0;padding:13px 18px;border:1px solid #ffcebc;border-radius:16px;
+  box-shadow:0 3px 0 #ab215a;text-align:left;
+}
 .granny-app .notebook-entry {
-  border: 1px solid #ffb8d1; border-left: 7px solid #85003e;
-  border-radius: 5px 17px 17px 5px; padding: 7px clamp(14px, 3vw, 38px);
-  position: relative; isolation: isolate;
-  background: linear-gradient(90deg, #7e003a 0, transparent 18px),
-              linear-gradient(90deg, #98003fe8, #aa0755b8 70%, #a0004122),
-              #ba0056 var(--painted-sign) right center / cover no-repeat;
-  box-shadow: inset 0 0 0 3px #ee6c9c, inset 0 0 0 4px #ffd5dd, 0 2px #fce3cb, 0 4px #bd7189, 0 6px #7e073d;
+  flex-wrap:wrap;
+  background:linear-gradient(100deg,#750c3add,#a60546b0 64%,#b70d5926),
+    #a61150 url('/assets/world/rose-enamel.webp') center / cover;
 }
-.granny-app .notebook-entry button { color: #fff9ee; gap: 10px; }
-.granny-app .notebook-entry button:first-child { flex: 1; min-width: 0; }
-.granny-app .notebook-entry img {
-  width: 48px; height: 48px; padding: 4px; border: 2px solid #ffe7cc; border-radius: 50%;
-  background-color: #fff1d9; box-shadow: 0 2px 0 #710530;
+.granny-app .notebook-entry::after,.granny-app .month-entry::after {
+  content:"";position:absolute;inset:5px;pointer-events:none;border:1px solid #ffd4ae80;border-radius:11px;
 }
-.notebook-entry-label { display: grid; min-width: 0; }
-.notebook-entry-label strong { font-size: clamp(21px, 2vw, 30px); line-height: 1; }
-.notebook-entry-label small { font-size: 13px; line-height: 1.2; font-weight: 500; }
-.granny-app .notebook-entry button:first-child > svg { margin-inline-start: auto; flex: none; }
-.granny-app .notebook-entry .last-recipe { padding-left: 10px; border-left: 1px solid #ffadc9; }
+.granny-app .notebook-entry button {color:#fff6e2;gap:12px;}
+.granny-app .notebook-entry button:first-child {flex:1 1 100%;min-width:0;}
+.granny-app .notebook-entry img {width:44px;height:44px;padding:5px;flex:none;background:#fff0d4;border:1px solid #ffdfa9;border-radius:50%;}
+.notebook-entry-label,.month-copy {display:grid;gap:3px;min-width:0;}
+.granny-app .notebook-entry-label strong,.granny-app .month-copy strong {font:400 clamp(21px,2.1vw,29px)/1.05 var(--story-heading);}
+.notebook-entry-label small,.month-copy small {font:550 14px/1.2 var(--menu-body);}
+.granny-app .notebook-entry button:first-child>svg {flex:none;margin-inline-start:auto;}
+.granny-app .notebook-entry .last-recipe {border-top:1px dotted #ffbcce;width:100%;max-width:none;min-height:44px;}
+.granny-app .month-entry {background:repeating-linear-gradient(132deg,#ffffff15 0 4px,transparent 4px 10px),#ffdfbf;color:#6f153b;}
+.granny-app .month-entry::after {border:1px dashed #b7696f;}
+.granny-app .month-medal {flex:none;width:42px;height:42px;color:#ac2859;}
+.granny-app .month-forward {flex:none;width:18px;height:18px;margin-left:auto;}
+@media(max-width:700px) {
+  .granny-app .club-counter {grid-template-columns:minmax(0,1fr);gap:9px;margin:14px 0 20px;}
+  .granny-app .notebook-entry,.granny-app .month-entry {min-height:64px;padding:10px 13px;gap:9px;}
+  .granny-app .notebook-entry button:first-child {gap:9px;}
+  .granny-app .notebook-entry img,.granny-app .month-medal {width:36px;height:36px;}
+  .notebook-entry-label small,.month-copy small {font-size:13px;}
+}
 .granny-app .notebook-dialog .modal-header {
   padding: 12px 16px; border-radius: 12px; margin-bottom: 14px;
   background: #be075b url('/assets/world/rose-sign.webp') center / 100% 100%; color: #fff6e9;
@@ -181,41 +211,6 @@
   display: block; overflow: visible; -webkit-line-clamp: unset;
   color: #5d3c47;
 }
-@media (max-width: 700px) {
-  .granny-app .menu-spread { --menu-gutter: 10px; border-radius: 18px 18px 12px 12px; }
-  .granny-app .spread-heading { min-height: clamp(118px, 32vw, 170px); padding: 10px 22%;
-    background-image: url('/assets/world/sugar-theatre-mobile.webp'); }
-  .granny-app .spread-heading h1 { font-size: clamp(32px, 8.4vw, 52px); }
-  .granny-app .spread-heading p { font-size: 14px; margin-top: 4px; }
-  .granny-app .film-link { inset-inline-end: 0; top: auto; bottom: 0; width: 44px; justify-content: center; padding: 0; background: transparent; border: 0; box-shadow: none; }
-  .granny-app .film-link svg { width: 27px; height: 27px; padding: 6px; border: 1px solid #ffdbdf; border-radius: 50%; background: #790033; }
-  .granny-app .film-link span { display: none; }
-  .granny-app .menu-spread .diy-card-caption { padding: 4px 6px 7px; }
-  .granny-app .menu-spread .diy-product { max-height: 15svh; }
-  .granny-app .shop-lettering { height: clamp(33px, 9.1vw, 42px); }
-  .granny-app .menu-spread .diy-card-caption small { font-size: 14px; line-height: 1.18; margin-top: 3px; }
-  .granny-app .menu-spread .diy-card-caption > svg { top: 9px; right: 4px; width: 20px; height: 20px; padding: 3px; }
-  .granny-app .notebook-entry { flex-wrap: wrap; gap: 2px 10px; }
-  .granny-app .notebook-entry .last-recipe { max-width: 100%; width: 100%; min-height: 44px; padding-left: 4px; border: 0; border-top: 1px solid #ffadc9; }
-}
-@media (max-width: 700px) and (max-height: 790px) {
-  .granny-app.pink-world[data-view="menu"] .app-container { padding-top: 8px; }
-  .granny-app .menu-spread { --menu-gutter: 8px; }
-  .granny-app .spread-heading { min-height: 84px; padding-block: 5px; }
-  .granny-app .spread-heading h1 { font-size: clamp(29px, 8.4vw, 39px); }
-  .granny-app .menu-spread .diy-grid { margin-top: 9px; gap: 7px 9px; }
-  .granny-app .menu-spread .diy-product { height: clamp(55px, 12svh, 86px); }
-  .granny-app .menu-spread .diy-card-caption { padding: 3px 3px 2px; }
-  .granny-app .menu-spread .diy-card-caption small { font-size: 13px; line-height: 1.16; }
-  .granny-app .shop-lettering { height: 31px; }
-}
-@media (max-width: 360px) and (max-height: 620px) {
-  .granny-app .spread-heading { min-height: 71px; }
-  .granny-app .spread-heading p { font-size: 12px; }
-  .granny-app .menu-spread .diy-product { height: 60px; }
-  .granny-app .shop-lettering { height: 27px; }
-}
-
 /* A receipt stamp is the membership mark in the header and in the wallet. */
 .granny-app .header-tools .club-ticket {
   display: inline-flex; align-items: center; gap: 7px; min-height: 44px;
@@ -269,4 +264,102 @@
   .granny-app .club-ticket strong { font-size: 17px; }
   .club-ticket img { width: 24px; height: 24px; }
   .granny-app .club-ticket small { font-size: 12px; }
+}
+
+/* Menus use the same paper, cherry ink and fine rules as the counter cards. */
+.granny-app.pink-world .ready-section {
+  margin-top:0; border:1px solid #ffd6cd; border-top:4px solid #9d114c;
+  border-radius:20px; background:#fff8ed;box-shadow:0 4px 0 #b82c65;
+}
+.granny-app .catalogue-card {border:1px solid #eac0c7;border-radius:16px;background:#fffdf8;box-shadow:0 2px 0 #e6bdc5;}
+.granny-app .catalogue-card button.ready-photo > img {padding:0;background:#fff4e9;}
+.granny-app .catalogue-card .ready-card-info h3 {min-height:0;font-family:var(--menu-heading);color:#671334;}
+.granny-app .catalogue-card .ready-card-info p.catalogue-ingredients {min-height:0;line-height:1.38;}
+.granny-app .catalogue-card .ready-card-price {color:#84123e;}
+.granny-app .catalogue-actions {gap:2px;}
+.granny-app .bottom-nav {border-top:1px solid #d992ac;background:#fff9f4;box-shadow:0 -3px 16px #73092f16;}
+.granny-app .bottom-nav button.active {color:#8e003f;background:#fbd5e4;}
+.granny-app .product-studio,.granny-app .builder-controls {border:1px solid #ffd1d6;box-shadow:0 3px 0 #ab2857;}
+.granny-app .product-studio {background:linear-gradient(125deg,#fff9eb,#fff1f3 72%);}
+.granny-app .builder-controls {background:#fffaf3;}
+.granny-app .ingredient.selected {box-shadow:inset 0 0 0 2px #ae1357;background:#fff3f5;}
+.granny-app .club-share {display:flex;align-items:center;justify-content:center;gap:8px;}
+.granny-app .club-share svg {width:21px;height:21px;}
+.granny-app .pink-billet-dialog .modal-header h2,.granny-app .monthly-dialog .modal-header h2 {font-family:var(--story-heading);font-weight:400;}
+.granny-app .pink-ticket {
+  border:1px solid #b84c75;outline:0;border-radius:14px;
+  background:radial-gradient(circle at 0 71%,#cd7391 0 5px,transparent 6px),
+    radial-gradient(circle at 100% 71%,#cd7391 0 5px,transparent 6px),linear-gradient(145deg,#fff2ce,#fff5df 56%,#f9cbd6);
+  box-shadow:inset 0 0 0 4px #fff4df,inset 0 0 0 5px #d79d95,0 3px #be7691;
+}
+.granny-app .pink-ticket .ticket-head {padding-bottom:7px;border-bottom:1px dashed #cd91a0;letter-spacing:.12em;}
+.granny-app .pink-ticket p {border-top:1px dashed #cd91a0;padding-top:8px;}
+.granny-app .pink-ticket .ticket-plate {width:min(100%,325px);}
+.granny-app .club-candidate {background:#fff9ed;border-color:#ddb3b6;}
+@media(max-width:620px) {
+  .granny-app.pink-world .ready-section {padding:14px 11px 17px;}
+  .granny-app .ready-grid {grid-template-columns:minmax(0,1fr);gap:11px;}
+  .granny-app .ready-grid .catalogue-card {
+    display:grid; grid-template-columns:minmax(88px,.73fr) minmax(0,1.32fr);align-content:start;
+    height:auto; overflow:hidden; padding:7px 8px;gap:6px 10px; border-radius:14px;
+  }
+  .granny-app .catalogue-card button.ready-photo {
+    align-self:start; aspect-ratio:1;min-height:0;height:auto;border-radius:10px;background:#fff4e9;
+  }
+  .granny-app .catalogue-card .ready-card-info {display:block;padding:2px 0 0;}
+  .granny-app .catalogue-card .ready-card-info h3 {font-size:20px;line-height:1.05;margin:2px 0 6px;}
+  .granny-app .catalogue-card .catalogue-topline {margin:0 0 3px;gap:2px 4px;min-height:0;justify-content:flex-start;}
+  .granny-app .catalogue-card .ready-card-info p.catalogue-ingredients {margin:0 0 6px;font-size:15px;}
+  .granny-app .catalogue-card .ready-card-price {font-size:20px;margin:0;}
+  .granny-app .catalogue-actions {grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:7px;padding:5px 0 0;border-top:1px solid #efd2d8;}
+  .granny-app .catalogue-actions .add-standard {grid-column:2;grid-row:1;}
+  .granny-app .catalogue-actions .catalogue-info-button {grid-column:1;grid-row:1;margin:0;}
+}
+
+@media(min-width:761px) {
+  .atelier-miniature img {width:auto;max-width:100%;margin:0 auto;mask-image:linear-gradient(90deg,transparent,#000 13%,#000 88%,transparent);}
+  .granny-app .spread-heading p {max-width:none;text-wrap:balance;}
+}
+.granny-app .wallet-switch {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;margin:0 0 14px;padding:3px;
+  background:#f6d7df;border:1px solid #e2a5b6;border-radius:14px;
+}
+.granny-app .wallet-switch button {
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:44px;
+  padding:5px;color:#6f2c46;background:transparent;border:0;border-radius:10px;font:650 15px/1.12 var(--menu-body);
+}
+.granny-app .wallet-switch button[aria-pressed="true"] {color:white;background:#960c4b;box-shadow:0 2px 3px #8a285834;}
+.wallet-switch svg {width:17px;height:17px;flex:none;}
+.wallet-switch button span {font-size:12px;border-radius:12px;padding:3px 5px;line-height:1;color:#7b1640;background:#ffebd8;}
+.granny-app .notebook-empty {display:grid;justify-items:center;gap:9px;text-align:center;padding:24px 9px;color:#5e203b;}
+.granny-app .notebook-empty img {width:50px;height:50px;object-fit:contain;}
+.granny-app .notebook-empty h3 {font:400 26px/1.12 var(--story-heading);}
+.granny-app .notebook-empty p {margin:0;max-width:29ch;}
+.granny-app .notebook-dialog .stamp-paper {
+  border-color:#95224f;color:#fff6df;
+  background:radial-gradient(ellipse at 70% 52%,#c92969 0,transparent 65%),linear-gradient(120deg,#731139,#a0104c 72%,#7e123c);
+  box-shadow:inset 0 0 0 4px #9a204e,inset 0 0 0 5px #ecba9e,0 3px #dda1b1;
+}
+.granny-app .notebook-dialog .stamp-heading {border-color:#e999ab;}
+.granny-app .notebook-dialog .stamp-heading h3 {color:#fff4d8;font:400 clamp(27px,4vw,36px)/1.08 var(--story-heading);}
+.granny-app .notebook-dialog .stamp-heading>span {color:#681235;background:#ffedcc;}
+.granny-app .notebook-dialog .stamp-paper p {color:#fff5e4;font:500 15px/1.35 var(--menu-body);}
+.granny-app .notebook-dialog .stamp-row>span {background-color:#ffefdc;color:#963959;outline-color:#f0b4b5;max-width:62px;}
+.granny-app .notebook-dialog .stamp-claim {padding:12px 14px;margin:0;background:#fff8ee;border:1px solid #e4bac0;border-radius:13px;}
+.granny-app .notebook-dialog .stamp-claim small {font-size:13px;color:#754154;}
+.granny-app .notebook-dialog .flavour-pass span {padding:4px 9px;border-radius:14px;}
+.granny-app .notebook-dialog .club-fold {margin:0;}
+.granny-app .notebook-dialog [hidden] {display:none;}
+.granny-app .club-ticket .card-short-title {display:none;}
+@media(max-width:370px) {
+  .granny-app .header-tools .club-ticket {flex-shrink:0;gap:4px;padding-inline:5px 8px;}
+  .granny-app .club-ticket .card-long-title {display:none;}
+  .granny-app .club-ticket .card-short-title {display:inline;}
+}
+@media(max-width:370px) and (max-height:620px) {
+  .granny-app .spread-heading {min-height:94px;padding:9px 44% 9px 13px;}
+  .granny-app .spread-heading h1 {font-size:29px;white-space:nowrap;}
+  .granny-app .spread-heading .film-link {position:absolute;inset:auto 5px 4px auto;width:44px;min-height:44px;padding:0;}
+  .granny-app .spread-heading .film-link span {display:none;}
+  .granny-app .spread-heading .film-link svg {background:#720d3c;color:#fff5df;border:1px solid #ffcad6;}
 }
