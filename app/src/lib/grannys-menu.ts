@@ -33,6 +33,7 @@ export type MenuStep = {
 export type MenuItem = { name: string; price: number; description?: string }
 
 export type CatalogueItem = {
+  description: string
   id: string
   name: string
   category: Category
@@ -168,26 +169,31 @@ export function getSteps(category: Category): MenuStep[] {
   const base: MenuStep = {
     id: 'base',
     label: category === 'box' ? 'Box' : 'Taban',
-    title: category === 'box' ? 'İki kişilik Granny’s Box.' : category === 'kumpir' ? 'Önce kumpirini seç.' : 'Önce tabanını seç.',
-    description: category === 'box' ? '2 kişilik, paylaşmalık Granny’s Box.' : category === 'kumpir' ? 'Sıcacık patates, tereyağı ve kaşarla başlayalım.' : 'Her güzel lezzet, güzel bir tabanla başlar.',
+    title: {waffle: 'Papatya mı, Brüksel mi?', bowl: 'Pembe kâsen hangi boy?', box: 'İki kişilik kutunu aç.', kumpir: 'Kumpirini seç.'}[category],
+    description: {
+      waffle: 'Papatya ince ve çiçek biçimli. Brüksel daha kalın, çıtır ve derin gözlü.',
+      bowl: 'Orta veya büyük boy pembe kâseyle başla. Çıtır waffle parçalarının üstünü birazdan sen dolduracaksın.',
+      box: 'Waffle ve brownie yerlerini aldı. Ön bölmelere meyve, iki yuvarlak göze çikolata sosu seçeceksin.',
+      kumpir: 'Fırın patatesin içi tereyağı ve kaşarla karışır. Önce tabanını, sonra içine girecek malzemeleri seç.',
+    }[category],
     limit: 1,
     options: product.options,
   }
   const chocolateStep: MenuStep = {
     id: 'chocolate', label: category === 'box' ? 'Soslar' : 'Çikolata',
-    title: category === 'box' ? 'Soslarını seç.' : 'Biraz çikolata mutluluğu.',
-    description: category === 'box' ? 'Kutuna en fazla 2 çikolata sosu ekle.' : 'Tek çikolata tüm yüzeyi kaplar; iki seçim yarı yarıya yerleşir. Birini kaldırırsan kalan çikolata yeniden tüm yüzeyi kaplar. En fazla 2 seçim.',
+    title: category === 'box' ? 'Sos gözlerine ne koyalım?' : 'Çikolatan nasıl aksın?',
+    description: category === 'box' ? 'En fazla iki sos seçebilirsin. Her biri kutudaki ayrı bir göze dolar.' : 'Tek çikolata bütün tabanı kaplar. İki çeşit seçersen yüzeyi yarı yarıya paylaşırlar.',
     limit: 2, options: chocolates,
   }
   const fruitStep: MenuStep = {
-    id: 'fruit', label: 'Meyve', title: 'Taptaze bir şeyler ekle.',
-    description: 'Sevdiğin meyveleri seç: çilek, muz, kivi, ananas.',
+    id: 'fruit', label: 'Meyve', title: category === 'box' ? 'Meyve gözlerini doldur.' : 'Hangi meyveleri ekleyelim?',
+    description: category === 'box' ? 'Çilek, muz, kivi ve ananas arasından seç. Meyvelerin kutunun ön bölmelerine yerleşir.' : 'Çilek, muz, kivi ve ananas arasından sevdiklerine dokun. Bir meyveyi kaldırmak için aynı meyveye tekrar dokun.',
     limit: null, options: fruits,
   }
   const toppingStep: MenuStep = {
     id: 'topping', label: category === 'box' ? 'Son dokunuş' : 'Süsleme',
-    title: 'Biraz da çıtırlık.',
-    description: category === 'box' ? 'Son dokunuşlarını seç. Box süsleme kapsamı şubede teyit edilir.' : 'En fazla 3 süsleme seç. Hepsi fiyata dahil.',
+    title: 'Üstüne ne serpelim?',
+    description: category === 'box' ? 'Son dokunuşlarını seç. Box süsleme kapsamı şubede teyit edilir.' : 'Bisküvi kırıkları, fındık, ceviz… Tabağına en fazla üç süsleme serpebilirsin. Fiyata dahil.',
     limit: category === 'box' ? null : 3, options: toppings,
   }
   if (category === 'kumpir') return [
@@ -198,7 +204,7 @@ export function getSteps(category: Category): MenuStep[] {
   if (category === 'box') return [base, fruitStep, chocolateStep, toppingStep]
   return [
     base, chocolateStep, fruitStep, toppingStep,
-    { id: 'special', label: 'Spesiyal', title: 'Senin imzan, son dokunuş.', description: 'En fazla 2 spesiyal seç. Final, en sevdiğin tatlarla gelsin. Fiyata dahil.', limit: 2, options: specials },
+    { id: 'special', label: 'Spesiyal', title: 'En üste ne gelsin?', description: 'Süt reçeli, magnolya, kestane şekeri veya brownie. En fazla iki spesiyal seçebilirsin. Fiyata dahil.', limit: 2, options: specials },
   ]
 }
 
@@ -302,6 +308,7 @@ const kumpirRuleNote = 'Tereyağı ve kaşarlı patates tabanı. Malzeme kapsam�
 export const catalogue: CatalogueItem[] = [
   {
     "id": "granny-waffle",
+    "description": "İnce papatya hamurunun üzerine çikolatanı sür, meyveni seç.",
     "name": "Granny’s Waffle",
     "category": "waffle",
     "price": 390,
@@ -339,6 +346,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "grandma-choice-waffle",
+    "description": "İki kat papatya waffle, seçtiğin çikolata ve meyveyle hazırlanır.",
     "name": "Büyükanne’mizin Tercihi Waffle",
     "category": "waffle",
     "price": 490,
@@ -361,6 +369,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "brussels-waffle",
+    "description": "Kalın, çıtır hamurun derin gözlerine seçtiğin çikolata dolar.",
     "name": "Brüksel Waffle",
     "category": "waffle",
     "price": 390,
@@ -398,6 +407,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "brussels-large",
+    "description": "Brüksel’in kalın ve çıtır hamuru, büyük boy. Meyvesini ve çikolatasını sen seçersin.",
     "name": "Brüksel Waffle",
     "category": "waffle",
     "price": 490,
@@ -436,6 +446,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "sandwich-waffle",
+    "description": "Waffle hamuru meyve ve çikolatanın üzerine katlanır.",
     "name": "Sandwich Waffle",
     "category": "waffle",
     "price": 390,
@@ -456,6 +467,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "pancake",
+    "description": "Mini pankeklerin üzerinde sütlü ve beyaz çikolata, krep kırığı ve Antep fıstığı.",
     "name": "Pankek",
     "category": "waffle",
     "price": 360,
@@ -477,6 +489,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "granny-roll",
+    "description": "Özel kremalı krep rulosu, sütlü ve beyaz çikolata, krep kırığı ve Antep fıstığıyla tamamlanır.",
     "name": "Granny’s Roll",
     "category": "waffle",
     "price": 490,
@@ -499,6 +512,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "waffle-bowl",
+    "description": "Pembe kâsede çıtır waffle parçalarının üstüne çikolata ve meyve seç.",
     "name": "Waffle Bowl",
     "category": "bowl",
     "price": 390,
@@ -538,6 +552,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "waffle-bowl-large",
+    "description": "Çıtır waffle parçaları büyük pembe kâsede. Üzerine sevdiğin çikolatayı ve meyveyi ekle.",
     "name": "Waffle Bowl L",
     "category": "bowl",
     "price": 490,
@@ -577,6 +592,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "brownie-bowl",
+    "description": "Kâsenin tabanında Belçika çikolatalı brownie parçaları var. Üstüne çikolata ve meyve seçebilirsin.",
     "name": "Brownie Bowl",
     "category": "bowl",
     "price": 390,
@@ -599,6 +615,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "spoonfull-bowl",
+    "description": "Pastacı kremasıyla Belçika çikolatası aynı kaşıkta. Tabanı şubeye göre kek veya brownie.",
     "name": "Spoonfull Bowl",
     "category": "bowl",
     "price": 420,
@@ -622,6 +639,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "magnolia-bowl",
+    "description": "Magnolya kremasına bisküvi, meyve veya çikolata eşlik eder.",
     "name": "Magnolia Bowl",
     "category": "bowl",
     "price": 390,
@@ -642,6 +660,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "croissant-bowl",
+    "description": "Mini kruvasan parçalarını kâsede çikolata ve meyveyle bir araya getir.",
     "name": "Kruvasan Bowl",
     "category": "bowl",
     "price": 390,
@@ -664,6 +683,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "pancake-bowl",
+    "description": "Mini pankekleri kâsede çikolata, meyve veya şekerlemeyle tamamla.",
     "name": "Pankek Bowl",
     "category": "bowl",
     "price": 390,
@@ -685,6 +705,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "brussels-box",
+    "description": "Brüksel waffle parçalarını muz ve çilekle birlikte çikolata sosuna batır.",
     "name": "Brüksel Waffle Box",
     "category": "box",
     "price": 850,
@@ -708,6 +729,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "brownie-box",
+    "description": "Belçika çikolatalı brownie ve yanında çikolata sosu. Eşlik eden meyve şubeye göre değişir.",
     "name": "Brownie Box",
     "category": "box",
     "price": 850,
@@ -731,6 +753,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "crepe-box",
+    "description": "Kutuda krep, muz ve çilek. Her lokmayı çikolata sosuna batırabilirsin.",
     "name": "Krep Box",
     "category": "box",
     "price": 850,
@@ -753,6 +776,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "pancake-box",
+    "description": "Mini pankekler, muz ve çilekle kutuya girer. Yanında çikolata sosu var.",
     "name": "Pancake Box",
     "category": "box",
     "price": 850,
@@ -775,6 +799,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "fondue-box",
+    "description": "Muz ve çileği çikolata sosuna batırarak ye.",
     "name": "Fondue Box",
     "category": "box",
     "price": 850,
@@ -797,6 +822,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "box-two",
+    "description": "İki kişilik kutuda waffle ve brownie ayrı bölmelerde. Meyveni seç, iki göze soslarını ekle.",
     "name": "Granny’s Box",
     "category": "box",
     "price": 850,
@@ -836,6 +862,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "box-three",
+    "description": "Üç kişilik paylaşım kutusunda waffle, pankek, kruvasan, brownie ve meyve bir arada.",
     "name": "Granny’s Box",
     "category": "box",
     "price": 1250,
@@ -862,6 +889,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "box-six",
+    "description": "Altı kişilik kutuda waffle, pankek, mini kruvasan, brownie ve meyve paylaşılır.",
     "name": "Granny’s Box",
     "category": "box",
     "price": 1650,
@@ -887,6 +915,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "plain-kumpir",
+    "description": "Sıcak fırın patatesin içi tereyağı ve kaşar peyniriyle karıştırılır.",
     "name": "Sade Kumpir",
     "category": "kumpir",
     "price": 370,
@@ -916,6 +945,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "granny-kumpir",
+    "description": "Tereyağlı, kaşarlı patatese mısır, kornişon veya zeytin gibi sevdiğin malzemeleri ekle.",
     "name": "Granny’s Kumpir",
     "category": "kumpir",
     "price": 450,
@@ -945,6 +975,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "grandma-kumpir",
+    "description": "Fırın patates, tereyağı ve kaşarla hazırlanır. Ekstra tereyağı ve kaşar miktarı şubeye göre değişir.",
     "name": "Büyükanne Kumpir",
     "category": "kumpir",
     "price": 520,
@@ -974,6 +1005,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "kumpir-box",
+    "description": "Tereyağı ve kaşarla karıştırılmış fırın patates kutuda sunulur.",
     "name": "Kumpir Box",
     "category": "kumpir",
     "price": 550,
@@ -1003,6 +1035,7 @@ export const catalogue: CatalogueItem[] = [
   },
   {
     "id": "kumru",
+    "description": "Sıcak kumru ekmeğinin arasında sucuk, salam, kaşar ve özel sos var.",
     "name": "Kumru",
     "category": "kumpir",
     "price": 450,
