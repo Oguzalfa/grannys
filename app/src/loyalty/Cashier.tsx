@@ -2,6 +2,8 @@ import {useEffect,useState,type FormEvent} from 'react'
 import {QRCodeSVG} from 'qrcode.react'
 import {categoryLabels,displayCode,pilot} from './pilot'
 import './loyalty.css'
+import './club.css'
+import {ClubDesk} from './ClubDesk'
 
 type Dashboard={amount:number|null;customers:number;returned:number}
 export default function Cashier(){
@@ -14,8 +16,8 @@ export default function Cashier(){
  function switchMode(m:string){setMode(m);setClaim('');setVerified(null);setRef('');setMsg('');setCategory('waffle')}
  return <main className="cashier"><header><img src="/assets/logo.png" alt="Granny’s Waffles"/><h1>Granny’s Kasa</h1>{state&&<button onClick={e=>run(e,async()=>{await pilot('logout');setState(null);setClaim('');setVerified(null)})}>Çıkış</button>}</header>
  {!state?<form onSubmit={e=>run(e,async()=>{await pilot('login',{key});setKey('');await refresh()})}><label>Kasa anahtarı<input type="password" autoComplete="current-password" required value={key} onChange={e=>setKey(e.target.value)}/></label><button disabled={busy}>Kasayı aç</button></form>:<>
- <nav aria-label="Kasa işlemleri">{[['visit','Damga ver'],['gift','İkram kullan'],['settings','Pilot ayarları']].map(([m,t])=><button key={m} aria-pressed={mode===m} onClick={()=>switchMode(m)}>{t}</button>)}</nav>
- {mode==='settings'?<form onSubmit={e=>run(e,async()=>{await pilot('settings',{amount:Number(value)});await refresh();setMsg('İkram tutarı kaydedildi.')})}><h2>İkram tutarı</h2><p>Dördüncü damgada geçerli olan tutar karta yazılır. Kazanılmış ikramlar kendi tutarını korur.</p><label>Waffle veya Bowl ikramı (₺)<input required type="number" min="1" max="10000" step="1" value={value} onChange={e=>setValue(e.target.value)}/></label><button disabled={busy}>Tutarı kaydet</button><p>{state.customers} damga kartı · İlk ziyaretinden sonraki 30 günde geri gelen {state.returned} kart.</p></form>:
+ <nav aria-label="Kasa işlemleri">{[['visit','Damga ver'],['gift','İkram kullan'],['monthly','Ayın tarifi'],['metrics','Göstergeler'],['settings','Pilot ayarları']].map(([m,t])=><button key={m} aria-pressed={mode===m} onClick={()=>switchMode(m)}>{t}</button>)}</nav>
+ {mode==='monthly'||mode==='metrics'?<ClubDesk key={mode} mode={mode}/>:mode==='settings'?<form onSubmit={e=>run(e,async()=>{await pilot('settings',{amount:Number(value)});await refresh();setMsg('İkram tutarı kaydedildi.')})}><h2>İkram tutarı</h2><p>Dördüncü damgada geçerli olan tutar karta yazılır. Kazanılmış ikramlar kendi tutarını korur.</p><label>Waffle veya Bowl ikramı (₺)<input required type="number" min="1" max="10000" step="1" value={value} onChange={e=>setValue(e.target.value)}/></label><button disabled={busy}>Tutarı kaydet</button><p>{state.customers} damga kartı · İlk ziyaretinden sonraki 30 günde geri gelen {state.returned} kart.</p></form>:
  <form onSubmit={e=>run(e,async()=>{
   if(mode==='visit'){const r=await pilot<{code:string}>('issue',{receipt:ref,category});setClaim(r.code)}
   else if(verified===null){const r=await pilot<{amount:number}>('gift',{code:gift});setVerified(r.amount)}

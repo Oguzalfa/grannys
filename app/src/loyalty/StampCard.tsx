@@ -47,6 +47,10 @@ export function StampCard({initialCode,wallet}:{initialCode:string;wallet:Return
   {book&&<form className="stamp-claim" onSubmit={e=>{e.preventDefault();void claim()}}><label>Fişindeki damga kodu<input value={code} autoCapitalize="characters" spellCheck={false} maxLength={24} placeholder="XXXX XXXX XXXX XXXX" onChange={e=>setCode(e.target.value)}/></label><button disabled={busy||code.replace(/[\s-]/g,'').length!==16}>{busy?'Ekleniyor…':'Damgamı ekle'}</button></form>}
   {message&&<p role="status">{message}</p>}{error&&<div role="status"><p>{error}</p><button onClick={()=>void refresh()}>Yeniden dene</button></div>}
   {book&&book.categories.length>0&&<div className="flavour-pass"><h4>Lezzet pasaportum</h4>{Object.entries(categoryLabels).map(([id,label])=><span className={book.categories.includes(id)?'earned':''} key={id}>{book.categories.includes(id)?'✓ ':''}{label}</span>)}</div>}
-  <small>Damga kodu 48 saat geçerli. Kartın bu tarayıcıda saklanır.</small>
+  {book&&<details className="club-fold"><summary>Ziyaretlerim ve ikramlarım</summary>
+   <p>{book.amount?('Her ödenmiş fişe bir damga eklenir. Sonraki ikramına '+(4-count)+' damga kaldı. Dördüncü damgada kazandığın tutarı yeni bir Waffle veya Bowl fişinde kullanabilirsin.'):'Şube ikram tutarını kaydettiğinde program açılır.'}</p>
+   {book.history?.length?<ol className="club-history">{book.history.map((v,i)=><li key={i}><span><strong>{categoryLabels[v.category]||v.category}</strong><small>{new Date(v.time).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric',timeZone:'Europe/Istanbul'})}</small></span><b>{v.redeemed?v.redeemed+' ₺ ikram kullanıldı':v.earned?'Damga + '+v.earned+' ₺ ikram':'+1 damga'}</b></li>)}</ol>:<p>İlk fişini eklediğinde ziyaretin burada görünecek.</p>}
+  </details>}
+  <small>Fişteki damga kodunu 48 saat içinde ekle.</small>
  </section>
 }

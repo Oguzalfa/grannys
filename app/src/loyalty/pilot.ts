@@ -6,4 +6,4 @@ export async function pilot<T>(action:string,body:Record<string,unknown>={}):Pro
  if(!response.ok)throw new Error(data.error||'İşlem tamamlanamadı.')
  return data
 }
-export type Book={total:number;categories:string[];amount:number|null;rewards:{code:string;amount:number}[];result?:string}
+export type Book={history?:{kind:string;category:string;time:string;earned:number|null;redeemed:number|null}[];total:number;categories:string[];amount:number|null;rewards:{code:string;amount:number}[];result?:string}

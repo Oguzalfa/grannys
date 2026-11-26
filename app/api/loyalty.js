@@ -1,6 +1,8 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto'
 import { neon } from '@neondatabase/serverless'
 
+import { customerActions, staffActions, customerClub, staffClub } from '../server/club.js'
+
 const categories = ['waffle','bowl','box','kumpir']
 const digest = value => createHash('sha256').update(value).digest()
 const equal = (a,b) => timingSafeEqual(digest(a),digest(b))
@@ -13,13 +15,17 @@ function staffSession(secret,cookies){
  return /^\d{13}$/.test(exp)&&Number(exp)>Date.now()&&equal(sig||'',staffSignature(secret,exp))
 }
 async function book(sql,owner) {
- const [card,visits,rewards,config]=await sql.transaction([
+ const [card,visits,rewards,config,history]=await sql.transaction([
   sql`SELECT stamps FROM loyalty_cards WHERE owner_hash=${owner}`,
   sql`SELECT DISTINCT category FROM loyalty_receipts WHERE owner_hash=${owner} AND kind='visit'`,
   sql`SELECT code,amount FROM loyalty_rewards WHERE owner_hash=${owner} AND redeemed_on IS NULL ORDER BY earned_on`,
-  sql`SELECT reward_lira AS amount FROM loyalty_settings WHERE id`
+  sql`SELECT reward_lira AS amount FROM loyalty_settings WHERE id`,
+  sql`SELECT v.kind,v.category,v.issued_at AS time,earned.amount AS earned,used.amount AS redeemed
+   FROM loyalty_receipts v LEFT JOIN loyalty_rewards earned ON earned.earned_on=v.id
+   LEFT JOIN loyalty_rewards used ON used.redeemed_on=v.id WHERE v.owner_hash=${owner}
+   ORDER BY v.issued_at DESC,v.id DESC LIMIT 40`
  ])
- return {total:card[0]?.stamps||0,categories:visits.map(row=>row.category),rewards,amount:config[0]?.amount||null}
+ return {history,total:card[0]?.stamps||0,categories:visits.map(row=>row.category),rewards,amount:config[0]?.amount||null}
 }
 const reasons={invalid:'Kod bulunamadı. Fişteki kodu kontrol et.',used:'Bu kod daha önce kullanılmış.',expired:'Bu fiş kodunun 48 saatlik süresi dolmuş.',category:'İkram yalnızca Waffle veya Bowl için kullanılabilir.',receipt:'Bu fiş zaten işlendi.'}
 export default async function handler(req,res){
@@ -43,14 +49,16 @@ export default async function handler(req,res){
    return respond({ok:true})
   }
   if(action==='logout'){res.setHeader('Set-Cookie',cookie('granny_staff','',0));return respond({ok:true})}
-  if(action==='book'||action==='claim'){
+  if(action==='book'||action==='claim'||customerActions.has(action)){
+   const installWallet=value=>res.setHeader('Set-Cookie',cookie('granny_wallet',value,34560000))
    let token=cookies.granny_wallet||''
    if(!/^[a-f0-9]{64}$/.test(token)){
-    if(action==='claim')throw statusError('Önce damga kartını bu tarayıcıda aç.',409)
+    if(action!=='book' && action!=='restore')throw statusError('Önce damga kartını bu tarayıcıda aç.',409)
     token=randomBytes(32).toString('hex')
+    if(action==='book')installWallet(token)
    }
-   res.setHeader('Set-Cookie',cookie('granny_wallet',token,34560000))
    const owner=digest(token).toString('hex')
+   if(customerActions.has(action))return respond(await customerClub({sql,body,token,owner,book,installWallet}))
    let result
    if(action==='claim'){
     const code=norm(body.code).replace(/[\s-]/g,'')
@@ -62,6 +70,7 @@ export default async function handler(req,res){
    return respond({...await book(sql,owner),result})
   }
   if(!staffSession(secret,cookies))throw statusError('Kasa girişi gerekiyor.',401)
+  if(staffActions.has(action))return respond(await staffClub(sql,body))
   if(action==='settings'){
    const amount=Number(body.amount)
    if(!Number.isInteger(amount)||amount<1||amount>10000)throw statusError('1–10.000 ₺ arasında tam tutar gir.')
@@ -71,7 +80,7 @@ export default async function handler(req,res){
   if(action==='dashboard'){
    const [settings,stats]=await sql.transaction([
     sql`SELECT reward_lira AS amount FROM loyalty_settings WHERE id`,
-    sql`WITH v AS (SELECT owner_hash,issued_at AS claimed_at,row_number() OVER(PARTITION BY owner_hash ORDER BY issued_at,id) AS n FROM loyalty_receipts WHERE owner_hash IS NOT NULL),
+    sql`WITH v AS (SELECT owner_hash,issued_at AS claimed_at,row_number() OVER(PARTITION BY owner_hash ORDER BY issued_at,id) AS n FROM (SELECT owner_hash,business_day,min(id) AS id,min(issued_at) AS issued_at FROM loyalty_receipts WHERE owner_hash IS NOT NULL AND kind='visit' GROUP BY owner_hash,business_day) days),
      c AS (SELECT owner_hash,min(claimed_at) AS first_visit,max(claimed_at) FILTER(WHERE n=2) AS second_visit FROM v GROUP BY owner_hash)
      SELECT count(*)::int AS customers,count(*) FILTER(WHERE second_visit<=first_visit+interval '30 days')::int AS returned FROM c`
    ]);return respond({amount:settings[0]?.amount||null,...stats[0]})

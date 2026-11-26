@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.vercel.config.ts",
+    "prebuild": "node scripts/write-club-rules.mjs",
     "build": "vite build --config vite.vercel.config.ts",
     "preview": "vite preview"
   },
